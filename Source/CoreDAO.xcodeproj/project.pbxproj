@@ -1,0 +1,788 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		20AF7D3FBD3CEF57BCD60A71 /* CoreDAO.h in Headers */ = {isa = PBXBuildFile; fileRef = 20AF7EDC125878A2DD601BCD /* CoreDAO.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		444A7B7C1C64F8A0008ADCBC /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444A7B7B1C64F8A0008ADCBC /* Message.swift */; };
+		449344BF1C638CF00023E6CE /* RLMEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449344BE1C638CF00023E6CE /* RLMEntry.swift */; };
+		449344D11C6398E00023E6CE /* RealmTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449344D01C6398E00023E6CE /* RealmTranslator.swift */; };
+		449344D31C63A1460023E6CE /* DAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449344D21C63A1460023E6CE /* DAO.swift */; };
+		449344D51C63A2CA0023E6CE /* RealmDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449344D41C63A2CA0023E6CE /* RealmDAO.swift */; };
+		449344E41C64D27A0023E6CE /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 449344E21C64D27A0023E6CE /* Info.plist */; };
+		449344E51C64D27A0023E6CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 449344E31C64D27A0023E6CE /* LaunchScreen.storyboard */; };
+		449344E71C64D3200023E6CE /* DAOTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449344E61C64D3200023E6CE /* DAOTest.swift */; };
+		449344E81C64D63B0023E6CE /* CoreDAO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4436A41F1C63806400400CB2 /* CoreDAO.framework */; };
+		449344EA1C64D69D0023E6CE /* CoreDAO.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4436A41F1C63806400400CB2 /* CoreDAO.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		449345111C64E2220023E6CE /* RLMEntityTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4493450F1C64E1FD0023E6CE /* RLMEntityTranslator.swift */; };
+		449345171C64E62C0023E6CE /* DBEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449345161C64E62C0023E6CE /* DBEntity.swift */; };
+		44A39FAC1C69D7B0009E9326 /* DBMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A39FAB1C69D7B0009E9326 /* DBMessage.swift */; };
+		44A39FAE1C69ECFE009E9326 /* RLMMessageTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A39FAD1C69ECFE009E9326 /* RLMMessageTranslator.swift */; };
+		44A39FB41C6A2E81009E9326 /* Folder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A39FB31C6A2E81009E9326 /* Folder.swift */; };
+		44A39FB61C6A30FA009E9326 /* RLMFolderTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A39FB51C6A30FA009E9326 /* RLMFolderTranslator.swift */; };
+		44A39FB71C6A3478009E9326 /* DBFolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A39FB11C6A2C42009E9326 /* DBFolder.swift */; };
+		44D2F9B61C6B8DE000E3FD36 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D2F9B51C6B8DE000E3FD36 /* Entity.swift */; };
+		AA3B7FC01C6A199A00E0E152 /* CDEntityTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3B7FBF1C6A199A00E0E152 /* CDEntityTranslator.swift */; };
+		AAD2D20D1C63AF56006702BB /* CoreDataDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD2D20C1C63AF56006702BB /* CoreDataDAO.swift */; };
+		E6172DB21C65DFB4002C1FBC /* CoreDataTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6172DB11C65DFB4002C1FBC /* CoreDataTranslator.swift */; };
+		E6172DB41C65E6D1002C1FBC /* FetchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6172DB31C65E6D1002C1FBC /* FetchRequest.swift */; };
+		E6172DB61C67162D002C1FBC /* ManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6172DB51C67162D002C1FBC /* ManagedObject.swift */; };
+		E6172DB81C671BAE002C1FBC /* StoreCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6172DB71C671BAE002C1FBC /* StoreCoordinator.swift */; };
+		E6AB2FD21C6A5E63008B1B88 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E6AB2FD01C6A5E63008B1B88 /* Model.xcdatamodeld */; };
+		E6AB2FD91C6A635A008B1B88 /* CDEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AB2FD71C6A635A008B1B88 /* CDEntity+CoreDataProperties.swift */; };
+		E6AB2FDA1C6A635A008B1B88 /* CDEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AB2FD81C6A635A008B1B88 /* CDEntity.swift */; };
+		E8A4422846CA368E70946F41 /* Pods_CoreDAO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C41B44AE92C682672C660E96 /* Pods_CoreDAO.framework */; };
+		EB3DA2B642FFCD46E830535E /* Pods_CoreDAOExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9530703B8F1D07189C870A14 /* Pods_CoreDAOExample.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		449344EB1C64D69D0023E6CE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4436A4161C63806400400CB2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4436A41E1C63806400400CB2;
+			remoteInfo = CoreDAO;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		449344ED1C64D69D0023E6CE /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				449344EA1C64D69D0023E6CE /* CoreDAO.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		20AF78AFD18780ACDC8E4BF1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
+		20AF7EDC125878A2DD601BCD /* CoreDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDAO.h; sourceTree = "<group>"; };
+		4436A41F1C63806400400CB2 /* CoreDAO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CoreDAO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4436A42E1C63807A00400CB2 /* CoreDAOExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDAOExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		444A7B7B1C64F8A0008ADCBC /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		449344BE1C638CF00023E6CE /* RLMEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLMEntry.swift; sourceTree = "<group>"; };
+		449344D01C6398E00023E6CE /* RealmTranslator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmTranslator.swift; sourceTree = "<group>"; };
+		449344D21C63A1460023E6CE /* DAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DAO.swift; sourceTree = "<group>"; };
+		449344D41C63A2CA0023E6CE /* RealmDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmDAO.swift; sourceTree = "<group>"; };
+		449344E21C64D27A0023E6CE /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		449344E31C64D27A0023E6CE /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		449344E61C64D3200023E6CE /* DAOTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DAOTest.swift; sourceTree = "<group>"; };
+		4493450F1C64E1FD0023E6CE /* RLMEntityTranslator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLMEntityTranslator.swift; sourceTree = "<group>"; };
+		449345161C64E62C0023E6CE /* DBEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBEntity.swift; sourceTree = "<group>"; };
+		44A39FAB1C69D7B0009E9326 /* DBMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBMessage.swift; sourceTree = "<group>"; };
+		44A39FAD1C69ECFE009E9326 /* RLMMessageTranslator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLMMessageTranslator.swift; sourceTree = "<group>"; };
+		44A39FB11C6A2C42009E9326 /* DBFolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBFolder.swift; sourceTree = "<group>"; };
+		44A39FB31C6A2E81009E9326 /* Folder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Folder.swift; sourceTree = "<group>"; };
+		44A39FB51C6A30FA009E9326 /* RLMFolderTranslator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLMFolderTranslator.swift; sourceTree = "<group>"; };
+		44B1A4D9FA0C7FC5CED5996E /* Pods-CoreDAO.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreDAO.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoreDAO/Pods-CoreDAO.debug.xcconfig"; sourceTree = "<group>"; };
+		44D2F9B51C6B8DE000E3FD36 /* Entity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
+		4D025AD063AB1D762C1D53B1 /* Pods-CoreDAO.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreDAO.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoreDAO/Pods-CoreDAO.release.xcconfig"; sourceTree = "<group>"; };
+		9530703B8F1D07189C870A14 /* Pods_CoreDAOExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoreDAOExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		95ADACFBD0E5528AA462F389 /* Pods-CoreDAOExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreDAOExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoreDAOExample/Pods-CoreDAOExample.release.xcconfig"; sourceTree = "<group>"; };
+		AA3B7FBF1C6A199A00E0E152 /* CDEntityTranslator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDEntityTranslator.swift; sourceTree = "<group>"; };
+		AAD2D20C1C63AF56006702BB /* CoreDataDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataDAO.swift; sourceTree = "<group>"; };
+		BE4DAE504F56F3CE571FC7A0 /* Pods-CoreDAOExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreDAOExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoreDAOExample/Pods-CoreDAOExample.debug.xcconfig"; sourceTree = "<group>"; };
+		C41B44AE92C682672C660E96 /* Pods_CoreDAO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoreDAO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6172DB11C65DFB4002C1FBC /* CoreDataTranslator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTranslator.swift; sourceTree = "<group>"; };
+		E6172DB31C65E6D1002C1FBC /* FetchRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchRequest.swift; sourceTree = "<group>"; };
+		E6172DB51C67162D002C1FBC /* ManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedObject.swift; sourceTree = "<group>"; };
+		E6172DB71C671BAE002C1FBC /* StoreCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreCoordinator.swift; sourceTree = "<group>"; };
+		E6AB2FD11C6A5E63008B1B88 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		E6AB2FD71C6A635A008B1B88 /* CDEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E6AB2FD81C6A635A008B1B88 /* CDEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDEntity.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4436A41B1C63806400400CB2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E8A4422846CA368E70946F41 /* Pods_CoreDAO.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4436A42B1C63807A00400CB2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				449344E81C64D63B0023E6CE /* CoreDAO.framework in Frameworks */,
+				EB3DA2B642FFCD46E830535E /* Pods_CoreDAOExample.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		20AF7030FE037D530A695A19 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				20AF78AFD18780ACDC8E4BF1 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		20AF7CCB5762609F48A53639 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				449344B61C6389730023E6CE /* DAO */,
+				449344B71C6389730023E6CE /* Helper */,
+				449344B81C6389730023E6CE /* Model */,
+				449344B91C6389730023E6CE /* Translator */,
+				20AF7EDC125878A2DD601BCD /* CoreDAO.h */,
+				449344D21C63A1460023E6CE /* DAO.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		4436A4151C63806400400CB2 = {
+			isa = PBXGroup;
+			children = (
+				4436A4211C63806400400CB2 /* CoreDAO */,
+				449344D61C64D27A0023E6CE /* CoreDAOExample */,
+				8A4E501946CD95A1538AFBBB /* Frameworks */,
+				ACA3E5FDF67A43416B080013 /* Pods */,
+				4436A4201C63806400400CB2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4436A4201C63806400400CB2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4436A41F1C63806400400CB2 /* CoreDAO.framework */,
+				4436A42E1C63807A00400CB2 /* CoreDAOExample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4436A4211C63806400400CB2 /* CoreDAO */ = {
+			isa = PBXGroup;
+			children = (
+				20AF7CCB5762609F48A53639 /* Classes */,
+				20AF7030FE037D530A695A19 /* Supporting Files */,
+			);
+			path = CoreDAO;
+			sourceTree = "<group>";
+		};
+		449344B61C6389730023E6CE /* DAO */ = {
+			isa = PBXGroup;
+			children = (
+				AAD2D20C1C63AF56006702BB /* CoreDataDAO.swift */,
+				449344D41C63A2CA0023E6CE /* RealmDAO.swift */,
+			);
+			path = DAO;
+			sourceTree = "<group>";
+		};
+		449344B71C6389730023E6CE /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				E6172DB31C65E6D1002C1FBC /* FetchRequest.swift */,
+				E6172DB51C67162D002C1FBC /* ManagedObject.swift */,
+				E6172DB71C671BAE002C1FBC /* StoreCoordinator.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		449344B81C6389730023E6CE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				44D2F9B51C6B8DE000E3FD36 /* Entity.swift */,
+				449344BE1C638CF00023E6CE /* RLMEntry.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		449344B91C6389730023E6CE /* Translator */ = {
+			isa = PBXGroup;
+			children = (
+				E6172DB11C65DFB4002C1FBC /* CoreDataTranslator.swift */,
+				449344D01C6398E00023E6CE /* RealmTranslator.swift */,
+			);
+			path = Translator;
+			sourceTree = "<group>";
+		};
+		449344D61C64D27A0023E6CE /* CoreDAOExample */ = {
+			isa = PBXGroup;
+			children = (
+				449344D71C64D27A0023E6CE /* Classes */,
+				449344E01C64D27A0023E6CE /* Resources */,
+				449344E11C64D27A0023E6CE /* Supporting Files */,
+			);
+			path = CoreDAOExample;
+			sourceTree = "<group>";
+		};
+		449344D71C64D27A0023E6CE /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				449344D81C64D27A0023E6CE /* Business Logic */,
+				449344DD1C64D27A0023E6CE /* Model */,
+				449344E61C64D3200023E6CE /* DAOTest.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		449344D81C64D27A0023E6CE /* Business Logic */ = {
+			isa = PBXGroup;
+			children = (
+				449344D91C64D27A0023E6CE /* Helper */,
+			);
+			path = "Business Logic";
+			sourceTree = "<group>";
+		};
+		449344D91C64D27A0023E6CE /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				449344DA1C64D27A0023E6CE /* DAO */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		449344DA1C64D27A0023E6CE /* DAO */ = {
+			isa = PBXGroup;
+			children = (
+				449344DB1C64D27A0023E6CE /* CoreDataTranslator */,
+				449344DC1C64D27A0023E6CE /* RealmTranslator */,
+			);
+			path = DAO;
+			sourceTree = "<group>";
+		};
+		449344DB1C64D27A0023E6CE /* CoreDataTranslator */ = {
+			isa = PBXGroup;
+			children = (
+				AA3B7FBF1C6A199A00E0E152 /* CDEntityTranslator.swift */,
+			);
+			path = CoreDataTranslator;
+			sourceTree = "<group>";
+		};
+		449344DC1C64D27A0023E6CE /* RealmTranslator */ = {
+			isa = PBXGroup;
+			children = (
+				4493450F1C64E1FD0023E6CE /* RLMEntityTranslator.swift */,
+				44A39FAD1C69ECFE009E9326 /* RLMMessageTranslator.swift */,
+				44A39FB51C6A30FA009E9326 /* RLMFolderTranslator.swift */,
+			);
+			path = RealmTranslator;
+			sourceTree = "<group>";
+		};
+		449344DD1C64D27A0023E6CE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				449344DE1C64D27A0023E6CE /* CoreDataDatabase */,
+				449344DF1C64D27A0023E6CE /* RealmDatabase */,
+				444A7B7B1C64F8A0008ADCBC /* Message.swift */,
+				44A39FB31C6A2E81009E9326 /* Folder.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		449344DE1C64D27A0023E6CE /* CoreDataDatabase */ = {
+			isa = PBXGroup;
+			children = (
+				E6AB2FD71C6A635A008B1B88 /* CDEntity+CoreDataProperties.swift */,
+				E6AB2FD81C6A635A008B1B88 /* CDEntity.swift */,
+			);
+			path = CoreDataDatabase;
+			sourceTree = "<group>";
+		};
+		449344DF1C64D27A0023E6CE /* RealmDatabase */ = {
+			isa = PBXGroup;
+			children = (
+				449345161C64E62C0023E6CE /* DBEntity.swift */,
+				44A39FAB1C69D7B0009E9326 /* DBMessage.swift */,
+				44A39FB11C6A2C42009E9326 /* DBFolder.swift */,
+			);
+			path = RealmDatabase;
+			sourceTree = "<group>";
+		};
+		449344E01C64D27A0023E6CE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E6AB2FD01C6A5E63008B1B88 /* Model.xcdatamodeld */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		449344E11C64D27A0023E6CE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				449344E21C64D27A0023E6CE /* Info.plist */,
+				449344E31C64D27A0023E6CE /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8A4E501946CD95A1538AFBBB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C41B44AE92C682672C660E96 /* Pods_CoreDAO.framework */,
+				9530703B8F1D07189C870A14 /* Pods_CoreDAOExample.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ACA3E5FDF67A43416B080013 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				44B1A4D9FA0C7FC5CED5996E /* Pods-CoreDAO.debug.xcconfig */,
+				4D025AD063AB1D762C1D53B1 /* Pods-CoreDAO.release.xcconfig */,
+				BE4DAE504F56F3CE571FC7A0 /* Pods-CoreDAOExample.debug.xcconfig */,
+				95ADACFBD0E5528AA462F389 /* Pods-CoreDAOExample.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		4436A41C1C63806400400CB2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				20AF7D3FBD3CEF57BCD60A71 /* CoreDAO.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		4436A41E1C63806400400CB2 /* CoreDAO */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4436A4271C63806400400CB2 /* Build configuration list for PBXNativeTarget "CoreDAO" */;
+			buildPhases = (
+				5A83D469ECC0CC8B38C084A5 /* Check Pods Manifest.lock */,
+				4436A41A1C63806400400CB2 /* Sources */,
+				4436A41B1C63806400400CB2 /* Frameworks */,
+				4436A41C1C63806400400CB2 /* Headers */,
+				4436A41D1C63806400400CB2 /* Resources */,
+				EDC11AE24BBB3B8E2AF112A1 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CoreDAO;
+			productName = CoreDAO;
+			productReference = 4436A41F1C63806400400CB2 /* CoreDAO.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		4436A42D1C63807A00400CB2 /* CoreDAOExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4436A43D1C63807A00400CB2 /* Build configuration list for PBXNativeTarget "CoreDAOExample" */;
+			buildPhases = (
+				8E9252B001E28E247EC8B375 /* Check Pods Manifest.lock */,
+				4436A42A1C63807A00400CB2 /* Sources */,
+				4436A42B1C63807A00400CB2 /* Frameworks */,
+				4436A42C1C63807A00400CB2 /* Resources */,
+				2794B36062D9237151AA5C2B /* Embed Pods Frameworks */,
+				9EA1B06C2CA0DC6913427683 /* Copy Pods Resources */,
+				449344ED1C64D69D0023E6CE /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				449344EC1C64D69D0023E6CE /* PBXTargetDependency */,
+			);
+			name = CoreDAOExample;
+			productName = CoreDAOExample;
+			productReference = 4436A42E1C63807A00400CB2 /* CoreDAOExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4436A4161C63806400400CB2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "RedMadRobot LLC.";
+				TargetAttributes = {
+					4436A41E1C63806400400CB2 = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					4436A42D1C63807A00400CB2 = {
+						CreatedOnToolsVersion = 7.2;
+					};
+				};
+			};
+			buildConfigurationList = 4436A4191C63806400400CB2 /* Build configuration list for PBXProject "CoreDAO" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4436A4151C63806400400CB2;
+			productRefGroup = 4436A4201C63806400400CB2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4436A41E1C63806400400CB2 /* CoreDAO */,
+				4436A42D1C63807A00400CB2 /* CoreDAOExample */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4436A41D1C63806400400CB2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				449344E41C64D27A0023E6CE /* Info.plist in Resources */,
+				449344E51C64D27A0023E6CE /* LaunchScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4436A42C1C63807A00400CB2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2794B36062D9237151AA5C2B /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoreDAOExample/Pods-CoreDAOExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5A83D469ECC0CC8B38C084A5 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8E9252B001E28E247EC8B375 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9EA1B06C2CA0DC6913427683 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoreDAOExample/Pods-CoreDAOExample-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EDC11AE24BBB3B8E2AF112A1 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoreDAO/Pods-CoreDAO-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4436A41A1C63806400400CB2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E6172DB81C671BAE002C1FBC /* StoreCoordinator.swift in Sources */,
+				E6172DB41C65E6D1002C1FBC /* FetchRequest.swift in Sources */,
+				E6172DB21C65DFB4002C1FBC /* CoreDataTranslator.swift in Sources */,
+				E6172DB61C67162D002C1FBC /* ManagedObject.swift in Sources */,
+				449344BF1C638CF00023E6CE /* RLMEntry.swift in Sources */,
+				449344D11C6398E00023E6CE /* RealmTranslator.swift in Sources */,
+				AAD2D20D1C63AF56006702BB /* CoreDataDAO.swift in Sources */,
+				44D2F9B61C6B8DE000E3FD36 /* Entity.swift in Sources */,
+				449344D51C63A2CA0023E6CE /* RealmDAO.swift in Sources */,
+				449344D31C63A1460023E6CE /* DAO.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4436A42A1C63807A00400CB2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				449345171C64E62C0023E6CE /* DBEntity.swift in Sources */,
+				E6AB2FD91C6A635A008B1B88 /* CDEntity+CoreDataProperties.swift in Sources */,
+				E6AB2FDA1C6A635A008B1B88 /* CDEntity.swift in Sources */,
+				AA3B7FC01C6A199A00E0E152 /* CDEntityTranslator.swift in Sources */,
+				449345111C64E2220023E6CE /* RLMEntityTranslator.swift in Sources */,
+				449344E71C64D3200023E6CE /* DAOTest.swift in Sources */,
+				44A39FB71C6A3478009E9326 /* DBFolder.swift in Sources */,
+				44A39FAE1C69ECFE009E9326 /* RLMMessageTranslator.swift in Sources */,
+				44A39FB61C6A30FA009E9326 /* RLMFolderTranslator.swift in Sources */,
+				44A39FAC1C69D7B0009E9326 /* DBMessage.swift in Sources */,
+				E6AB2FD21C6A5E63008B1B88 /* Model.xcdatamodeld in Sources */,
+				444A7B7C1C64F8A0008ADCBC /* Message.swift in Sources */,
+				44A39FB41C6A2E81009E9326 /* Folder.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		449344EC1C64D69D0023E6CE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4436A41E1C63806400400CB2 /* CoreDAO */;
+			targetProxy = 449344EB1C64D69D0023E6CE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		4436A4251C63806400400CB2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		4436A4261C63806400400CB2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		4436A4281C63806400400CB2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 44B1A4D9FA0C7FC5CED5996E /* Pods-CoreDAO.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "CoreDAO/Supporting Files/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.redmadrobot.CoreDAO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SYMROOT = build;
+			};
+			name = Debug;
+		};
+		4436A4291C63806400400CB2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4D025AD063AB1D762C1D53B1 /* Pods-CoreDAO.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "CoreDAO/Supporting Files/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.redmadrobot.CoreDAO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SYMROOT = build;
+			};
+			name = Release;
+		};
+		4436A43E1C63807A00400CB2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BE4DAE504F56F3CE571FC7A0 /* Pods-CoreDAOExample.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				INFOPLIST_FILE = "CoreDAOExample/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.redmadrobot.CoreDAOExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4436A43F1C63807A00400CB2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 95ADACFBD0E5528AA462F389 /* Pods-CoreDAOExample.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				INFOPLIST_FILE = "CoreDAOExample/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.redmadrobot.CoreDAOExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4436A4191C63806400400CB2 /* Build configuration list for PBXProject "CoreDAO" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4436A4251C63806400400CB2 /* Debug */,
+				4436A4261C63806400400CB2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4436A4271C63806400400CB2 /* Build configuration list for PBXNativeTarget "CoreDAO" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4436A4281C63806400400CB2 /* Debug */,
+				4436A4291C63806400400CB2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4436A43D1C63807A00400CB2 /* Build configuration list for PBXNativeTarget "CoreDAOExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4436A43E1C63807A00400CB2 /* Debug */,
+				4436A43F1C63807A00400CB2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E6AB2FD01C6A5E63008B1B88 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E6AB2FD11C6A5E63008B1B88 /* Model.xcdatamodel */,
+			);
+			currentVersion = E6AB2FD11C6A5E63008B1B88 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 4436A4161C63806400400CB2 /* Project object */;
+}
