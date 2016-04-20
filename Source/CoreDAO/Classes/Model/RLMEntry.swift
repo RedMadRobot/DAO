@@ -22,7 +22,7 @@ public class RLMEntry: Object {
         super.init()
     }
     
-    override init(realm: RLMRealm, schema: RLMObjectSchema)
+    public required init(realm: RLMRealm, schema: RLMObjectSchema)
     {
         self.entryId = ""
         super.init(realm: realm, schema: schema)
@@ -32,6 +32,11 @@ public class RLMEntry: Object {
     {
         self.entryId = ""
         super.init()
+    }
+    
+    public required init(value: AnyObject, schema: RLMSchema)
+    {
+        fatalError("init(value:schema:) has not been implemented")
     }
     
     public class func nullEntry() -> RLMEntry
