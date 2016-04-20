@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name         = "CoreDAO"
   s.version      = "1.0.0"
   s.summary      = "CoreDAO Library"
-  s.description  = “Library provide easy way to cache entities.”
+  s.description  = "Library provide easy way to cache entities."
   s.homepage     = "http://git.redmadrobot.com/foundation-iOS/DAO.git"
   s.license      = { :type => "MIT", :file => "LICENSE" }
   s.author       = { "Ivan Vavilov" => "vi@redmadrobot.com", "Igor Bulyga" => "ib@redmadrobot.com" }
