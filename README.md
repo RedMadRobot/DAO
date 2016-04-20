@@ -3,7 +3,7 @@
 Для установки добавьте следующую строку в podfile
 
 ```ruby
-pod 'DAO', :git => "git@git.redmadrobot.com:foundation-ios/DAO.git"
+pod 'CoreDAO', :git => "git@git.redmadrobot.com:foundation-ios/DAO.git"
 ```
 
 ## Authors
