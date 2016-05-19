@@ -22,22 +22,22 @@ public class RLMEntry: Object {
         super.init()
     }
     
-    public required init(realm: RLMRealm, schema: RLMObjectSchema)
-    {
-        self.entryId = ""
-        super.init(realm: realm, schema: schema)
-    }
-    
     public required init()
     {
         self.entryId = ""
         super.init()
     }
     
-    public required init(value: AnyObject, schema: RLMSchema)
-    {
+    required public init(value: AnyObject, schema: RLMSchema) {
         fatalError("init(value:schema:) has not been implemented")
     }
+    
+    required public init(realm: RLMRealm, schema: RLMObjectSchema)
+    {
+        self.entryId = ""
+        super.init(realm: realm, schema: schema)
+    }
+    
     
     public class func nullEntry() -> RLMEntry
     {
