@@ -186,31 +186,32 @@ public class RealmDAO<Model: Entity, RealmModel: RLMEntry>: DAO<Model> {
         return try! Realm()
     }
     
-    private func defaultRealmPathIsEqualToPath(path: String) -> Bool
+    private func defaultRealmPathIsEqualToPath(path: NSURL?) -> Bool
     {
-        return Realm.Configuration.defaultConfiguration.path == path
+        guard let path = path else { return false }
+        return Realm.Configuration.defaultConfiguration.fileURL == path
     }
     
     private func loadDefaultRealmFromFileName(fileName: String, migrateToSchemaVersion: UInt64)
     {
-        guard let path = self.absolutePathForFileName(fileName) else { fatalError("Cant find path for DB with filename: \(fileName) v.\(migrateToSchemaVersion)") }
+        guard let path = self.pathForFileName(fileName) else { fatalError("Cant find path for DB with filename: \(fileName) v.\(migrateToSchemaVersion)") }
         if (self.defaultRealmPathIsEqualToPath(path)) { return }
         
         self.assignDefaultRealmPath(path)
         self.migrateDefaultRealmToSchemaVersion(migrateToSchemaVersion)
     }
     
-    private func absolutePathForFileName(fileName: String) -> String?
+    private func pathForFileName(fileName: String) -> NSURL?
     {
         let documentDirectory: NSString? = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first
-        let realmPath = documentDirectory?.stringByAppendingPathComponent(fileName)
-        return realmPath
+        guard let realmPath = documentDirectory?.stringByAppendingPathComponent(fileName) else { return nil }
+        return NSURL(string: realmPath)
     }
     
-    private func assignDefaultRealmPath(path: String)
+    private func assignDefaultRealmPath(path: NSURL)
     {
         var configuration: Realm.Configuration = Realm.Configuration.defaultConfiguration
-        configuration.path = path
+        configuration.fileURL = path
         Realm.Configuration.defaultConfiguration = configuration
     }
     

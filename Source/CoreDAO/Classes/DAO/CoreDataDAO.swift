@@ -21,10 +21,6 @@ public class CoreDataDAO<CDModel: NSManagedObject, Model: Entity> : DAO<Model> {
     private var translator: CoreDataTranslator<CDModel, Model>
     private var coordinator: NSPersistentStoreCoordinator?
     
-    private override init()
-    {
-        preconditionFailure()
-    }
     
     //MARK: - Public
     
@@ -32,8 +28,7 @@ public class CoreDataDAO<CDModel: NSManagedObject, Model: Entity> : DAO<Model> {
         self.init(translator: translator, storeName: "Database.db")
     }
     
-    public convenience init(translator: CoreDataTranslator<CDModel, Model>, storeName: String) {
-        self.init()
+    public init(translator: CoreDataTranslator<CDModel, Model>, storeName: String) {
         self.translator = translator
         self.coordinator = StoreCoordinator(storeName: storeName)
     }
@@ -63,7 +58,6 @@ public class CoreDataDAO<CDModel: NSManagedObject, Model: Entity> : DAO<Model> {
             
             if entryExist(entity.entityId) {
                 success = false
-                
                 let existingEntries = fetchEntries(entity.entityId, inContext: transactionContext)
                 if (existingEntries.count > 0) {
                     success = true
@@ -75,12 +69,14 @@ public class CoreDataDAO<CDModel: NSManagedObject, Model: Entity> : DAO<Model> {
                 result = success && result
             } else {
                 let entry = ManagedObject.object(translator.entryClass, inContext: transactionContext) as! CDModel
+
                 success = translator.fillEntry(entry, withEntity: entity, inContext: transactionContext)
                 result = success && result
             }
             
             if (!result) {
                 throw CoreDataDAOError.PersistAllError
+
             }
         }
         
@@ -89,6 +85,7 @@ public class CoreDataDAO<CDModel: NSManagedObject, Model: Entity> : DAO<Model> {
         if (!result) {
             throw CoreDataDAOError.PersistAllError
         }
+
     }
     
     override public func read(entityId: String) -> Model? {

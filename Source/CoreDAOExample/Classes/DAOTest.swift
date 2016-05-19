@@ -64,64 +64,99 @@ class DAOTest: UIResponder, UIApplicationDelegate {
     func testRealmPersist_EntityWithId_returnYES() {
         let dao = self.entityRealmDAO()
         let entity: Entity = Entity(entityId: "1")
-        print("\(__FUNCTION__) result:\(dao.persist(entity))")
+        do {
+            try dao.persist(entity)
+        } catch {
+         print("[ERROR] in \(#function)")
+        }
+        print("\(#function) result:\(entity == dao.read(entity.entityId))")
     }
     
     func testRealmReadById_entityExist_returnExactlyEntity() {
         let dao = self.entityRealmDAO()
         let entity = Entity(entityId: "2")
-        dao.persist(entity)
-        let savedEntity: Entity? = dao.read("2") 
-        print("\(__FUNCTION__) result:\(entity == savedEntity)")
+        do {
+            try dao.persist(entity)
+        } catch {
+            print("[ERROR] in \(#function)")
+        }
+        let savedEntity: Entity? = dao.read("2")
+        print("\(#function) result:\(entity == savedEntity)")
     }
     
     func testRealmEraseById_entityExists_entityErased() {
         let dao = self.entityRealmDAO()
         let entity = Entity(entityId: "3")
-        dao.persist(entity)
-        dao.erase("3")
-        let erasedEntity: Entity? = dao.read("3") 
-        print("\(__FUNCTION__) result:\(erasedEntity == nil)")
+        do {
+            try dao.persist(entity)
+            try dao.erase("3")
+        } catch {
+            print("[ERROR] in \(#function)")
+        }
+        
+        let erasedEntity: Entity? = dao.read("3")
+        print("\(#function) result:\(erasedEntity == nil)")
     }
     
     func testRealmPersist_messageWithAllFields_returnsYES() {
         let dao = self.messageDAO()
         let message = Message(entityId: "abc", text: "text")
-        print("\(__FUNCTION__) result:\(dao.persist(message))")
+        do {
+            try dao.persist(message)
+        } catch {
+            print("[ERROR] in \(#function)")
+        }
+        print("\(#function) result:\(message == dao.read(message.entityId))")
     }
     
     func testRealmReadById_messageExists_returnsExactMessage() {
         let dao = self.messageDAO()
         let message = Message(entityId: "def", text: "text 2")
-        dao.persist(message)
-        let savedMessage =  dao.read("def") as! Message?
-        
-        print("\(__FUNCTION__) result:\(message == savedMessage)")
+        do {
+             try dao.persist(message)
+        } catch {
+            print("[ERROR] in \(#function)")
+        }
+        let savedMessage =  dao.read("def")
+        print("\(#function) result:\(message == savedMessage)")
     }
 
     func testRealmEraseById_messageExists_messageErased() {
         let dao = self.entityRealmDAO()
         let message = Entity(entityId: "ghi")
-        dao.persist(message)
-        dao.erase("ghi")
-        let erasedMessage = dao.read("ghi") as! Message?
-        print("\(__FUNCTION__) result:\(erasedMessage == nil)")
+        do {
+            try dao.persist(message)
+            try dao.erase("ghi")
+            
+        } catch {
+            print("[ERROR] in \(#function)")
+        }
+        let erasedMessage = dao.read("ghi")
+        print("\(#function) result:\(erasedMessage == nil)")
     }
     
     private func testRealmPersist_folderWithAllFields_returnsYES() {
         let dao = self.folderDAO()
         let folder = Folder.folderWithId("I", name: "INBOX", messages: [])
-        print("\(__FUNCTION__) result:\(dao.persist(folder))")
+        do {
+            try dao.persist(folder)
+        } catch {
+            print("[ERROR] in \(#function)")
+        }
+        print("\(#function) result: \(dao.read(folder.entityId) == folder)")
     }
     
     private func testRealmReadById_folderExists_returnsExactFolder() {
         let dao = self.folderDAO()
         let folderID = "II"
         let folder = Folder.folderWithId(folderID, name: "OUTBOX", messages: [])
-        dao.persist(folder)
-        let savedFolder = dao.read(folderID) as! Folder?
-        
-        print("\(__FUNCTION__) result:\(folder == savedFolder)")
+        do {
+            try dao.persist(folder)
+        } catch {
+            print("[ERROR] in \(#function)")
+        }
+        let savedFolder = dao.read(folderID)
+        print("\(#function) result:\(folder == savedFolder)")
     }
     
     private func testRealmReadById_folderWithMessages_returnsExactFolder() {
@@ -131,10 +166,14 @@ class DAOTest: UIResponder, UIApplicationDelegate {
         let message2 = Message(entityId: "IV.2", text: "text IV.2")
         
         let folder = Folder.folderWithId(folderID, name: "SPAM", messages: [message1, message2])
-        dao.persist(folder)
-        let savedFolder = dao.read(folderID) as! Folder?
+        do {
+            try dao.persist(folder)
+        } catch {
+            print("[ERROR] in \(#function)")
+        }
+        let savedFolder = dao.read(folderID)
         
-        print("\(__FUNCTION__) result:\(folder == savedFolder)")
+        print("\(#function) result:\(folder == savedFolder)")
     }
     
     private func testRealmEraseById_folderExists_folderErased() {
@@ -142,10 +181,13 @@ class DAOTest: UIResponder, UIApplicationDelegate {
         let folderID = "III"
         
         let folder = Folder.folderWithId(folderID, name: "SENT", messages: [])
-        dao.persist(folder)
-        dao.erase(folderID)
-        
-        print("\(__FUNCTION__) result:\(dao.read(folderID) == nil)")
+        do {
+            try dao.persist(folder)
+            try dao.erase(folderID)
+            print("\(#function) result:\(dao.read(folderID) == nil)")
+        } catch {
+            print("[ERROR] in \(#function)")
+        }
     }
     
     private func testRealmEraseByIdCascade_folderExists_folderErasedWithMessages() {
@@ -156,16 +198,22 @@ class DAOTest: UIResponder, UIApplicationDelegate {
         
         let folderID = "V"
         let folder = Folder.folderWithId(folderID, name: "Delete", messages: [message])
-        dao.persist(folder)
+        do {
+            try dao.persist(folder)
+        } catch {
+            print("[ERROR] in \(#function)")
+        }
         
         let  messageDAO = self.messageDAO()
         let savedMessage = messageDAO.read(messageID)
         if (savedMessage == nil) { fatalError() }
         
-        dao.erase(folderID)
-        
-        print("\(__FUNCTION__) result:\(messageDAO.read(messageID) == nil)")
-
+        do {
+            try dao.erase(folderID)
+            print("\(#function) result:\(messageDAO.read(messageID) == nil)")
+        } catch {
+            print("[ERROR] in \(#function)")
+        }
     }
     
     // MARK: CoreData
@@ -173,21 +221,39 @@ class DAOTest: UIResponder, UIApplicationDelegate {
     func testCoreDataPersist_entityWithId_returnsYES() {
         let dao = entityCoreDataDAO()
         let entity = Entity(entityId: "1")
-        print("\(__FUNCTION__): \(dao.persist(entity))")
+        do {
+            try dao.persist(entity)
+            print("\(#function): true")
+        } catch {
+            print("[ERROR] in \(#function)")
+        }
     }
     
     func testCoreDataPersistAll_entityWithId_returnsYES() {
         let dao = entityCoreDataDAO()
         let firstEntity = Entity(entityId: "1")
         let secondEntity = Entity(entityId: "2")
-        print("\(__FUNCTION__): \(dao.persistAll([firstEntity, secondEntity]))")
+        do {
+            try dao.persistAll([firstEntity, secondEntity])
+            print("\(#function): true")
+        } catch {
+            print("[ERROR] in \(#function)")
+
+        }
+        
     }
     
     func testCoreDataPersistInBackground_entityWithId_returnsYES() {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) { () -> Void in
             let dao = self.entityCoreDataDAO()
             let entity = Entity(entityId: "1_back")
-            print("\(__FUNCTION__): \(dao.persist(entity))")
+            do {
+                try dao.persist(entity)
+                print("\(#function): true")
+            } catch {
+                print("[ERROR] in \(#function)")
+
+            }
         }
     }
     
@@ -197,13 +263,15 @@ class DAOTest: UIResponder, UIApplicationDelegate {
         let entity = Entity(entityId: entityId)
         
         var result = false
-        if dao.persist(entity) {
+        do {
+            try dao.persist(entity)
             if let savedEntity = dao.read(entityId) {
                 result = savedEntity.entityId == entity.entityId
             }
+            print("\(#function): \(result)")
+        } catch {
+            print("[ERROR] whe persis in \(#function)")
         }
-        
-        print("\(__FUNCTION__): \(result)")
     }
     
     func testCoreDataReadById_entitySavedInBackground_returnsExactEntity() {
@@ -212,14 +280,18 @@ class DAOTest: UIResponder, UIApplicationDelegate {
         let entity = Entity(entityId: entityId)
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) { () -> Void in
-            dao.persist(entity)
+            do {
+                try dao.persist(entity)
+            } catch {
+                print("[ERROR] When Persis entity in \(#function)")
+            }
             
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 var result = false
                 if let savedEntity = dao.read(entityId) {
                     result = savedEntity.entityId == entity.entityId
                 }
-                print("\(__FUNCTION__): \(result)")
+                print("\(#function): \(result)")
             })
         }
     }
@@ -228,26 +300,29 @@ class DAOTest: UIResponder, UIApplicationDelegate {
         let dao = entityCoreDataDAO()
         let entityId = "3"
         let entity = Entity(entityId: entityId)
+        do {
+            try dao.persist(entity)
+            try dao.erase(entityId)
+        } catch {
+            print("[ERROR] Error whe try in \(#function)")
+        }
         
-        dao.persist(entity)
-        dao.erase(entityId)
-        
-        print("\(__FUNCTION__): \(dao.read(entityId) == nil)")
+        print("\(#function): \(dao.read(entityId) == nil)")
     }
     
     // MARK: Инициализация DAO объектов
     
     private func entityRealmDAO() -> RealmDAO<Entity, DBEntity> {
-        return RealmDAO(translator: RLMEntityTranslator.translator())
+        return RealmDAO(translator: RLMEntityTranslator())
     }
     
     private func messageDAO() -> RealmDAO<Message, DBMessage> {
-        let a = RealmDAO(translator: RLMMessageTranslator.translator())
+        let a = RealmDAO(translator: RLMMessageTranslator())
         return a
     }
     
     private func folderDAO() -> RealmDAO<Folder, DBFolder> {
-        return RealmDAO(translator: RLMFolderTranslator.translator())
+        return RealmDAO(translator: RLMFolderTranslator())
     }
     
     private func entityCoreDataDAO() -> CoreDataDAO<CDEntity, Entity> {
