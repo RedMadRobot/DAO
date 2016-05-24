@@ -33,6 +33,7 @@ class DAOTest: UIResponder, UIApplicationDelegate {
     }
     
     func testRealmEntitiesDAO() {
+        self.testRealmEntity_Hashable_Protocol()
         self.testRealmPersist_EntityWithId_returnYES()
         self.testRealmReadById_entityExist_returnExactlyEntity()
         self.testRealmEraseById_entityExists_entityErased()
@@ -59,6 +60,19 @@ class DAOTest: UIResponder, UIApplicationDelegate {
         testCoreDataReadById_entityExists_returnsExactEntity()
         testCoreDataReadById_entitySavedInBackground_returnsExactEntity()
         testCoreDataEraseById_entityExists_entityErased()
+    }
+    
+    
+    func testRealmEntity_Hashable_Protocol()
+    {
+        let entityA = Entity(entityId: "1")
+        let entityB = Entity(entityId: "1")
+        let entityC = Entity(entityId: "2")
+        
+        print("\(#function) equals result: \(entityA != entityC && entityB != entityC && entityA == entityB)")
+        
+        let entitySet: Set = [entityA, entityB, entityC]
+        print("\(#function) hashable result: \(entitySet.count == 2)")
     }
     
     func testRealmPersist_EntityWithId_returnYES() {

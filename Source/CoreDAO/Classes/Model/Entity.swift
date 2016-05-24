@@ -9,7 +9,13 @@
 
 import Foundation
 
-public class Entity: Equatable {
+public class Entity: Hashable {
+    
+    public var hashValue: Int {
+        get {
+            return self.entityId.hashValue
+        }
+    }
     
     public var entityId: String!
     
@@ -22,10 +28,6 @@ public class Entity: Equatable {
     
     public init(entityId: String) {
         self.entityId = entityId
-    }
-    
-    func hash() -> String {
-        return String(self.entityId.hash)
     }
     
     public func equals<T where T: Entity>(other: T) -> Bool {
