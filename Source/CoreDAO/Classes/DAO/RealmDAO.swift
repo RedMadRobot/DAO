@@ -8,6 +8,7 @@
 
 
 import Foundation
+import Realm
 import RealmSwift
 
 
@@ -164,17 +165,35 @@ public class RealmDAO<Model: Entity, RealmModel: RLMEntry>: DAO<Model> {
     
     private func deleteEntryTransaction(entry: RealmModel) throws
     {
-        // TODO: Реализовать каскадное удалени
         try self.realm().write {
-            self.realm().delete(entry)
+            self.cascadeDelete(entry)
         }
     }
     
     private func deleteEntriesTransaction(entries:List<RealmModel>) throws
     {
-        // TODO: Реализовать каскадное удалени
         try self.realm().write {
-            self.realm().delete(entries)
+            self.cascadeDelete(entries)
+        }
+    }
+    
+    private func cascadeDelete(object: AnyObject?)
+    {
+        if let deletable = object as? CascadeDeletionProtocol {
+            deletable.objectsToDelete().forEach { child in
+                self.cascadeDelete(child)
+            }
+        }
+        
+        if let realmArray = object as? ListBase {
+            for i in 0..<realmArray.count {
+                let object = realmArray._rlmArray[UInt(i)]
+                self.cascadeDelete(object)
+            }
+        }
+        
+        if let realmObject = object as? Object {
+            self.realm().delete(realmObject)
         }
     }
     
