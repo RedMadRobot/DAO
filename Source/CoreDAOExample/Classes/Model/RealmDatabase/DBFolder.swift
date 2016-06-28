@@ -9,7 +9,7 @@
 import CoreDAO
 import RealmSwift
 
-class DBFolder: DBEntity {
+class DBFolder: DBEntity, CascadeDeletionProtocol {
     
     dynamic var name: String = ""
     let messages = List<DBMessage>()
@@ -21,5 +21,10 @@ class DBFolder: DBEntity {
         folder.name = name
         folder.messages.appendContentsOf(messages)
         return folder
+    }
+    
+    func objectsToDelete() -> [AnyObject?]
+    {
+        return [messages]
     }
 }

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		20AF7D3FBD3CEF57BCD60A71 /* CoreDAO.h in Headers */ = {isa = PBXBuildFile; fileRef = 20AF7EDC125878A2DD601BCD /* CoreDAO.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		444A7B7C1C64F8A0008ADCBC /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444A7B7B1C64F8A0008ADCBC /* Message.swift */; };
+		44591C0C1D22ED4E00F30F4A /* CascadeDeletionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44591C0B1D22ED4E00F30F4A /* CascadeDeletionProtocol.swift */; };
 		449344BF1C638CF00023E6CE /* RLMEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449344BE1C638CF00023E6CE /* RLMEntry.swift */; };
 		449344D11C6398E00023E6CE /* RealmTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449344D01C6398E00023E6CE /* RealmTranslator.swift */; };
 		449344D31C63A1460023E6CE /* DAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449344D21C63A1460023E6CE /* DAO.swift */; };
@@ -69,6 +70,7 @@
 		4436A41F1C63806400400CB2 /* CoreDAO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CoreDAO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4436A42E1C63807A00400CB2 /* CoreDAOExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDAOExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		444A7B7B1C64F8A0008ADCBC /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		44591C0B1D22ED4E00F30F4A /* CascadeDeletionProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CascadeDeletionProtocol.swift; sourceTree = "<group>"; };
 		449344BE1C638CF00023E6CE /* RLMEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLMEntry.swift; sourceTree = "<group>"; };
 		449344D01C6398E00023E6CE /* RealmTranslator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmTranslator.swift; sourceTree = "<group>"; };
 		449344D21C63A1460023E6CE /* DAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DAO.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 		449344B81C6389730023E6CE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				44591C0B1D22ED4E00F30F4A /* CascadeDeletionProtocol.swift */,
 				44D2F9B51C6B8DE000E3FD36 /* Entity.swift */,
 				449344BE1C638CF00023E6CE /* RLMEntry.swift */,
 			);
@@ -541,6 +544,7 @@
 				449344BF1C638CF00023E6CE /* RLMEntry.swift in Sources */,
 				449344D11C6398E00023E6CE /* RealmTranslator.swift in Sources */,
 				AAD2D20D1C63AF56006702BB /* CoreDataDAO.swift in Sources */,
+				44591C0C1D22ED4E00F30F4A /* CascadeDeletionProtocol.swift in Sources */,
 				44D2F9B61C6B8DE000E3FD36 /* Entity.swift in Sources */,
 				449344D51C63A2CA0023E6CE /* RealmDAO.swift in Sources */,
 				449344D31C63A1460023E6CE /* DAO.swift in Sources */,
