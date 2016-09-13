@@ -12,29 +12,32 @@ import CoreData
 
 class StoreCoordinator: NSPersistentStoreCoordinator {
 
-    private var storeOptions: [String:AnyObject]
+    fileprivate var storeOptions: [String: Any]
     {
-        return [ NSMigratePersistentStoresAutomaticallyOption: true, NSInferMappingModelAutomaticallyOption: true, NSSQLitePragmasOption: [ "journal_mode": "WAL" ] ]
+        return [
+            NSMigratePersistentStoresAutomaticallyOption: true as AnyObject,
+            NSInferMappingModelAutomaticallyOption: true as AnyObject,
+            NSSQLitePragmasOption: [ "journal_mode": "WAL" ] ]
     }
 
     init(storeName: String)
     {
-        super.init(managedObjectModel: NSManagedObjectModel.mergedModelFromBundles(nil)!)
-        _ = try? addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url(storeName), options: storeOptions)
+        super.init(managedObjectModel: NSManagedObjectModel.mergedModel(from: nil)!)
+        _ = try? addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: url(storeName), options: storeOptions)
     }
 
-    class func coordinator(storageName: String) -> StoreCoordinator
+    class func coordinator(_ storageName: String) -> StoreCoordinator
     {
         return StoreCoordinator(storeName: storageName)
     }
 
 
-    private func url(storeName: String) -> NSURL!
+    fileprivate func url(_ storeName: String) -> URL!
     {
-        var url: NSURL! = nil
-        if let documentsDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first {
-            let storeAbsolutePath = ( documentsDirectory as NSString ).stringByAppendingPathComponent(storeName)
-            url = NSURL(fileURLWithPath: storeAbsolutePath)
+        var url: URL! = nil
+        if let documentsDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first {
+            let storeAbsolutePath = ( documentsDirectory as NSString ).appendingPathComponent(storeName)
+            url = URL(fileURLWithPath: storeAbsolutePath)
         }
 
         return url

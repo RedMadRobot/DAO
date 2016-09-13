@@ -15,28 +15,28 @@ import CoreData
 
 extension NSFetchRequest {
 
-    class func fetchRequest(entryClass entryClass: NSManagedObject.Type) -> NSFetchRequest!
+    class func fetchRequest(entryClass: NSManagedObject.Type) -> NSFetchRequest!
     {
         return NSFetchRequest(entityName: NSFetchRequest.name(entryClass))
     }
 
-    class func fetchRequest(entryClass entryClass: NSManagedObject.Type, predicate: NSPredicate?) -> NSFetchRequest!
+    class func fetchRequest(entryClass: NSManagedObject.Type, predicate: NSPredicate?) -> NSFetchRequest!
     {
         let fetchRequest = NSFetchRequest.fetchRequest(entryClass: entryClass)
-        fetchRequest.predicate = predicate
+        fetchRequest?.predicate = predicate
         return fetchRequest
     }
 
-    class func fetchRequest(entryClass entryClass: NSManagedObject.Type, predicate: NSPredicate?, sortDescriptors: [NSSortDescriptor]) -> NSFetchRequest!
+    class func fetchRequest(entryClass: NSManagedObject.Type, predicate: NSPredicate?, sortDescriptors: [NSSortDescriptor]) -> NSFetchRequest!
     {
         let fetchRequest = NSFetchRequest.fetchRequest(entryClass: entryClass)
-        fetchRequest.predicate = predicate
-        fetchRequest.sortDescriptors = sortDescriptors
+        fetchRequest?.predicate = predicate
+        fetchRequest?.sortDescriptors = sortDescriptors
         return fetchRequest
     }
 
-    private class func name(withClass: NSManagedObject.Type) -> String
+    fileprivate class func name(_ withClass: NSManagedObject.Type) -> String
     {
-        return NSStringFromClass(withClass).componentsSeparatedByString(".").last!
+        return NSStringFromClass(withClass).components(separatedBy: ".").last!
     }
 }

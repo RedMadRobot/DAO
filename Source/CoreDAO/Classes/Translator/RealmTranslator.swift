@@ -11,39 +11,39 @@ import Foundation
 import RealmSwift
 
 
-public class RealmTranslator<Model: Entity, RealmModel: Object> {
+open class RealmTranslator<Model: Entity, RealmModel: Object> {
     
     public required init()
     {
         // MARK: ничего не делать
     }
     
-    public var entryClassName: RealmModel.Type
+    open var entryClassName: RealmModel.Type
     {
         get {
             return RealmModel.self
         }
     }
     
-    public func toEntry(entity: Model) -> RealmModel
+    open func toEntry(_ entity: Model) -> RealmModel
     {
         fatalError("Abstract method")
     }
     
-    public func toEntity(entry: RealmModel) -> Model
+    open func toEntity(_ entry: RealmModel) -> Model
     {
         fatalError("Abstract method")
     }
     
-    public func toEntries(entities: [Model]?) -> List<RealmModel>
+    open func toEntries(_ entities: [Model]?) -> List<RealmModel>
     {
         let list = List<RealmModel>()
         guard let entities = entities else { return list }
-        list.appendContentsOf(entities.map { entity in self.toEntry(entity) })
+        list.append(objectsIn: entities.map { entity in self.toEntry(entity) })
         return list
     }
     
-    public func toEntities(entries: List<RealmModel>) -> [Model]
+    open func toEntities(_ entries: List<RealmModel>) -> [Model]
     {
         let entities: [Model] = entries.map { entry in self.toEntity(entry) }
         return entities

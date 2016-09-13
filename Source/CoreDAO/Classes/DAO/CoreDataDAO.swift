@@ -9,17 +9,17 @@
 import CoreData
 
 
-public enum CoreDataDAOError: ErrorType {
-    case UpdateError
-    case CreateError
-    case PersistAllError
+public enum CoreDataDAOError: Error {
+    case updateError
+    case createError
+    case persistAllError
 }
 
 
-public class CoreDataDAO<CDModel: NSManagedObject, Model: Entity> : DAO<Model> {
+open class CoreDataDAO<CDModel: NSManagedObject, Model: Entity> : DAO<Model> {
 
-    private var translator: CoreDataTranslator<CDModel, Model>
-    private var coordinator: NSPersistentStoreCoordinator?
+    fileprivate var translator: CoreDataTranslator<CDModel, Model>
+    fileprivate var coordinator: NSPersistentStoreCoordinator?
     
     
     //MARK: - Public
@@ -35,20 +35,20 @@ public class CoreDataDAO<CDModel: NSManagedObject, Model: Entity> : DAO<Model> {
     
     //MARK: - DAO
     
-    override public func persist(entity: Model) throws
+    override open func persist(_ entity: Model) throws
     {
         if entryExist(entity.entityId) {
             if !updateEntryTransaction(entity) {
-                throw CoreDataDAOError.UpdateError
+                throw CoreDataDAOError.updateError
             }
         } else {
             if !createEntryTransaction(entity) {
-                throw CoreDataDAOError.CreateError
+                throw CoreDataDAOError.createError
             }
         }
     }
     
-    override public func persistAll(enitites: [Model]) throws
+    override open func persistAll(_ enitites: [Model]) throws
     {
         let transactionContext = self.context()
         var result = true
@@ -75,7 +75,7 @@ public class CoreDataDAO<CDModel: NSManagedObject, Model: Entity> : DAO<Model> {
             }
             
             if (!result) {
-                throw CoreDataDAOError.PersistAllError
+                throw CoreDataDAOError.persistAllError
 
             }
         }
@@ -83,14 +83,14 @@ public class CoreDataDAO<CDModel: NSManagedObject, Model: Entity> : DAO<Model> {
         result = result && (try? transactionContext.save()) != nil
         
         if (!result) {
-            throw CoreDataDAOError.PersistAllError
+            throw CoreDataDAOError.persistAllError
         }
 
     }
     
-    override public func read(entityId: String) -> Model? {
+    override open func read(_ entityId: String) -> Model? {
         var entity: Model?
-        if let entries = try? self.context().executeFetchRequest(request(entityId)) {
+        if let entries = try? self.context().fetch(request(entityId)) {
             if entries.count > 0 {
                 entity = translator.entityClass.init()
                 translator.fillEntity(entity, withEntry: entries.first as! CDModel)
@@ -100,15 +100,15 @@ public class CoreDataDAO<CDModel: NSManagedObject, Model: Entity> : DAO<Model> {
         return entity
     }
     
-    override public func readAll() -> [Model]
+    override open func readAll() -> [Model]
     {
         return readAll(predicate: nil)
     }
     
-    override public func readAll(predicate predicate: NSPredicate?) -> [Model]
+    override open func readAll(predicate: NSPredicate?) -> [Model]
     {
         var entities = [Model]()
-        if let allEntries = (try? self.context().executeFetchRequest(request(predicate))) as? [CDModel] {
+        if let allEntries = (try? self.context().fetch(request(predicate))) as? [CDModel] {
             entities = allEntries.map { entry in
                 let entity = translator.entityClass.init()
                 translator.fillEntity(entity, withEntry: entry)
@@ -119,15 +119,15 @@ public class CoreDataDAO<CDModel: NSManagedObject, Model: Entity> : DAO<Model> {
         return entities
     }
     
-    override public func readAll(orderBy field: String?, ascending: Bool) -> [Model]
+    override open func readAll(orderBy field: String?, ascending: Bool) -> [Model]
     {
         return readAll(predicate: nil, orderBy: field, ascending: ascending)
     }
     
-    override public func readAll(predicate predicate: NSPredicate?, orderBy field: String?, ascending: Bool) -> [Model]
+    override open func readAll(predicate: NSPredicate?, orderBy field: String?, ascending: Bool) -> [Model]
     {
         var entities = [Model]()
-        if let allEntries = (try? self.context().executeFetchRequest(request(predicate, sortDescriptors: [NSSortDescriptor(key: field, ascending: ascending)]))) as? [CDModel] {
+        if let allEntries = (try? self.context().fetch(request(predicate, sortDescriptors: [NSSortDescriptor(key: field, ascending: ascending)]))) as? [CDModel] {
             entities = allEntries.map { entry in
                 let entity = translator.entityClass.init()
                 translator.fillEntity(entity, withEntry: entry)
@@ -138,56 +138,56 @@ public class CoreDataDAO<CDModel: NSManagedObject, Model: Entity> : DAO<Model> {
         return entities
     }
     
-    override public func erase() throws
+    override open func erase() throws
     {
         deleteAllEntriesTransaction()
     }
     
-    override public func erase(entityId: String) throws
+    override open func erase(_ entityId: String) throws
     {
         deleteEntryTransaction(entityId)
     }
     
     //MARK: - Private
     
-    private func fetchEntries(entryId: String, inContext context: NSManagedObjectContext) -> [CDModel]
+    fileprivate func fetchEntries(_ entryId: String, inContext context: NSManagedObjectContext) -> [CDModel]
     {
-        if let entries = (try? context.executeFetchRequest(request(entryId))) as? [CDModel] {
+        if let entries = (try? context.fetch(request(entryId))) as? [CDModel] {
             return entries
         } else {
             return [CDModel]()
         }
     }
     
-    private func request(entryId: String) -> NSFetchRequest
+    fileprivate func request(_ entryId: String) -> NSFetchRequest<AnyObject>
     {
         return request(predicate(entryId))
     }
     
-    private func request(predicate: NSPredicate?) -> NSFetchRequest
+    fileprivate func request(_ predicate: NSPredicate?) -> NSFetchRequest<AnyObject>
     {
         return NSFetchRequest.fetchRequest(entryClass: translator.entryClass, predicate: predicate)
     }
     
-    private func request(predicate: NSPredicate?, sortDescriptors: [NSSortDescriptor]) -> NSFetchRequest
+    fileprivate func request(_ predicate: NSPredicate?, sortDescriptors: [NSSortDescriptor]) -> NSFetchRequest<AnyObject>
     {
         return NSFetchRequest.fetchRequest(entryClass: translator.entryClass, predicate: predicate, sortDescriptors: sortDescriptors)
     }
     
-    private func predicate(entityId: String) -> NSPredicate
+    fileprivate func predicate(_ entityId: String) -> NSPredicate
     {
         return NSPredicate(format: "entryId == %@", argumentArray: [entityId])
     }
     
     //MARK: - Transactions
     
-    private func entryExist(entryId: String) -> Bool
+    fileprivate func entryExist(_ entryId: String) -> Bool
     {
         let existingEntries = fetchEntries(entryId, inContext: self.context())
         return existingEntries.count > 0
     }
     
-    private func updateEntryTransaction(entity: Model) -> Bool
+    fileprivate func updateEntryTransaction(_ entity: Model) -> Bool
     {
         let transactionContext = self.context()
         var success = false
@@ -205,7 +205,7 @@ public class CoreDataDAO<CDModel: NSManagedObject, Model: Entity> : DAO<Model> {
         return success
     }
 
-    private func createEntryTransaction(entity: Model) -> Bool
+    fileprivate func createEntryTransaction(_ entity: Model) -> Bool
     {
         let transactionContext = self.context()
         
@@ -215,32 +215,32 @@ public class CoreDataDAO<CDModel: NSManagedObject, Model: Entity> : DAO<Model> {
         return success && ((try? transactionContext.save()) != nil)
     }
     
-    private func deleteAllEntriesTransaction()
+    fileprivate func deleteAllEntriesTransaction()
     {
         let transactionContext = self.context()
         
-        if let allEntries = try? transactionContext.executeFetchRequest(request(nil)) as! [CDModel] {
+        if let allEntries = try? transactionContext.fetch(request(nil)) as! [CDModel] {
             for entry in allEntries {
-                transactionContext.deleteObject(entry)
+                transactionContext.delete(entry)
             }
             _ = try? transactionContext.save()
         }
     }
     
-    private func deleteEntryTransaction(entityId: String)
+    fileprivate func deleteEntryTransaction(_ entityId: String)
     {
         let transactionContext = self.context()
         
         let entriesWithId = fetchEntries(entityId, inContext: transactionContext)
         for entry in entriesWithId {
-            transactionContext.deleteObject(entry)
+            transactionContext.delete(entry)
         }
         _ = try? transactionContext.save()
     }
     
-    private func context() -> NSManagedObjectContext
+    fileprivate func context() -> NSManagedObjectContext
     {
-        let context = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
+        let context = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
         context.persistentStoreCoordinator = self.coordinator
         return context
     }

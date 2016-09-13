@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0AEA6F77E54A1E391F0B169B /* Pods_CoreDAOExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58801A2D7C2918821D3B9459 /* Pods_CoreDAOExample.framework */; };
 		20AF7D3FBD3CEF57BCD60A71 /* CoreDAO.h in Headers */ = {isa = PBXBuildFile; fileRef = 20AF7EDC125878A2DD601BCD /* CoreDAO.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		444A7B7C1C64F8A0008ADCBC /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444A7B7B1C64F8A0008ADCBC /* Message.swift */; };
 		44591C0C1D22ED4E00F30F4A /* CascadeDeletionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44591C0B1D22ED4E00F30F4A /* CascadeDeletionProtocol.swift */; };
@@ -27,6 +28,7 @@
 		44A39FB61C6A30FA009E9326 /* RLMFolderTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A39FB51C6A30FA009E9326 /* RLMFolderTranslator.swift */; };
 		44A39FB71C6A3478009E9326 /* DBFolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A39FB11C6A2C42009E9326 /* DBFolder.swift */; };
 		44D2F9B61C6B8DE000E3FD36 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D2F9B51C6B8DE000E3FD36 /* Entity.swift */; };
+		A845F256D25579D90F525B3C /* Pods_CoreDAO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0AF86A8BB6465DAEFF9BDE /* Pods_CoreDAO.framework */; };
 		AA3B7FC01C6A199A00E0E152 /* CDEntityTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3B7FBF1C6A199A00E0E152 /* CDEntityTranslator.swift */; };
 		AAD2D20D1C63AF56006702BB /* CoreDataDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD2D20C1C63AF56006702BB /* CoreDataDAO.swift */; };
 		E6172DB21C65DFB4002C1FBC /* CoreDataTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6172DB11C65DFB4002C1FBC /* CoreDataTranslator.swift */; };
@@ -36,8 +38,6 @@
 		E6AB2FD21C6A5E63008B1B88 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E6AB2FD01C6A5E63008B1B88 /* Model.xcdatamodeld */; };
 		E6AB2FD91C6A635A008B1B88 /* CDEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AB2FD71C6A635A008B1B88 /* CDEntity+CoreDataProperties.swift */; };
 		E6AB2FDA1C6A635A008B1B88 /* CDEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AB2FD81C6A635A008B1B88 /* CDEntity.swift */; };
-		E8A4422846CA368E70946F41 /* Pods_CoreDAO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C41B44AE92C682672C660E96 /* Pods_CoreDAO.framework */; };
-		EB3DA2B642FFCD46E830535E /* Pods_CoreDAOExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9530703B8F1D07189C870A14 /* Pods_CoreDAOExample.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,15 +85,14 @@
 		44A39FB11C6A2C42009E9326 /* DBFolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBFolder.swift; sourceTree = "<group>"; };
 		44A39FB31C6A2E81009E9326 /* Folder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Folder.swift; sourceTree = "<group>"; };
 		44A39FB51C6A30FA009E9326 /* RLMFolderTranslator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLMFolderTranslator.swift; sourceTree = "<group>"; };
-		44B1A4D9FA0C7FC5CED5996E /* Pods-CoreDAO.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreDAO.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoreDAO/Pods-CoreDAO.debug.xcconfig"; sourceTree = "<group>"; };
 		44D2F9B51C6B8DE000E3FD36 /* Entity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
-		4D025AD063AB1D762C1D53B1 /* Pods-CoreDAO.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreDAO.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoreDAO/Pods-CoreDAO.release.xcconfig"; sourceTree = "<group>"; };
-		9530703B8F1D07189C870A14 /* Pods_CoreDAOExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoreDAOExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		95ADACFBD0E5528AA462F389 /* Pods-CoreDAOExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreDAOExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoreDAOExample/Pods-CoreDAOExample.release.xcconfig"; sourceTree = "<group>"; };
+		58801A2D7C2918821D3B9459 /* Pods_CoreDAOExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoreDAOExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B8D12604E918085BEFF73DC /* Pods-CoreDAOExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreDAOExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoreDAOExample/Pods-CoreDAOExample.debug.xcconfig"; sourceTree = "<group>"; };
+		6F0AF86A8BB6465DAEFF9BDE /* Pods_CoreDAO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoreDAO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F6BB6E6E8BED92008788E1B /* Pods-CoreDAO.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreDAO.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoreDAO/Pods-CoreDAO.release.xcconfig"; sourceTree = "<group>"; };
+		A82819FAF5C6867C97AC6646 /* Pods-CoreDAO.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreDAO.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoreDAO/Pods-CoreDAO.debug.xcconfig"; sourceTree = "<group>"; };
 		AA3B7FBF1C6A199A00E0E152 /* CDEntityTranslator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDEntityTranslator.swift; sourceTree = "<group>"; };
 		AAD2D20C1C63AF56006702BB /* CoreDataDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataDAO.swift; sourceTree = "<group>"; };
-		BE4DAE504F56F3CE571FC7A0 /* Pods-CoreDAOExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreDAOExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoreDAOExample/Pods-CoreDAOExample.debug.xcconfig"; sourceTree = "<group>"; };
-		C41B44AE92C682672C660E96 /* Pods_CoreDAO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoreDAO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6172DB11C65DFB4002C1FBC /* CoreDataTranslator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTranslator.swift; sourceTree = "<group>"; };
 		E6172DB31C65E6D1002C1FBC /* FetchRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchRequest.swift; sourceTree = "<group>"; };
 		E6172DB51C67162D002C1FBC /* ManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedObject.swift; sourceTree = "<group>"; };
@@ -101,6 +100,7 @@
 		E6AB2FD11C6A5E63008B1B88 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		E6AB2FD71C6A635A008B1B88 /* CDEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E6AB2FD81C6A635A008B1B88 /* CDEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDEntity.swift; sourceTree = "<group>"; };
+		FC41C61A9F3A80C6A75DECFD /* Pods-CoreDAOExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreDAOExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoreDAOExample/Pods-CoreDAOExample.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,7 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E8A4422846CA368E70946F41 /* Pods_CoreDAO.framework in Frameworks */,
+				A845F256D25579D90F525B3C /* Pods_CoreDAO.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,7 +117,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				449344E81C64D63B0023E6CE /* CoreDAO.framework in Frameworks */,
-				EB3DA2B642FFCD46E830535E /* Pods_CoreDAOExample.framework in Frameworks */,
+				0AEA6F77E54A1E391F0B169B /* Pods_CoreDAOExample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,9 +150,9 @@
 			children = (
 				4436A4211C63806400400CB2 /* CoreDAO */,
 				449344D61C64D27A0023E6CE /* CoreDAOExample */,
-				8A4E501946CD95A1538AFBBB /* Frameworks */,
-				ACA3E5FDF67A43416B080013 /* Pods */,
 				4436A4201C63806400400CB2 /* Products */,
+				EC48D098C696BB747BFA47E9 /* Pods */,
+				46B25083E1F329A20411E71E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -322,22 +322,22 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		8A4E501946CD95A1538AFBBB /* Frameworks */ = {
+		46B25083E1F329A20411E71E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C41B44AE92C682672C660E96 /* Pods_CoreDAO.framework */,
-				9530703B8F1D07189C870A14 /* Pods_CoreDAOExample.framework */,
+				6F0AF86A8BB6465DAEFF9BDE /* Pods_CoreDAO.framework */,
+				58801A2D7C2918821D3B9459 /* Pods_CoreDAOExample.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		ACA3E5FDF67A43416B080013 /* Pods */ = {
+		EC48D098C696BB747BFA47E9 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				44B1A4D9FA0C7FC5CED5996E /* Pods-CoreDAO.debug.xcconfig */,
-				4D025AD063AB1D762C1D53B1 /* Pods-CoreDAO.release.xcconfig */,
-				BE4DAE504F56F3CE571FC7A0 /* Pods-CoreDAOExample.debug.xcconfig */,
-				95ADACFBD0E5528AA462F389 /* Pods-CoreDAOExample.release.xcconfig */,
+				A82819FAF5C6867C97AC6646 /* Pods-CoreDAO.debug.xcconfig */,
+				7F6BB6E6E8BED92008788E1B /* Pods-CoreDAO.release.xcconfig */,
+				6B8D12604E918085BEFF73DC /* Pods-CoreDAOExample.debug.xcconfig */,
+				FC41C61A9F3A80C6A75DECFD /* Pods-CoreDAOExample.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -360,12 +360,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4436A4271C63806400400CB2 /* Build configuration list for PBXNativeTarget "CoreDAO" */;
 			buildPhases = (
-				5A83D469ECC0CC8B38C084A5 /* Check Pods Manifest.lock */,
+				A09F4AC4DE8EC62D3D715C34 /* [CP] Check Pods Manifest.lock */,
 				4436A41A1C63806400400CB2 /* Sources */,
 				4436A41B1C63806400400CB2 /* Frameworks */,
 				4436A41C1C63806400400CB2 /* Headers */,
 				4436A41D1C63806400400CB2 /* Resources */,
-				EDC11AE24BBB3B8E2AF112A1 /* Copy Pods Resources */,
+				03E60C4C796FBC6181922378 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -380,13 +380,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4436A43D1C63807A00400CB2 /* Build configuration list for PBXNativeTarget "CoreDAOExample" */;
 			buildPhases = (
-				8E9252B001E28E247EC8B375 /* Check Pods Manifest.lock */,
+				0BC86AF5E9F3B1E6ABD313B8 /* [CP] Check Pods Manifest.lock */,
 				4436A42A1C63807A00400CB2 /* Sources */,
 				4436A42B1C63807A00400CB2 /* Frameworks */,
 				4436A42C1C63807A00400CB2 /* Resources */,
-				2794B36062D9237151AA5C2B /* Embed Pods Frameworks */,
-				9EA1B06C2CA0DC6913427683 /* Copy Pods Resources */,
 				449344ED1C64D69D0023E6CE /* Embed Frameworks */,
+				2D225BF6189008B631419D26 /* [CP] Embed Pods Frameworks */,
+				1B98E2F83A37DCB618498CF5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -410,6 +410,7 @@
 				TargetAttributes = {
 					4436A41E1C63806400400CB2 = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0800;
 					};
 					4436A42D1C63807A00400CB2 = {
 						CreatedOnToolsVersion = 7.2;
@@ -455,44 +456,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2794B36062D9237151AA5C2B /* Embed Pods Frameworks */ = {
+		03E60C4C796FBC6181922378 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoreDAOExample/Pods-CoreDAOExample-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoreDAO/Pods-CoreDAO-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		5A83D469ECC0CC8B38C084A5 /* Check Pods Manifest.lock */ = {
+		0BC86AF5E9F3B1E6ABD313B8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		8E9252B001E28E247EC8B375 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -500,14 +486,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		9EA1B06C2CA0DC6913427683 /* Copy Pods Resources */ = {
+		1B98E2F83A37DCB618498CF5 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -515,19 +501,34 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoreDAOExample/Pods-CoreDAOExample-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EDC11AE24BBB3B8E2AF112A1 /* Copy Pods Resources */ = {
+		2D225BF6189008B631419D26 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoreDAO/Pods-CoreDAO-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoreDAOExample/Pods-CoreDAOExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A09F4AC4DE8EC62D3D715C34 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -673,7 +674,7 @@
 		};
 		4436A4281C63806400400CB2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 44B1A4D9FA0C7FC5CED5996E /* Pods-CoreDAO.debug.xcconfig */;
+			baseConfigurationReference = A82819FAF5C6867C97AC6646 /* Pods-CoreDAO.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
@@ -688,13 +689,14 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				SYMROOT = build;
 			};
 			name = Debug;
 		};
 		4436A4291C63806400400CB2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4D025AD063AB1D762C1D53B1 /* Pods-CoreDAO.release.xcconfig */;
+			baseConfigurationReference = 7F6BB6E6E8BED92008788E1B /* Pods-CoreDAO.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
@@ -708,13 +710,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.redmadrobot.CoreDAO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				SYMROOT = build;
 			};
 			name = Release;
 		};
 		4436A43E1C63807A00400CB2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BE4DAE504F56F3CE571FC7A0 /* Pods-CoreDAOExample.debug.xcconfig */;
+			baseConfigurationReference = 6B8D12604E918085BEFF73DC /* Pods-CoreDAOExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -730,7 +733,7 @@
 		};
 		4436A43F1C63807A00400CB2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 95ADACFBD0E5528AA462F389 /* Pods-CoreDAOExample.release.xcconfig */;
+			baseConfigurationReference = FC41C61A9F3A80C6A75DECFD /* Pods-CoreDAOExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

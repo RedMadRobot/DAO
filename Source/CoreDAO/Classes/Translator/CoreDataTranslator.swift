@@ -11,19 +11,19 @@ import Foundation
 import CoreData
 
 
-public class CoreDataTranslator<CDModel: NSManagedObject, Model: Entity> {
+open class CoreDataTranslator<CDModel: NSManagedObject, Model: Entity> {
     
-    public var entityClass: Model.Type
+    open var entityClass: Model.Type
     {
         return Model.self
     }
     
-    public var entryClass: CDModel.Type
+    open var entryClass: CDModel.Type
     {
         return CDModel.self
     }
     
-    public class func translator() -> CoreDataTranslator
+    open class func translator() -> CoreDataTranslator
     {
         return self.init()
     }
@@ -33,12 +33,12 @@ public class CoreDataTranslator<CDModel: NSManagedObject, Model: Entity> {
         
     }
     
-    public func fillEntity(entity: Model?, withEntry entry: CDModel) -> Bool
+    open func fillEntity(_ entity: Model?, withEntry entry: CDModel) -> Bool
     {
         fatalError("Abstact method")
     }
     
-    public func fillEntry(entry: CDModel,
+    open func fillEntry(_ entry: CDModel,
                           withEntity entity: Model,
                           inContext context: NSManagedObjectContext) -> Bool
     {

@@ -9,20 +9,20 @@
 
 import Foundation
 
-public class Entity: Hashable {
+open class Entity: Hashable {
     
-    public var hashValue: Int {
+    open var hashValue: Int {
         get {
             return self.entityId.hashValue
         }
     }
     
-    public var entityId: String!
+    open var entityId: String!
     
     required public  init() {
     }
     
-    public class func entityWithId(entityId: String) -> Entity {
+    open class func entityWithId(_ entityId: String) -> Entity {
         return Entity(entityId: entityId)
     }
     
@@ -30,11 +30,11 @@ public class Entity: Hashable {
         self.entityId = entityId
     }
     
-    public func equals<T where T: Entity>(other: T) -> Bool {
+    open func equals<T>(_ other: T) -> Bool where T: Entity {
         return self.entityId == other.entityId
     }
 }
 
-public func ==<T where T: Entity>(lhs: T, rhs: T) -> Bool {
+public func ==<T>(lhs: T, rhs: T) -> Bool where T: Entity {
     return lhs.equals(rhs)
 }

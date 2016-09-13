@@ -8,54 +8,54 @@
 
 import Foundation
 
-public class DAO<Model: Entity> {
+open class DAO<Model: Entity> {
     
     // MARK: Вставка / Обновление
-    public func persist(entity: Model) throws
+    open func persist(_ entity: Model) throws
     {
         preconditionFailure()
     }
     
-    public func persistAll(entities: [Model]) throws
+    open func persistAll(_ entities: [Model]) throws
     {
         preconditionFailure()
     }
     
     // MARK: Чтение
     
-    public func read(entityId: String) -> Model?
+    open func read(_ entityId: String) -> Model?
     {
         preconditionFailure()
     }
     
-    public func readAll() -> [Model]
+    open func readAll() -> [Model]
     {
         preconditionFailure()
     }
     
-    public func readAll(predicate predicate: NSPredicate?) -> [Model]
+    open func readAll(predicate: NSPredicate?) -> [Model]
     {
         preconditionFailure()
     }
     
-    public func readAll(orderBy field: String?, ascending: Bool) -> [Model]
+    open func readAll(orderBy field: String?, ascending: Bool) -> [Model]
     {
         preconditionFailure()
     }
     
-    public func readAll(predicate predicate: NSPredicate?, orderBy field: String?, ascending: Bool) -> [Model]
+    open func readAll(predicate: NSPredicate?, orderBy field: String?, ascending: Bool) -> [Model]
     {
         preconditionFailure()
     }
     
     // MARK: Удаление
     
-    public func erase() throws
+    open func erase() throws
     {
         preconditionFailure()
     }
     
-    public func erase(entityId: String) throws
+    open func erase(_ entityId: String) throws
     {
         preconditionFailure()
     }

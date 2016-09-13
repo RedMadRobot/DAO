@@ -12,9 +12,9 @@ import RealmSwift
 import Realm
 
 
-public class RLMEntry: Object {
+open class RLMEntry: Object {
     
-    dynamic public var entryId: String
+    dynamic open var entryId: String
     
     public init(entryId: String)
     {
@@ -28,25 +28,24 @@ public class RLMEntry: Object {
         super.init()
     }
     
-    required public init(value: AnyObject, schema: RLMSchema) {
-        fatalError("init(value:schema:) has not been implemented")
-    }
-    
     required public init(realm: RLMRealm, schema: RLMObjectSchema)
     {
         self.entryId = ""
         super.init(realm: realm, schema: schema)
     }
     
+    required public init(value: Any, schema: RLMSchema) {
+        fatalError("init(value:schema:) has not been implemented")
+    }
     
-    public class func nullEntry() -> RLMEntry
+    open class func nullEntry() -> RLMEntry
     {
         let entry = RLMEntry()
         entry.entryId = "0"
         return entry
     }
     
-    override public class func primaryKey() -> String?
+    override open class func primaryKey() -> String?
     {
         return "entryId"
     }
