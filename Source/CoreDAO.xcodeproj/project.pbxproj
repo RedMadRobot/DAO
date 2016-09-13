@@ -30,11 +30,6 @@
 		44D2F9B61C6B8DE000E3FD36 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D2F9B51C6B8DE000E3FD36 /* Entity.swift */; };
 		A845F256D25579D90F525B3C /* Pods_CoreDAO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0AF86A8BB6465DAEFF9BDE /* Pods_CoreDAO.framework */; };
 		AA3B7FC01C6A199A00E0E152 /* CDEntityTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3B7FBF1C6A199A00E0E152 /* CDEntityTranslator.swift */; };
-		AAD2D20D1C63AF56006702BB /* CoreDataDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD2D20C1C63AF56006702BB /* CoreDataDAO.swift */; };
-		E6172DB21C65DFB4002C1FBC /* CoreDataTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6172DB11C65DFB4002C1FBC /* CoreDataTranslator.swift */; };
-		E6172DB41C65E6D1002C1FBC /* FetchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6172DB31C65E6D1002C1FBC /* FetchRequest.swift */; };
-		E6172DB61C67162D002C1FBC /* ManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6172DB51C67162D002C1FBC /* ManagedObject.swift */; };
-		E6172DB81C671BAE002C1FBC /* StoreCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6172DB71C671BAE002C1FBC /* StoreCoordinator.swift */; };
 		E6AB2FD21C6A5E63008B1B88 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E6AB2FD01C6A5E63008B1B88 /* Model.xcdatamodeld */; };
 		E6AB2FD91C6A635A008B1B88 /* CDEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AB2FD71C6A635A008B1B88 /* CDEntity+CoreDataProperties.swift */; };
 		E6AB2FDA1C6A635A008B1B88 /* CDEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AB2FD81C6A635A008B1B88 /* CDEntity.swift */; };
@@ -92,11 +87,6 @@
 		7F6BB6E6E8BED92008788E1B /* Pods-CoreDAO.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreDAO.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoreDAO/Pods-CoreDAO.release.xcconfig"; sourceTree = "<group>"; };
 		A82819FAF5C6867C97AC6646 /* Pods-CoreDAO.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreDAO.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoreDAO/Pods-CoreDAO.debug.xcconfig"; sourceTree = "<group>"; };
 		AA3B7FBF1C6A199A00E0E152 /* CDEntityTranslator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDEntityTranslator.swift; sourceTree = "<group>"; };
-		AAD2D20C1C63AF56006702BB /* CoreDataDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataDAO.swift; sourceTree = "<group>"; };
-		E6172DB11C65DFB4002C1FBC /* CoreDataTranslator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTranslator.swift; sourceTree = "<group>"; };
-		E6172DB31C65E6D1002C1FBC /* FetchRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchRequest.swift; sourceTree = "<group>"; };
-		E6172DB51C67162D002C1FBC /* ManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedObject.swift; sourceTree = "<group>"; };
-		E6172DB71C671BAE002C1FBC /* StoreCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreCoordinator.swift; sourceTree = "<group>"; };
 		E6AB2FD11C6A5E63008B1B88 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		E6AB2FD71C6A635A008B1B88 /* CDEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E6AB2FD81C6A635A008B1B88 /* CDEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDEntity.swift; sourceTree = "<group>"; };
@@ -136,7 +126,6 @@
 			isa = PBXGroup;
 			children = (
 				449344B61C6389730023E6CE /* DAO */,
-				449344B71C6389730023E6CE /* Helper */,
 				449344B81C6389730023E6CE /* Model */,
 				449344B91C6389730023E6CE /* Translator */,
 				20AF7EDC125878A2DD601BCD /* CoreDAO.h */,
@@ -177,20 +166,9 @@
 		449344B61C6389730023E6CE /* DAO */ = {
 			isa = PBXGroup;
 			children = (
-				AAD2D20C1C63AF56006702BB /* CoreDataDAO.swift */,
 				449344D41C63A2CA0023E6CE /* RealmDAO.swift */,
 			);
 			path = DAO;
-			sourceTree = "<group>";
-		};
-		449344B71C6389730023E6CE /* Helper */ = {
-			isa = PBXGroup;
-			children = (
-				E6172DB31C65E6D1002C1FBC /* FetchRequest.swift */,
-				E6172DB51C67162D002C1FBC /* ManagedObject.swift */,
-				E6172DB71C671BAE002C1FBC /* StoreCoordinator.swift */,
-			);
-			path = Helper;
 			sourceTree = "<group>";
 		};
 		449344B81C6389730023E6CE /* Model */ = {
@@ -206,7 +184,6 @@
 		449344B91C6389730023E6CE /* Translator */ = {
 			isa = PBXGroup;
 			children = (
-				E6172DB11C65DFB4002C1FBC /* CoreDataTranslator.swift */,
 				449344D01C6398E00023E6CE /* RealmTranslator.swift */,
 			);
 			path = Translator;
@@ -538,13 +515,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E6172DB81C671BAE002C1FBC /* StoreCoordinator.swift in Sources */,
-				E6172DB41C65E6D1002C1FBC /* FetchRequest.swift in Sources */,
-				E6172DB21C65DFB4002C1FBC /* CoreDataTranslator.swift in Sources */,
-				E6172DB61C67162D002C1FBC /* ManagedObject.swift in Sources */,
 				449344BF1C638CF00023E6CE /* RLMEntry.swift in Sources */,
 				449344D11C6398E00023E6CE /* RealmTranslator.swift in Sources */,
-				AAD2D20D1C63AF56006702BB /* CoreDataDAO.swift in Sources */,
 				44591C0C1D22ED4E00F30F4A /* CascadeDeletionProtocol.swift in Sources */,
 				44D2F9B61C6B8DE000E3FD36 /* Entity.swift in Sources */,
 				449344D51C63A2CA0023E6CE /* RealmDAO.swift in Sources */,
@@ -682,6 +654,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "CoreDAO/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -704,6 +677,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "CoreDAO/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -722,6 +696,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "CoreDAOExample/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.redmadrobot.CoreDAOExample;
@@ -738,6 +713,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "CoreDAOExample/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.redmadrobot.CoreDAOExample;
