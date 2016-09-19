@@ -15,11 +15,11 @@ class DBFolder: DBEntity, CascadeDeletionProtocol {
     let messages = List<DBMessage>()
     
     
-    class func folderWithId(entryId: String, name: String, messages: List<DBMessage>) -> DBFolder {
+    class func folderWithId(_ entryId: String, name: String, messages: List<DBMessage>) -> DBFolder {
         let folder = DBFolder()
         folder.entryId = entryId
         folder.name = name
-        folder.messages.appendContentsOf(messages)
+        folder.messages.append(objectsIn: messages)
         return folder
     }
     

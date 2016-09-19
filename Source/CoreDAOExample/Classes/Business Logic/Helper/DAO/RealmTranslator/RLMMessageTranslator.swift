@@ -15,11 +15,11 @@ class RLMMessageTranslator: RealmTranslator<Message, DBMessage> {
     }
     
     
-    override func toEntity(entry: DBMessage) -> Message {
+    override func toEntity(_ entry: DBMessage) -> Message {
         return Message(entityId:entry.entryId, text: entry.text)
     }
     
-    override func toEntry(entity: Message) -> DBMessage {
+    override func toEntry(_ entity: Message) -> DBMessage {
         return DBMessage.messageWithId(entity.entityId, text: entity.text)
     }
 }

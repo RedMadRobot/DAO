@@ -14,15 +14,15 @@ import CoreDAO
 @UIApplicationMain
 class DAOTest: UIResponder, UIApplicationDelegate {
     
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
-        print("\(NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first)")
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        print("\(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first)")
         self.setupRealmdataBase()
 
         self.testRealmEntitiesDAO()
         self.testRealmMessageDAO()
         self.testRealmFoldersDAO()
         
-        testCoreDataEntitiesDAO()
+//        testCoreDataEntitiesDAO()
         
         return true
     }
@@ -53,14 +53,14 @@ class DAOTest: UIResponder, UIApplicationDelegate {
         self.testRealmEraseByIdCascade_folderExists_folderErasedWithMessages()
     }
     
-    func testCoreDataEntitiesDAO() {
+    /*func testCoreDataEntitiesDAO() {
         testCoreDataPersist_entityWithId_returnsYES()
         testCoreDataPersistAll_entityWithId_returnsYES()
         testCoreDataPersistInBackground_entityWithId_returnsYES()
         testCoreDataReadById_entityExists_returnsExactEntity()
         testCoreDataReadById_entitySavedInBackground_returnsExactEntity()
         testCoreDataEraseById_entityExists_entityErased()
-    }
+    }*/
     
     
     func testRealmEntity_Hashable_Protocol()
@@ -149,7 +149,7 @@ class DAOTest: UIResponder, UIApplicationDelegate {
         print("\(#function) result:\(erasedMessage == nil)")
     }
     
-    private func testRealmPersist_folderWithAllFields_returnsYES() {
+    fileprivate func testRealmPersist_folderWithAllFields_returnsYES() {
         let dao = self.folderDAO()
         let folder = Folder.folderWithId("I", name: "INBOX", messages: [])
         do {
@@ -160,7 +160,7 @@ class DAOTest: UIResponder, UIApplicationDelegate {
         print("\(#function) result: \(dao.read(folder.entityId) == folder)")
     }
     
-    private func testRealmReadById_folderExists_returnsExactFolder() {
+    fileprivate func testRealmReadById_folderExists_returnsExactFolder() {
         let dao = self.folderDAO()
         let folderID = "II"
         let folder = Folder.folderWithId(folderID, name: "OUTBOX", messages: [])
@@ -173,7 +173,7 @@ class DAOTest: UIResponder, UIApplicationDelegate {
         print("\(#function) result:\(folder == savedFolder)")
     }
     
-    private func testRealmReadById_folderWithMessages_returnsExactFolder() {
+    fileprivate func testRealmReadById_folderWithMessages_returnsExactFolder() {
         let dao = self.folderDAO()
         let folderID = "IV"
         let message1 = Message(entityId: "IV.1", text: "text IV.1")
@@ -190,7 +190,7 @@ class DAOTest: UIResponder, UIApplicationDelegate {
         print("\(#function) result:\(folder == savedFolder)")
     }
     
-    private func testRealmEraseById_folderExists_folderErased() {
+    fileprivate func testRealmEraseById_folderExists_folderErased() {
         let dao = self.folderDAO()
         let folderID = "III"
         
@@ -204,7 +204,7 @@ class DAOTest: UIResponder, UIApplicationDelegate {
         }
     }
     
-    private func testRealmEraseByIdCascade_folderExists_folderErasedWithMessages() {
+    fileprivate func testRealmEraseByIdCascade_folderExists_folderErasedWithMessages() {
         let dao = self.folderDAO()
         
         let messageID = "V.message"
@@ -232,7 +232,7 @@ class DAOTest: UIResponder, UIApplicationDelegate {
     
     // MARK: CoreData
     
-    func testCoreDataPersist_entityWithId_returnsYES() {
+    /*func testCoreDataPersist_entityWithId_returnsYES() {
         let dao = entityCoreDataDAO()
         let entity = Entity(entityId: "1")
         do {
@@ -258,7 +258,7 @@ class DAOTest: UIResponder, UIApplicationDelegate {
     }
     
     func testCoreDataPersistInBackground_entityWithId_returnsYES() {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) { () -> Void in
+        DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default).async { () -> Void in
             let dao = self.entityCoreDataDAO()
             let entity = Entity(entityId: "1_back")
             do {
@@ -293,14 +293,14 @@ class DAOTest: UIResponder, UIApplicationDelegate {
         let entityId = "2_back"
         let entity = Entity(entityId: entityId)
         
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) { () -> Void in
+        DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default).async { () -> Void in
             do {
                 try dao.persist(entity)
             } catch {
                 print("[ERROR] When Persis entity in \(#function)")
             }
             
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            DispatchQueue.main.async(execute: { () -> Void in
                 var result = false
                 if let savedEntity = dao.read(entityId) {
                     result = savedEntity.entityId == entity.entityId
@@ -323,23 +323,23 @@ class DAOTest: UIResponder, UIApplicationDelegate {
         
         print("\(#function): \(dao.read(entityId) == nil)")
     }
-    
+    */
     // MARK: Инициализация DAO объектов
     
-    private func entityRealmDAO() -> RealmDAO<Entity, DBEntity> {
+    fileprivate func entityRealmDAO() -> RealmDAO<Entity, DBEntity> {
         return RealmDAO(translator: RLMEntityTranslator())
     }
-    
-    private func messageDAO() -> RealmDAO<Message, DBMessage> {
+ 
+    fileprivate func messageDAO() -> RealmDAO<Message, DBMessage> {
         let a = RealmDAO(translator: RLMMessageTranslator())
         return a
     }
     
-    private func folderDAO() -> RealmDAO<Folder, DBFolder> {
+    fileprivate func folderDAO() -> RealmDAO<Folder, DBFolder> {
         return RealmDAO(translator: RLMFolderTranslator())
     }
-    
-    private func entityCoreDataDAO() -> CoreDataDAO<CDEntity, Entity> {
+    /*
+    fileprivate func entityCoreDataDAO() -> CoreDataDAO<CDEntity, Entity> {
         return CoreDataDAO(translator: CDEntityTranslator.translator())
-    }
+    }*/
 }

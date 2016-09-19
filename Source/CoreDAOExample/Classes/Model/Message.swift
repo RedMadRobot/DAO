@@ -24,7 +24,7 @@ class Message: Entity {
         super.init()
     }
 
-    override func equals<T where T: Message>(other: T) -> Bool
+    override func equals<T>(_ other: T) -> Bool where T: Message
     {
         return super.equals(other) && self.text == other.text
     }

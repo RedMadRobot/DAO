@@ -11,7 +11,7 @@ import CoreDAO
 
 class DBEntity: RLMEntry {
 
-    class func entityWithId(entityId: String) -> DBEntity
+    class func entityWithId(_ entityId: String) -> DBEntity
     {
         let entity = DBEntity()
         entity.entryId = entityId

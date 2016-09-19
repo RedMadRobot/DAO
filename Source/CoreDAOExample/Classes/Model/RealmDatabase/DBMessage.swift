@@ -12,7 +12,7 @@ class DBMessage: DBEntity {
     
     dynamic var text: String?
     
-    class func messageWithId(entityId: String, text: String?) -> DBMessage {
+    class func messageWithId(_ entityId: String, text: String?) -> DBMessage {
         let message = DBMessage()
         message.entryId = entityId
         message.text = text

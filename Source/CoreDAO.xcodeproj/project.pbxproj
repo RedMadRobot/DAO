@@ -29,10 +29,7 @@
 		44A39FB71C6A3478009E9326 /* DBFolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A39FB11C6A2C42009E9326 /* DBFolder.swift */; };
 		44D2F9B61C6B8DE000E3FD36 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D2F9B51C6B8DE000E3FD36 /* Entity.swift */; };
 		A845F256D25579D90F525B3C /* Pods_CoreDAO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0AF86A8BB6465DAEFF9BDE /* Pods_CoreDAO.framework */; };
-		AA3B7FC01C6A199A00E0E152 /* CDEntityTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3B7FBF1C6A199A00E0E152 /* CDEntityTranslator.swift */; };
 		E6AB2FD21C6A5E63008B1B88 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E6AB2FD01C6A5E63008B1B88 /* Model.xcdatamodeld */; };
-		E6AB2FD91C6A635A008B1B88 /* CDEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AB2FD71C6A635A008B1B88 /* CDEntity+CoreDataProperties.swift */; };
-		E6AB2FDA1C6A635A008B1B88 /* CDEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AB2FD81C6A635A008B1B88 /* CDEntity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,10 +83,7 @@
 		6F0AF86A8BB6465DAEFF9BDE /* Pods_CoreDAO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoreDAO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F6BB6E6E8BED92008788E1B /* Pods-CoreDAO.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreDAO.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoreDAO/Pods-CoreDAO.release.xcconfig"; sourceTree = "<group>"; };
 		A82819FAF5C6867C97AC6646 /* Pods-CoreDAO.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreDAO.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoreDAO/Pods-CoreDAO.debug.xcconfig"; sourceTree = "<group>"; };
-		AA3B7FBF1C6A199A00E0E152 /* CDEntityTranslator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDEntityTranslator.swift; sourceTree = "<group>"; };
 		E6AB2FD11C6A5E63008B1B88 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		E6AB2FD71C6A635A008B1B88 /* CDEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		E6AB2FD81C6A635A008B1B88 /* CDEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDEntity.swift; sourceTree = "<group>"; };
 		FC41C61A9F3A80C6A75DECFD /* Pods-CoreDAOExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreDAOExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoreDAOExample/Pods-CoreDAOExample.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -228,18 +222,9 @@
 		449344DA1C64D27A0023E6CE /* DAO */ = {
 			isa = PBXGroup;
 			children = (
-				449344DB1C64D27A0023E6CE /* CoreDataTranslator */,
 				449344DC1C64D27A0023E6CE /* RealmTranslator */,
 			);
 			path = DAO;
-			sourceTree = "<group>";
-		};
-		449344DB1C64D27A0023E6CE /* CoreDataTranslator */ = {
-			isa = PBXGroup;
-			children = (
-				AA3B7FBF1C6A199A00E0E152 /* CDEntityTranslator.swift */,
-			);
-			path = CoreDataTranslator;
 			sourceTree = "<group>";
 		};
 		449344DC1C64D27A0023E6CE /* RealmTranslator */ = {
@@ -255,21 +240,11 @@
 		449344DD1C64D27A0023E6CE /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				449344DE1C64D27A0023E6CE /* CoreDataDatabase */,
 				449344DF1C64D27A0023E6CE /* RealmDatabase */,
 				444A7B7B1C64F8A0008ADCBC /* Message.swift */,
 				44A39FB31C6A2E81009E9326 /* Folder.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		449344DE1C64D27A0023E6CE /* CoreDataDatabase */ = {
-			isa = PBXGroup;
-			children = (
-				E6AB2FD71C6A635A008B1B88 /* CDEntity+CoreDataProperties.swift */,
-				E6AB2FD81C6A635A008B1B88 /* CDEntity.swift */,
-			);
-			path = CoreDataDatabase;
 			sourceTree = "<group>";
 		};
 		449344DF1C64D27A0023E6CE /* RealmDatabase */ = {
@@ -391,6 +366,7 @@
 					};
 					4436A42D1C63807A00400CB2 = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -529,9 +505,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				449345171C64E62C0023E6CE /* DBEntity.swift in Sources */,
-				E6AB2FD91C6A635A008B1B88 /* CDEntity+CoreDataProperties.swift in Sources */,
-				E6AB2FDA1C6A635A008B1B88 /* CDEntity.swift in Sources */,
-				AA3B7FC01C6A199A00E0E152 /* CDEntityTranslator.swift in Sources */,
 				449345111C64E2220023E6CE /* RLMEntityTranslator.swift in Sources */,
 				449344E71C64D3200023E6CE /* DAOTest.swift in Sources */,
 				44A39FB71C6A3478009E9326 /* DBFolder.swift in Sources */,
@@ -703,6 +676,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -719,6 +693,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.redmadrobot.CoreDAOExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

@@ -15,11 +15,11 @@ class RLMEntityTranslator: RealmTranslator<Entity, DBEntity> {
         
     }
 
-    override func toEntity(entry: DBEntity) -> Entity {
+    override func toEntity(_ entry: DBEntity) -> Entity {
         return Entity.entityWithId(entry.entryId)
     }
     
-    override func toEntry(entity: Entity) -> DBEntity {
+    override func toEntry(_ entity: Entity) -> DBEntity {
         return DBEntity.entityWithId(entity.entityId)
     }
 }

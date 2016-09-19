@@ -15,7 +15,7 @@ class RLMFolderTranslator: RealmTranslator<Folder, DBFolder> {
         
     }
     
-    override func toEntry(entity: Folder) -> DBFolder {
+    override func toEntry(_ entity: Folder) -> DBFolder {
         let folder = entity
         let messageTranslator = RLMMessageTranslator()
         let messages = messageTranslator.toEntries(folder.messages)
@@ -23,7 +23,7 @@ class RLMFolderTranslator: RealmTranslator<Folder, DBFolder> {
         return DBFolder.folderWithId(folder.entityId, name: folder.name ?? "", messages: messages )
     }
     
-    override func toEntity(entry: DBFolder) -> Folder {
+    override func toEntity(_ entry: DBFolder) -> Folder {
         let messageTranslator = RLMMessageTranslator()
         let messages = messageTranslator.toEntities(entry.messages)
         

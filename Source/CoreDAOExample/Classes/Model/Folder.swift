@@ -15,18 +15,18 @@ class Folder: Entity {
     var name: String?
     var messages: [Message]?
     
-    class func folderWithId(entityId: String, name: String, messages: [Message]?) -> Folder {
+    class func folderWithId(_ entityId: String, name: String, messages: [Message]?) -> Folder {
         let folder = Folder(entityId: entityId)
         folder.name = name
         folder.messages = messages
         return folder
     }
     
-    override func equals<T where T : Folder>(other: T) -> Bool {
+    override func equals<T>(_ other: T) -> Bool where T : Folder {
         return (super.equals(other)) && self.name == other.name && self.messagesArrayEquals(other.messages)
     }
     
-    private func messagesArrayEquals(otherMessages: [Message]?) -> Bool {
+    fileprivate func messagesArrayEquals(_ otherMessages: [Message]?) -> Bool {
         if (self.messages?.count != otherMessages?.count) { return false }
         guard let messages = self.messages,
             let otherMessages = otherMessages else { return false }
