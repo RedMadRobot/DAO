@@ -70,7 +70,7 @@ open class RealmDAO<Model: Entity, RealmModel: RLMEntry>: DAO<Model> {
         var results: Results<RealmModel> = self.readAllEntriesPredicated(predicate)
         
         if let field = field {
-            results = results.sorted(onProperty: field, ascending: ascending)
+            results = results.sorted(byProperty: field, ascending: ascending)
         }
         
         entities.append(contentsOf: results.map { entry in self.translator.toEntity(entry) } )
@@ -138,7 +138,7 @@ open class RealmDAO<Model: Entity, RealmModel: RLMEntry>: DAO<Model> {
     fileprivate func writeTransaction(_ entry: RealmModel) throws
     {
         try self.realm().write {
-            self.realm().createObject(ofType: self.translator.entryClassName, populatedWith: entry, update: true)
+            self.realm().create(self.translator.entryClassName, value: entry, update: true)
         }
     }
     
@@ -146,7 +146,7 @@ open class RealmDAO<Model: Entity, RealmModel: RLMEntry>: DAO<Model> {
     {
         try self.realm().write {
             entries.forEach { (e: RealmModel) -> () in
-                self.realm().createObject(ofType: self.translator.entryClassName, populatedWith: e, update: true)
+                self.realm().create(self.translator.entryClassName, value: e, update: true)
             }
         }
     }
@@ -158,9 +158,9 @@ open class RealmDAO<Model: Entity, RealmModel: RLMEntry>: DAO<Model> {
     
     fileprivate func readAllEntriesPredicated(_ predicate: NSPredicate?) -> Results<RealmModel>
     {
-        let results: Results<RealmModel> = self.realm().allObjects(ofType: self.translator.entryClassName)
+        let results: Results<RealmModel> = self.realm().objects(self.translator.entryClassName)
         guard let predicate = predicate else { return results }
-        return results.filter(using: predicate)
+        return results.filter(predicate)
     }
     
     fileprivate func deleteEntryTransaction(_ entry: RealmModel) throws
