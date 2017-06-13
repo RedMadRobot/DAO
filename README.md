@@ -1,4 +1,4 @@
-CoreDAO
+DAO
 =======
 
 An implementation of [DAO pattern](http://www.oracle.com/technetwork/java/dataaccessobject-138824.html) for CoreData and Realm.
@@ -17,13 +17,13 @@ Cocoapods
 For using with CoreData:
 
 ```ruby
-pod 'CoreDAO/CoreData'
+pod 'DAO/CoreData'
 ```
 
 Or with Realm:
 
 ```ruby
-pod 'CoreDAO/Realm'
+pod 'DAO/Realm'
 ```
 
 ## Usage
