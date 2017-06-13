@@ -1,0 +1,13 @@
+use_frameworks!
+
+target 'DAO_Example' do
+  pod 'DAO', :path => '../'
+
+  target 'CoreDataDAOTests' do
+      inherit! :search_paths
+  end
+  
+  target 'RealmDAOTests' do
+      inherit! :search_paths
+  end
+end

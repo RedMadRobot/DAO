@@ -1,0 +1,957 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
+		63EBBC5B24D75059B9ADA532 /* Pods_RealmDAOTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DCA2A834AEC013372828BE4 /* Pods_RealmDAOTests.framework */; };
+		78A211B7C1B6D6AF282EBB71 /* Pods_DAO_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A944DFD46BDAF9137BA01D6 /* Pods_DAO_Example.framework */; };
+		AA10ECB91EEFE058001228A1 /* RealmDAOBookTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA10ECB51EEFE058001228A1 /* RealmDAOBookTests.swift */; };
+		AA10ECBA1EEFE058001228A1 /* RealmDAOEntityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA10ECB61EEFE058001228A1 /* RealmDAOEntityTests.swift */; };
+		AA10ECBB1EEFE058001228A1 /* RealmDAOFolderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA10ECB71EEFE058001228A1 /* RealmDAOFolderTests.swift */; };
+		AA10ECBC1EEFE058001228A1 /* RealmDAOMessagesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA10ECB81EEFE058001228A1 /* RealmDAOMessagesTests.swift */; };
+		AA35256B1EEFDBE2009C4375 /* CDEntityTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3525531EEFDBE2009C4375 /* CDEntityTranslator.swift */; };
+		AA35256C1EEFDBE2009C4375 /* CDFolderTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3525541EEFDBE2009C4375 /* CDFolderTranslator.swift */; };
+		AA35256D1EEFDBE2009C4375 /* CDMessageTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3525551EEFDBE2009C4375 /* CDMessageTranslator.swift */; };
+		AA35256E1EEFDBE2009C4375 /* RLMBookTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3525571EEFDBE2009C4375 /* RLMBookTranslator.swift */; };
+		AA35256F1EEFDBE2009C4375 /* RLMEntityTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3525581EEFDBE2009C4375 /* RLMEntityTranslator.swift */; };
+		AA3525701EEFDBE2009C4375 /* RLMFolderTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3525591EEFDBE2009C4375 /* RLMFolderTranslator.swift */; };
+		AA3525711EEFDBE2009C4375 /* RLMMessageTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA35255A1EEFDBE2009C4375 /* RLMMessageTranslator.swift */; };
+		AA3525721EEFDBE2009C4375 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA35255C1EEFDBE2009C4375 /* Book.swift */; };
+		AA3525731EEFDBE2009C4375 /* CDEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA35255E1EEFDBE2009C4375 /* CDEntity+CoreDataProperties.swift */; };
+		AA3525741EEFDBE2009C4375 /* CDEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA35255F1EEFDBE2009C4375 /* CDEntity.swift */; };
+		AA3525751EEFDBE2009C4375 /* CDFolder+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3525601EEFDBE2009C4375 /* CDFolder+CoreDataProperties.swift */; };
+		AA3525761EEFDBE2009C4375 /* CDFolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3525611EEFDBE2009C4375 /* CDFolder.swift */; };
+		AA3525771EEFDBE2009C4375 /* CDMessage+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3525621EEFDBE2009C4375 /* CDMessage+CoreDataProperties.swift */; };
+		AA3525781EEFDBE2009C4375 /* CDMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3525631EEFDBE2009C4375 /* CDMessage.swift */; };
+		AA3525791EEFDBE2009C4375 /* Folder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3525641EEFDBE2009C4375 /* Folder.swift */; };
+		AA35257A1EEFDBE2009C4375 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3525651EEFDBE2009C4375 /* Message.swift */; };
+		AA35257B1EEFDBE2009C4375 /* DBBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3525671EEFDBE2009C4375 /* DBBook.swift */; };
+		AA35257C1EEFDBE2009C4375 /* DBEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3525681EEFDBE2009C4375 /* DBEntity.swift */; };
+		AA35257D1EEFDBE2009C4375 /* DBFolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3525691EEFDBE2009C4375 /* DBFolder.swift */; };
+		AA35257E1EEFDBE2009C4375 /* DBMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA35256A1EEFDBE2009C4375 /* DBMessage.swift */; };
+		AA3525821EEFDC24009C4375 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AA3525801EEFDC24009C4375 /* Model.xcdatamodeld */; };
+		AA3525961EEFDD13009C4375 /* CoreDataDAOEntityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3525921EEFDD13009C4375 /* CoreDataDAOEntityTests.swift */; };
+		AA3525971EEFDD13009C4375 /* CoreDataDAOFoldersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3525931EEFDD13009C4375 /* CoreDataDAOFoldersTests.swift */; };
+		AA3525981EEFDD13009C4375 /* CoreDataDAOManyDAOTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3525941EEFDD13009C4375 /* CoreDataDAOManyDAOTests.swift */; };
+		AA3525991EEFDD13009C4375 /* CoreDataDAOMessagesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3525951EEFDD13009C4375 /* CoreDataDAOMessagesTests.swift */; };
+		E6862F802F1820084726DEB8 /* Pods_CoreDataDAOTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F42144986137E1707B5FAC0 /* Pods_CoreDataDAOTests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AA10ECAF1EEFE039001228A1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 607FACC81AFB9204008FA782 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 607FACCF1AFB9204008FA782;
+			remoteInfo = DAO_Example;
+		};
+		AA35258C1EEFDCE6009C4375 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 607FACC81AFB9204008FA782 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 607FACCF1AFB9204008FA782;
+			remoteInfo = DAO_Example;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		048D2FC052C450E7600E2FA9 /* Pods-RealmDAOTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RealmDAOTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RealmDAOTests/Pods-RealmDAOTests.release.xcconfig"; sourceTree = "<group>"; };
+		0DCA2A834AEC013372828BE4 /* Pods_RealmDAOTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RealmDAOTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DD31E834DFA3BE6198A94A4 /* Pods-CoreDataDAOTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreDataDAOTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoreDataDAOTests/Pods-CoreDataDAOTests.release.xcconfig"; sourceTree = "<group>"; };
+		2A944DFD46BDAF9137BA01D6 /* Pods_DAO_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DAO_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		33B58A69D9690C75477DB06B /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		607FACD01AFB9204008FA782 /* DAO_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DAO_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		6B14B1EA7DC79FC4DC1DE526 /* Pods-DAO_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DAO_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-DAO_Example/Pods-DAO_Example.release.xcconfig"; sourceTree = "<group>"; };
+		6F42144986137E1707B5FAC0 /* Pods_CoreDataDAOTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoreDataDAOTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7AA81098C68FE90BF55455CC /* DAO.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = DAO.podspec; path = ../DAO.podspec; sourceTree = "<group>"; };
+		8FB85F7F7AE5E16EDA09AF5A /* Pods-RealmDAOTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RealmDAOTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RealmDAOTests/Pods-RealmDAOTests.debug.xcconfig"; sourceTree = "<group>"; };
+		9096125064B44D5035341130 /* Pods-DAO_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DAO_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DAO_Example/Pods-DAO_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		A0C0C1D67BC9E557747CBD93 /* Pods-DAO_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DAO_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DAO_Tests/Pods-DAO_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		AA10ECAA1EEFE039001228A1 /* RealmDAOTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RealmDAOTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA10ECAE1EEFE039001228A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA10ECB41EEFE058001228A1 /* RealmDAOTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RealmDAOTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		AA10ECB51EEFE058001228A1 /* RealmDAOBookTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmDAOBookTests.swift; sourceTree = "<group>"; };
+		AA10ECB61EEFE058001228A1 /* RealmDAOEntityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmDAOEntityTests.swift; sourceTree = "<group>"; };
+		AA10ECB71EEFE058001228A1 /* RealmDAOFolderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmDAOFolderTests.swift; sourceTree = "<group>"; };
+		AA10ECB81EEFE058001228A1 /* RealmDAOMessagesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmDAOMessagesTests.swift; sourceTree = "<group>"; };
+		AA3525531EEFDBE2009C4375 /* CDEntityTranslator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDEntityTranslator.swift; sourceTree = "<group>"; };
+		AA3525541EEFDBE2009C4375 /* CDFolderTranslator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDFolderTranslator.swift; sourceTree = "<group>"; };
+		AA3525551EEFDBE2009C4375 /* CDMessageTranslator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDMessageTranslator.swift; sourceTree = "<group>"; };
+		AA3525571EEFDBE2009C4375 /* RLMBookTranslator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLMBookTranslator.swift; sourceTree = "<group>"; };
+		AA3525581EEFDBE2009C4375 /* RLMEntityTranslator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLMEntityTranslator.swift; sourceTree = "<group>"; };
+		AA3525591EEFDBE2009C4375 /* RLMFolderTranslator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLMFolderTranslator.swift; sourceTree = "<group>"; };
+		AA35255A1EEFDBE2009C4375 /* RLMMessageTranslator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLMMessageTranslator.swift; sourceTree = "<group>"; };
+		AA35255C1EEFDBE2009C4375 /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		AA35255E1EEFDBE2009C4375 /* CDEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		AA35255F1EEFDBE2009C4375 /* CDEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDEntity.swift; sourceTree = "<group>"; };
+		AA3525601EEFDBE2009C4375 /* CDFolder+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDFolder+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		AA3525611EEFDBE2009C4375 /* CDFolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDFolder.swift; sourceTree = "<group>"; };
+		AA3525621EEFDBE2009C4375 /* CDMessage+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDMessage+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		AA3525631EEFDBE2009C4375 /* CDMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDMessage.swift; sourceTree = "<group>"; };
+		AA3525641EEFDBE2009C4375 /* Folder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Folder.swift; sourceTree = "<group>"; };
+		AA3525651EEFDBE2009C4375 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		AA3525671EEFDBE2009C4375 /* DBBook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBBook.swift; sourceTree = "<group>"; };
+		AA3525681EEFDBE2009C4375 /* DBEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBEntity.swift; sourceTree = "<group>"; };
+		AA3525691EEFDBE2009C4375 /* DBFolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBFolder.swift; sourceTree = "<group>"; };
+		AA35256A1EEFDBE2009C4375 /* DBMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBMessage.swift; sourceTree = "<group>"; };
+		AA3525811EEFDC24009C4375 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		AA3525871EEFDCE6009C4375 /* CoreDataDAOTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreDataDAOTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA35258B1EEFDCE6009C4375 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA3525911EEFDD13009C4375 /* CoreDataDAOTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CoreDataDAOTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		AA3525921EEFDD13009C4375 /* CoreDataDAOEntityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataDAOEntityTests.swift; sourceTree = "<group>"; };
+		AA3525931EEFDD13009C4375 /* CoreDataDAOFoldersTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataDAOFoldersTests.swift; sourceTree = "<group>"; };
+		AA3525941EEFDD13009C4375 /* CoreDataDAOManyDAOTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataDAOManyDAOTests.swift; sourceTree = "<group>"; };
+		AA3525951EEFDD13009C4375 /* CoreDataDAOMessagesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataDAOMessagesTests.swift; sourceTree = "<group>"; };
+		B3F6075B730F33239A8C0C16 /* Pods-DAO_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DAO_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DAO_Tests/Pods-DAO_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		B83929C10B53857ABAEBA293 /* Pods-CoreDataDAOTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreDataDAOTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoreDataDAOTests/Pods-CoreDataDAOTests.debug.xcconfig"; sourceTree = "<group>"; };
+		BF445E2FB5382CAF4125954E /* Pods_DAO_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DAO_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8C399142A0F0FA7C064D093 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		607FACCD1AFB9204008FA782 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				78A211B7C1B6D6AF282EBB71 /* Pods_DAO_Example.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA10ECA71EEFE039001228A1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63EBBC5B24D75059B9ADA532 /* Pods_RealmDAOTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA3525841EEFDCE6009C4375 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E6862F802F1820084726DEB8 /* Pods_CoreDataDAOTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		607FACC71AFB9204008FA782 = {
+			isa = PBXGroup;
+			children = (
+				607FACD21AFB9204008FA782 /* Example for DAO */,
+				AA3525881EEFDCE6009C4375 /* CoreDataDAOTests */,
+				AA10ECAB1EEFE039001228A1 /* RealmDAOTests */,
+				CB0F3F47EAF7977E58A370FB /* Frameworks */,
+				EF4D865297EF284754A73C8C /* Pods */,
+				607FACF51AFB993E008FA782 /* Podspec Metadata */,
+				607FACD11AFB9204008FA782 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		607FACD11AFB9204008FA782 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				607FACD01AFB9204008FA782 /* DAO_Example.app */,
+				AA3525871EEFDCE6009C4375 /* CoreDataDAOTests.xctest */,
+				AA10ECAA1EEFE039001228A1 /* RealmDAOTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		607FACD21AFB9204008FA782 /* Example for DAO */ = {
+			isa = PBXGroup;
+			children = (
+				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
+				AA35254E1EEFDBE2009C4375 /* Classes */,
+				AA35257F1EEFDC24009C4375 /* Resources */,
+				607FACD31AFB9204008FA782 /* Supporting Files */,
+			);
+			name = "Example for DAO";
+			path = DAO;
+			sourceTree = "<group>";
+		};
+		607FACD31AFB9204008FA782 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				607FACD41AFB9204008FA782 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		607FACF51AFB993E008FA782 /* Podspec Metadata */ = {
+			isa = PBXGroup;
+			children = (
+				7AA81098C68FE90BF55455CC /* DAO.podspec */,
+				33B58A69D9690C75477DB06B /* README.md */,
+				F8C399142A0F0FA7C064D093 /* LICENSE */,
+			);
+			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		AA10ECAB1EEFE039001228A1 /* RealmDAOTests */ = {
+			isa = PBXGroup;
+			children = (
+				AA10ECAE1EEFE039001228A1 /* Info.plist */,
+				AA10ECB51EEFE058001228A1 /* RealmDAOBookTests.swift */,
+				AA10ECB61EEFE058001228A1 /* RealmDAOEntityTests.swift */,
+				AA10ECB71EEFE058001228A1 /* RealmDAOFolderTests.swift */,
+				AA10ECB81EEFE058001228A1 /* RealmDAOMessagesTests.swift */,
+				AA10ECB41EEFE058001228A1 /* RealmDAOTests-Bridging-Header.h */,
+			);
+			path = RealmDAOTests;
+			sourceTree = "<group>";
+		};
+		AA35254E1EEFDBE2009C4375 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				AA35254F1EEFDBE2009C4375 /* Business Logic */,
+				AA35255B1EEFDBE2009C4375 /* Model */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		AA35254F1EEFDBE2009C4375 /* Business Logic */ = {
+			isa = PBXGroup;
+			children = (
+				AA3525501EEFDBE2009C4375 /* Helper */,
+			);
+			path = "Business Logic";
+			sourceTree = "<group>";
+		};
+		AA3525501EEFDBE2009C4375 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				AA3525511EEFDBE2009C4375 /* DAO */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		AA3525511EEFDBE2009C4375 /* DAO */ = {
+			isa = PBXGroup;
+			children = (
+				AA3525521EEFDBE2009C4375 /* CoreDataTranslator */,
+				AA3525561EEFDBE2009C4375 /* RealmTranslator */,
+			);
+			path = DAO;
+			sourceTree = "<group>";
+		};
+		AA3525521EEFDBE2009C4375 /* CoreDataTranslator */ = {
+			isa = PBXGroup;
+			children = (
+				AA3525531EEFDBE2009C4375 /* CDEntityTranslator.swift */,
+				AA3525541EEFDBE2009C4375 /* CDFolderTranslator.swift */,
+				AA3525551EEFDBE2009C4375 /* CDMessageTranslator.swift */,
+			);
+			path = CoreDataTranslator;
+			sourceTree = "<group>";
+		};
+		AA3525561EEFDBE2009C4375 /* RealmTranslator */ = {
+			isa = PBXGroup;
+			children = (
+				AA3525571EEFDBE2009C4375 /* RLMBookTranslator.swift */,
+				AA3525581EEFDBE2009C4375 /* RLMEntityTranslator.swift */,
+				AA3525591EEFDBE2009C4375 /* RLMFolderTranslator.swift */,
+				AA35255A1EEFDBE2009C4375 /* RLMMessageTranslator.swift */,
+			);
+			path = RealmTranslator;
+			sourceTree = "<group>";
+		};
+		AA35255B1EEFDBE2009C4375 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AA35255C1EEFDBE2009C4375 /* Book.swift */,
+				AA35255D1EEFDBE2009C4375 /* CoreDataDatabase */,
+				AA3525641EEFDBE2009C4375 /* Folder.swift */,
+				AA3525651EEFDBE2009C4375 /* Message.swift */,
+				AA3525661EEFDBE2009C4375 /* RealmDatabase */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AA35255D1EEFDBE2009C4375 /* CoreDataDatabase */ = {
+			isa = PBXGroup;
+			children = (
+				AA35255F1EEFDBE2009C4375 /* CDEntity.swift */,
+				AA35255E1EEFDBE2009C4375 /* CDEntity+CoreDataProperties.swift */,
+				AA3525611EEFDBE2009C4375 /* CDFolder.swift */,
+				AA3525601EEFDBE2009C4375 /* CDFolder+CoreDataProperties.swift */,
+				AA3525631EEFDBE2009C4375 /* CDMessage.swift */,
+				AA3525621EEFDBE2009C4375 /* CDMessage+CoreDataProperties.swift */,
+			);
+			path = CoreDataDatabase;
+			sourceTree = "<group>";
+		};
+		AA3525661EEFDBE2009C4375 /* RealmDatabase */ = {
+			isa = PBXGroup;
+			children = (
+				AA3525671EEFDBE2009C4375 /* DBBook.swift */,
+				AA3525681EEFDBE2009C4375 /* DBEntity.swift */,
+				AA3525691EEFDBE2009C4375 /* DBFolder.swift */,
+				AA35256A1EEFDBE2009C4375 /* DBMessage.swift */,
+			);
+			path = RealmDatabase;
+			sourceTree = "<group>";
+		};
+		AA35257F1EEFDC24009C4375 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AA3525801EEFDC24009C4375 /* Model.xcdatamodeld */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		AA3525881EEFDCE6009C4375 /* CoreDataDAOTests */ = {
+			isa = PBXGroup;
+			children = (
+				AA3525921EEFDD13009C4375 /* CoreDataDAOEntityTests.swift */,
+				AA3525931EEFDD13009C4375 /* CoreDataDAOFoldersTests.swift */,
+				AA3525941EEFDD13009C4375 /* CoreDataDAOManyDAOTests.swift */,
+				AA3525951EEFDD13009C4375 /* CoreDataDAOMessagesTests.swift */,
+				AA3525911EEFDD13009C4375 /* CoreDataDAOTests-Bridging-Header.h */,
+				AA35258B1EEFDCE6009C4375 /* Info.plist */,
+			);
+			path = CoreDataDAOTests;
+			sourceTree = "<group>";
+		};
+		CB0F3F47EAF7977E58A370FB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2A944DFD46BDAF9137BA01D6 /* Pods_DAO_Example.framework */,
+				BF445E2FB5382CAF4125954E /* Pods_DAO_Tests.framework */,
+				6F42144986137E1707B5FAC0 /* Pods_CoreDataDAOTests.framework */,
+				0DCA2A834AEC013372828BE4 /* Pods_RealmDAOTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EF4D865297EF284754A73C8C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9096125064B44D5035341130 /* Pods-DAO_Example.debug.xcconfig */,
+				6B14B1EA7DC79FC4DC1DE526 /* Pods-DAO_Example.release.xcconfig */,
+				A0C0C1D67BC9E557747CBD93 /* Pods-DAO_Tests.debug.xcconfig */,
+				B3F6075B730F33239A8C0C16 /* Pods-DAO_Tests.release.xcconfig */,
+				B83929C10B53857ABAEBA293 /* Pods-CoreDataDAOTests.debug.xcconfig */,
+				1DD31E834DFA3BE6198A94A4 /* Pods-CoreDataDAOTests.release.xcconfig */,
+				8FB85F7F7AE5E16EDA09AF5A /* Pods-RealmDAOTests.debug.xcconfig */,
+				048D2FC052C450E7600E2FA9 /* Pods-RealmDAOTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		607FACCF1AFB9204008FA782 /* DAO_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "DAO_Example" */;
+			buildPhases = (
+				396DD212B4355BA1D08DC7E7 /* [CP] Check Pods Manifest.lock */,
+				607FACCC1AFB9204008FA782 /* Sources */,
+				607FACCD1AFB9204008FA782 /* Frameworks */,
+				607FACCE1AFB9204008FA782 /* Resources */,
+				A3C342A12354181FB1CDC888 /* [CP] Embed Pods Frameworks */,
+				FBB72B6CB6EF1FFF9E33FE93 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DAO_Example;
+			productName = DAO;
+			productReference = 607FACD01AFB9204008FA782 /* DAO_Example.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AA10ECA91EEFE039001228A1 /* RealmDAOTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA10ECB11EEFE039001228A1 /* Build configuration list for PBXNativeTarget "RealmDAOTests" */;
+			buildPhases = (
+				847A3AC11FE1C324C80B4DFC /* [CP] Check Pods Manifest.lock */,
+				AA10ECA61EEFE039001228A1 /* Sources */,
+				AA10ECA71EEFE039001228A1 /* Frameworks */,
+				AA10ECA81EEFE039001228A1 /* Resources */,
+				C31918995F93713C33A15BCA /* [CP] Embed Pods Frameworks */,
+				525D7AFD3BD0F596CBD437B0 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AA10ECB01EEFE039001228A1 /* PBXTargetDependency */,
+			);
+			name = RealmDAOTests;
+			productName = RealmDAOTests;
+			productReference = AA10ECAA1EEFE039001228A1 /* RealmDAOTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		AA3525861EEFDCE6009C4375 /* CoreDataDAOTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA35258E1EEFDCE6009C4375 /* Build configuration list for PBXNativeTarget "CoreDataDAOTests" */;
+			buildPhases = (
+				EC8476E3A4C369B6B36446A1 /* [CP] Check Pods Manifest.lock */,
+				AA3525831EEFDCE6009C4375 /* Sources */,
+				AA3525841EEFDCE6009C4375 /* Frameworks */,
+				AA3525851EEFDCE6009C4375 /* Resources */,
+				6E99BAE18868857CA3143787 /* [CP] Embed Pods Frameworks */,
+				E809FAD87FAC0879AF2B934A /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AA35258D1EEFDCE6009C4375 /* PBXTargetDependency */,
+			);
+			name = CoreDataDAOTests;
+			productName = CoreDataDAOTests;
+			productReference = AA3525871EEFDCE6009C4375 /* CoreDataDAOTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		607FACC81AFB9204008FA782 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = CocoaPods;
+				TargetAttributes = {
+					607FACCF1AFB9204008FA782 = {
+						CreatedOnToolsVersion = 6.3.1;
+						LastSwiftMigration = 0820;
+					};
+					AA10ECA91EEFE039001228A1 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 42LRQS6X44;
+						LastSwiftMigration = 0830;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 607FACCF1AFB9204008FA782;
+					};
+					AA3525861EEFDCE6009C4375 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 42LRQS6X44;
+						LastSwiftMigration = 0830;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 607FACCF1AFB9204008FA782;
+					};
+				};
+			};
+			buildConfigurationList = 607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "DAO" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 607FACC71AFB9204008FA782;
+			productRefGroup = 607FACD11AFB9204008FA782 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				607FACCF1AFB9204008FA782 /* DAO_Example */,
+				AA3525861EEFDCE6009C4375 /* CoreDataDAOTests */,
+				AA10ECA91EEFE039001228A1 /* RealmDAOTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		607FACCE1AFB9204008FA782 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA10ECA81EEFE039001228A1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA3525851EEFDCE6009C4375 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		396DD212B4355BA1D08DC7E7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		525D7AFD3BD0F596CBD437B0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RealmDAOTests/Pods-RealmDAOTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6E99BAE18868857CA3143787 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoreDataDAOTests/Pods-CoreDataDAOTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		847A3AC11FE1C324C80B4DFC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A3C342A12354181FB1CDC888 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DAO_Example/Pods-DAO_Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C31918995F93713C33A15BCA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RealmDAOTests/Pods-RealmDAOTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E809FAD87FAC0879AF2B934A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoreDataDAOTests/Pods-CoreDataDAOTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EC8476E3A4C369B6B36446A1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FBB72B6CB6EF1FFF9E33FE93 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DAO_Example/Pods-DAO_Example-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		607FACCC1AFB9204008FA782 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA35256E1EEFDBE2009C4375 /* RLMBookTranslator.swift in Sources */,
+				AA3525731EEFDBE2009C4375 /* CDEntity+CoreDataProperties.swift in Sources */,
+				AA3525771EEFDBE2009C4375 /* CDMessage+CoreDataProperties.swift in Sources */,
+				AA35257D1EEFDBE2009C4375 /* DBFolder.swift in Sources */,
+				AA35257C1EEFDBE2009C4375 /* DBEntity.swift in Sources */,
+				AA35257A1EEFDBE2009C4375 /* Message.swift in Sources */,
+				AA3525791EEFDBE2009C4375 /* Folder.swift in Sources */,
+				AA3525741EEFDBE2009C4375 /* CDEntity.swift in Sources */,
+				AA3525781EEFDBE2009C4375 /* CDMessage.swift in Sources */,
+				AA3525821EEFDC24009C4375 /* Model.xcdatamodeld in Sources */,
+				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				AA35257B1EEFDBE2009C4375 /* DBBook.swift in Sources */,
+				AA3525701EEFDBE2009C4375 /* RLMFolderTranslator.swift in Sources */,
+				AA35257E1EEFDBE2009C4375 /* DBMessage.swift in Sources */,
+				AA35256F1EEFDBE2009C4375 /* RLMEntityTranslator.swift in Sources */,
+				AA3525761EEFDBE2009C4375 /* CDFolder.swift in Sources */,
+				AA35256C1EEFDBE2009C4375 /* CDFolderTranslator.swift in Sources */,
+				AA3525721EEFDBE2009C4375 /* Book.swift in Sources */,
+				AA35256D1EEFDBE2009C4375 /* CDMessageTranslator.swift in Sources */,
+				AA35256B1EEFDBE2009C4375 /* CDEntityTranslator.swift in Sources */,
+				AA3525751EEFDBE2009C4375 /* CDFolder+CoreDataProperties.swift in Sources */,
+				AA3525711EEFDBE2009C4375 /* RLMMessageTranslator.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA10ECA61EEFE039001228A1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA10ECB91EEFE058001228A1 /* RealmDAOBookTests.swift in Sources */,
+				AA10ECBA1EEFE058001228A1 /* RealmDAOEntityTests.swift in Sources */,
+				AA10ECBC1EEFE058001228A1 /* RealmDAOMessagesTests.swift in Sources */,
+				AA10ECBB1EEFE058001228A1 /* RealmDAOFolderTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA3525831EEFDCE6009C4375 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA3525961EEFDD13009C4375 /* CoreDataDAOEntityTests.swift in Sources */,
+				AA3525981EEFDD13009C4375 /* CoreDataDAOManyDAOTests.swift in Sources */,
+				AA3525971EEFDD13009C4375 /* CoreDataDAOFoldersTests.swift in Sources */,
+				AA3525991EEFDD13009C4375 /* CoreDataDAOMessagesTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AA10ECB01EEFE039001228A1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 607FACCF1AFB9204008FA782 /* DAO_Example */;
+			targetProxy = AA10ECAF1EEFE039001228A1 /* PBXContainerItemProxy */;
+		};
+		AA35258D1EEFDCE6009C4375 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 607FACCF1AFB9204008FA782 /* DAO_Example */;
+			targetProxy = AA35258C1EEFDCE6009C4375 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		607FACED1AFB9204008FA782 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		607FACEE1AFB9204008FA782 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		607FACF01AFB9204008FA782 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9096125064B44D5035341130 /* Pods-DAO_Example.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = DAO/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MODULE_NAME = ExampleApp;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		607FACF11AFB9204008FA782 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6B14B1EA7DC79FC4DC1DE526 /* Pods-DAO_Example.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = DAO/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MODULE_NAME = ExampleApp;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		AA10ECB21EEFE039001228A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8FB85F7F7AE5E16EDA09AF5A /* Pods-RealmDAOTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 42LRQS6X44;
+				INFOPLIST_FILE = RealmDAOTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.redmadrobot.RealmDAOTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "RealmDAOTests/RealmDAOTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DAO_Example.app/DAO_Example";
+			};
+			name = Debug;
+		};
+		AA10ECB31EEFE039001228A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 048D2FC052C450E7600E2FA9 /* Pods-RealmDAOTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				DEVELOPMENT_TEAM = 42LRQS6X44;
+				INFOPLIST_FILE = RealmDAOTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.redmadrobot.RealmDAOTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "RealmDAOTests/RealmDAOTests-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DAO_Example.app/DAO_Example";
+			};
+			name = Release;
+		};
+		AA35258F1EEFDCE6009C4375 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B83929C10B53857ABAEBA293 /* Pods-CoreDataDAOTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 42LRQS6X44;
+				INFOPLIST_FILE = CoreDataDAOTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.redmadrobot.CoreDataDAOTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "CoreDataDAOTests/CoreDataDAOTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DAO_Example.app/DAO_Example";
+			};
+			name = Debug;
+		};
+		AA3525901EEFDCE6009C4375 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1DD31E834DFA3BE6198A94A4 /* Pods-CoreDataDAOTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				DEVELOPMENT_TEAM = 42LRQS6X44;
+				INFOPLIST_FILE = CoreDataDAOTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.redmadrobot.CoreDataDAOTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CoreDataDAOTests/CoreDataDAOTests-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DAO_Example.app/DAO_Example";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "DAO" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				607FACED1AFB9204008FA782 /* Debug */,
+				607FACEE1AFB9204008FA782 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "DAO_Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				607FACF01AFB9204008FA782 /* Debug */,
+				607FACF11AFB9204008FA782 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA10ECB11EEFE039001228A1 /* Build configuration list for PBXNativeTarget "RealmDAOTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA10ECB21EEFE039001228A1 /* Debug */,
+				AA10ECB31EEFE039001228A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA35258E1EEFDCE6009C4375 /* Build configuration list for PBXNativeTarget "CoreDataDAOTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA35258F1EEFDCE6009C4375 /* Debug */,
+				AA3525901EEFDCE6009C4375 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		AA3525801EEFDC24009C4375 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				AA3525811EEFDC24009C4375 /* Model.xcdatamodel */,
+			);
+			currentVersion = AA3525811EEFDC24009C4375 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 607FACC81AFB9204008FA782 /* Project object */;
+}

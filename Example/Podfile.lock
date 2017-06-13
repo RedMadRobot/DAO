@@ -1,0 +1,28 @@
+PODS:
+  - DAO (1.0.0):
+    - DAO/CoreData (= 1.0.0)
+    - DAO/Realm (= 1.0.0)
+  - DAO/CoreData (1.0.0)
+  - DAO/Realm (1.0.0):
+    - RealmSwift
+  - Realm (2.8.1):
+    - Realm/Headers (= 2.8.1)
+  - Realm/Headers (2.8.1)
+  - RealmSwift (2.8.1):
+    - Realm (= 2.8.1)
+
+DEPENDENCIES:
+  - DAO (from `../`)
+
+EXTERNAL SOURCES:
+  DAO:
+    :path: ../
+
+SPEC CHECKSUMS:
+  DAO: 29f9c48e72c0a4ca6ed59a87718bb18978b682e0
+  Realm: 2627602ad6818451f0cb8c2a6e072f7f10a5f360
+  RealmSwift: 4764ca7657f2193c256fb032c0b123926f70dbcd
+
+PODFILE CHECKSUM: 304d7b9f54070467c355fe795db431630f017f61
+
+COCOAPODS: 1.2.1
