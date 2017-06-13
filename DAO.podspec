@@ -6,17 +6,17 @@ Pod::Spec.new do |s|
   s.homepage         = 'https://github.com/RedMadRobot/DAO'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'vani2' => 'iv@redmadrobot.com' }
-  s.source           = { :git => 'git@github.com:RedMadRobot/DAO.git', :tag => '1.0.0', :submodules => true }
+  s.source           = { :git => 'https://github.com/RedMadRobot/DAO.git', :tag => '1.0.0', :submodules => true }
   s.platform         = :ios, '9.0'
   s.source_files     = 'DAO/Classes/Core/**/*'
   
   s.subspec 'Realm' do |r|
-      r.source_files = "DAO/Classes/RealmDAO/**/*"
+      r.source_files = 'DAO/Classes/RealmDAO/**/*', 'DAO/Classes/Core/**/*'
       r.dependency "RealmSwift"
   end
   
   s.subspec 'CoreData' do |cd|
-      cd.source_files = "DAO/Classes/CoreData/**/*"
+      cd.source_files = 'DAO/Classes/CoreDataDAO/**/*', 'DAO/Classes/Core/**/*'
   end
 
 end
