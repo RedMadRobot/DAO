@@ -1,3 +1,9 @@
+[![Issues count](https://img.shields.io/github/issues/RedMadRobot/DAO.svg)](https://img.shields.io/github/issues/RedMadRobot/DAO.svg)
+[![Cocoapod](https://img.shields.io/badge/pod-1.0.0-blue.svg)](https://img.shields.io/badge/pod-1.0.0-blue.svg)
+[![Swift](https://img.shields.io/badge/swift-3.0-red.svg)](https://img.shields.io/badge/swift-3.0-red.svg)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://img.shields.io/badge/license-MIT-blue.svg)
+
+
 DAO
 =======
 
