@@ -329,11 +329,9 @@ open class CoreDataDAO<CDModel: NSManagedObject, Model: Entity> : DAO<Model> {
     
     private class func url(storeName: String) -> URL {
         var url: URL! = nil
-        if let documentsDirectory = NSSearchPathForDirectoriesInDomains(
-                .documentDirectory,
-                .userDomainMask, true).first {
-            let storeAbsolutePath = (documentsDirectory as NSString).appendingPathComponent(storeName)
-            url = URL(fileURLWithPath: storeAbsolutePath) as URL!
+        
+        if let libraryDirectory = FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask).last {
+            url = libraryDirectory.appendingPathComponent(storeName)
         }
         
         return url
