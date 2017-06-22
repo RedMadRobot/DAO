@@ -104,6 +104,60 @@ open class RLMDouble: Object, RLMPrimitiveType {
 }
 
 
+/// Float wrapper
+open class RLMFloat: Object, RLMPrimitiveType {
+    
+    public required init(val: Float) {
+        value = val
+        super.init()
+    }
+    
+    public required init(value: Any, schema: RLMSchema) {
+        fatalError("init(value:schema:) has not been implemented")
+    }
+    
+    public required init(realm: RLMRealm, schema: RLMObjectSchema) {
+        super.init(realm: realm, schema: schema)
+    }
+    
+    required public init() {
+        super.init()
+    }
+    
+    public typealias A = Float
+    
+    public dynamic var value: Float = 0.0
+    
+}
+
+
+/// Bool wrapper
+open class RLMBool: Object, RLMPrimitiveType {
+    
+    public required init(val: Bool) {
+        value = val
+        super.init()
+    }
+    
+    public required init(value: Any, schema: RLMSchema) {
+        fatalError("init(value:schema:) has not been implemented")
+    }
+    
+    public required init(realm: RLMRealm, schema: RLMObjectSchema) {
+        super.init(realm: realm, schema: schema)
+    }
+    
+    required public init() {
+        super.init()
+    }
+    
+    public typealias A = Bool
+    
+    public dynamic var value: Bool = false
+    
+}
+
+
 /// Date wrapper
 open class RLMDate: Object, RLMPrimitiveType {
     
