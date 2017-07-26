@@ -53,4 +53,30 @@ final class RealmDAOMessagesTests: XCTestCase {
         XCTAssertNil(dao.read("ghi"))
     }
     
+    func testPersistListOfMessages() {
+        try! dao.erase()
+        XCTAssertEqual(dao.read().count, 0)
+        
+        let m1 = Message(entityId: "1", text: "1")
+        let m2 = Message(entityId: "2", text: "2")
+        let m3 = Message(entityId: "3", text: "3")
+        
+        do{
+            try dao.persist([m1, m2, m3])
+        } catch {
+            XCTFail("Persist is failed")
+        }
+        XCTAssertEqual(dao.read().count, 3)
+        
+        
+        let m55 = Message(entityId: "55", text: "55")
+        let m66 = Message(entityId: "66", text: "66")
+        
+        do{
+            try dao.persist([m1, m2, m3, m55, m66])
+        } catch {
+            XCTFail("Persist is failed")
+        }
+        XCTAssertEqual(dao.read().count, 5)
+    }
 }
