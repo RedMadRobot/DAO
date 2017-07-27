@@ -34,6 +34,7 @@ open class RealmTranslator<Model: Entity, RealmModel: RLMEntry> {
     ///   - fromEntities: array of instances of `Model` type.
     open func fill(_ entries: List<RealmModel>, fromEntities: [Model]) {
         let oldEntries = entries.map { $0 }
+        entries.removeAll()
         
         fromEntities
             .map { entity -> (RealmModel, Model) in
