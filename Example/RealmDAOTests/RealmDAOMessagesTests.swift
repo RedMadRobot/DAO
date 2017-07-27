@@ -16,6 +16,11 @@ final class RealmDAOMessagesTests: XCTestCase {
     let dao = RealmDAO(RLMMessageTranslator())
     
     
+    override func setUp() {
+        try? dao.erase()
+    }
+    
+    
     func testPersistMessage() {
         let message = Message(entityId: "abc", text: "text")
         
@@ -51,6 +56,45 @@ final class RealmDAOMessagesTests: XCTestCase {
         }
         
         XCTAssertNil(dao.read("ghi"))
+    }
+    
+    func testPersistListOfMessages() {
+        XCTAssertEqual(dao.read().count, 0)
+        
+        let message1 = Message(entityId: "1", text: "1")
+        let message2 = Message(entityId: "2", text: "2")
+        let message3 = Message(entityId: "3", text: "3")
+        
+        do {
+            try dao.persist([message1, message2, message3])
+        } catch {
+            XCTFail("Persist is failed")
+        }
+        
+        let threeMessages = dao.read()
+        
+        XCTAssertEqual(threeMessages.count, 3)
+        XCTAssertEqual(threeMessages[0].entityId, "1")
+        XCTAssertEqual(threeMessages[1].entityId, "2")
+        XCTAssertEqual(threeMessages[2].entityId, "3")
+        
+        let message55 = Message(entityId: "55", text: "55")
+        let message66 = Message(entityId: "66", text: "66")
+        
+        do {
+            try dao.persist([message1, message2, message3, message55, message66])
+        } catch {
+            XCTFail("Persist is failed")
+        }
+        
+        let fiveMessages = dao.read()
+        
+        XCTAssertEqual(fiveMessages.count, 5)
+        XCTAssertEqual(fiveMessages[0].entityId, "1")
+        XCTAssertEqual(fiveMessages[1].entityId, "2")
+        XCTAssertEqual(fiveMessages[2].entityId, "3")
+        XCTAssertEqual(fiveMessages[3].entityId, "55")
+        XCTAssertEqual(fiveMessages[4].entityId, "66")
     }
     
 }

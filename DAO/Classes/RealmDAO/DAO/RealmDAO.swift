@@ -63,13 +63,20 @@ open class RealmDAO<Model: Entity, RealmModel: RLMEntry>: DAO<Model> {
 
 
     open override func persist(_ entities: [Model]) throws {
-        let entries = List<RealmModel>(entities.map {
-            self.readFromRealm($0.entityId) ?? RealmModel()
+        let entries = List<RealmModel>(entities.flatMap {
+            self.readFromRealm($0.entityId)
         })
 
-        translator.fill(entries, fromEntities: entities)
-
-        try write(entries)
+        try autoreleasepool {
+            realm().beginWrite()
+            translator.fill(entries, fromEntities: entities)
+            
+            entries.forEach {
+                self.realm().create(RealmModel.self, value: $0, update: true)
+            }
+            
+            try realm().commitWrite()
+        }
     }
 
 
