@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'DAO'
-  s.version          = '1.0.2'
+  s.version          = '1.0.3'
   s.summary          = 'DAO Library'
   s.description      = 'Library provides easy way to cache entities.'
   s.homepage         = 'https://github.com/RedMadRobot/DAO'
