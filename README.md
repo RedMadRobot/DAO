@@ -63,7 +63,7 @@ Please look at the example project for more information.
 
 ## Requirements
 
-- XCode 8
+- Xcode 8
 - Swift 3
 - iOS 9
 
