@@ -13,6 +13,7 @@ import RealmSwift
 
 
 private struct RealmConstant {
+    fileprivate static var databasePath = ""
     fileprivate static var databaseFileName = "Database.realm"
     fileprivate static var databaseVersion: UInt64 = 1
 }
@@ -133,6 +134,22 @@ open class RealmDAO<Model: Entity, RealmModel: RLMEntry>: DAO<Model> {
         return RealmConstant.databaseVersion
     }
     
+    open class func assignDatabasePath(_ databasePath: String)
+    {
+        RealmConstant.databasePath = databasePath
+    }
+    
+    open class func databasePath() -> String {
+        if !RealmConstant.databasePath.isEmpty {
+            return RealmConstant.databasePath
+
+        } else {
+            let documentDirectory = NSSearchPathForDirectoriesInDomains(
+                .documentDirectory, .userDomainMask, true).first
+            return documentDirectory ?? ""
+        }
+    }
+    
     // MARK: Приватные методы
     
     fileprivate func writeTransaction(_ entry: RealmModel) throws
@@ -222,9 +239,9 @@ open class RealmDAO<Model: Entity, RealmModel: RLMEntry>: DAO<Model> {
     
     fileprivate func pathForFileName(_ fileName: String) -> URL?
     {
-        let documentDirectory: NSString? = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first as NSString?
-        guard let realmPath = documentDirectory?.appendingPathComponent(fileName) else { return nil }
-        return URL(string: realmPath)
+        let path = URL(fileURLWithPath: RealmDAO.databasePath())
+        let realmPath = path.appendingPathComponent(fileName)
+        return realmPath
     }
     
     fileprivate func assignDefaultRealmPath(_ path: URL)
