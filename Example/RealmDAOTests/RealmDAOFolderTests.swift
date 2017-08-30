@@ -14,12 +14,13 @@ import DAO
 final class RealmDAOFolderTests: XCTestCase {
     
     let messageDAO = RealmDAO(RLMMessageTranslator(), configuration: RealmConfiguration(databaseVersion: 2))
-    
     let folderDAO = RealmDAO(RLMFolderTranslator(), configuration: RealmConfiguration(databaseVersion: 2))
+    let userDAO = RealmDAO(RLMUserTranslator(), configuration: RealmConfiguration(databaseVersion: 2))
     
     override func setUp() {
         try? messageDAO.erase()
         try? folderDAO.erase()
+        try? userDAO.erase()
     }
     
     func testUserRelationship() {
@@ -77,6 +78,27 @@ final class RealmDAOFolderTests: XCTestCase {
         } else {
             XCTFail("Persist folder is failed")
         }
+        
+        do {
+            try userDAO.erase()
+        } catch {
+            XCTFail("Erase user is failed")
+        }
+        
+        savedFolder.creator = user
+        
+        do {
+            try folderDAO.persist(savedFolder)
+        } catch {
+            XCTFail("Persist folder is failed")
+        }
+        
+        if let savedFolder = folderDAO.read("F1") {
+            XCTAssertEqual(savedFolder.creator?.entityId, "U1")
+        } else {
+            XCTFail("Persist folder is failed")
+        }
+        
     }
     
     func testCascadeErase() {
