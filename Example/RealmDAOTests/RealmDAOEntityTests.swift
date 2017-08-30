@@ -13,7 +13,7 @@ import DAO
 
 final class RealmDAOEntityTests: XCTestCase {
 
-    let dao = RealmDAO(RLMEntityTranslator())
+    let dao = RealmDAO(RLMEntityTranslator(), configuration: RealmConfiguration(databaseVersion: 2))
     
 
     func testReadById() {

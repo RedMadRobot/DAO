@@ -13,11 +13,13 @@ import DAO
 class Folder: Entity {
     
     var name: String = ""
+    var creator: User?
     var messages = [Message]()
     
     
-    init(entityId: String, name: String, messages: [Message]) {
+    init(entityId: String, name: String, creator: User? = nil, messages: [Message]) {
         self.name = name
+        self.creator = creator
         self.messages = messages
         
         super.init(entityId: entityId)

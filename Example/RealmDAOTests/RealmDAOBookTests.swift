@@ -13,7 +13,7 @@ import DAO
 
 class RealmDAOBookTests: XCTestCase {
     
-    let dao = RealmDAO(RLMBookTranslator())
+    let dao = RealmDAO(RLMBookTranslator(), configuration: RealmConfiguration(databaseVersion: 2))
     
     
     func testPersist() {

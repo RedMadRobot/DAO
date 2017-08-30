@@ -13,7 +13,7 @@ import DAO
 
 final class RealmDAOMessagesTests: XCTestCase {
     
-    let dao = RealmDAO(RLMMessageTranslator())
+    let dao = RealmDAO(RLMMessageTranslator(), configuration: RealmConfiguration(databaseVersion: 2))
     
     
     override func setUp() {

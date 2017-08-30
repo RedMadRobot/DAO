@@ -12,13 +12,15 @@ import RealmSwift
 class DBFolder: DBEntity, CascadeDeletionProtocol {
     
     dynamic var name: String = ""
+    dynamic var creator: DBUser?
     var messages = List<DBMessage>()
     
     
-    class func folderWithId(_ entryId: String, name: String, messages: List<DBMessage>) -> DBFolder {
+    class func folderWithId(_ entryId: String, name: String, creator: DBUser? = nil, messages: List<DBMessage>) -> DBFolder {
         let folder = DBFolder()
         folder.entryId = entryId
         folder.name = name
+        folder.creator = creator
         folder.messages.append(objectsIn: messages)
         return folder
     }
