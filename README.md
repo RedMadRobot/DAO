@@ -58,7 +58,7 @@ Please look at the example project for more information.
 ## When not recommended to use
 
 - If you have big and complex database schema. Many entities, many relationships.
-- If you want to use many features of database. Realm Mobile Platform, for instance is not compatible with this implementation.
+- If you want to use specific features of database. Realm Mobile Platform, for instance is not compatible with DAO implementation.
 - If you have thousands of objects (> 10-20K). Performance can be the issue.
 
 ## Requirements
