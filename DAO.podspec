@@ -1,12 +1,12 @@
 Pod::Spec.new do |s|
   s.name             = 'DAO'
-  s.version          = '1.0.3'
+  s.version          = '1.0.4'
   s.summary          = 'DAO Library'
   s.description      = 'Library provides easy way to cache entities.'
   s.homepage         = 'https://github.com/RedMadRobot/DAO'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'vani2' => 'iv@redmadrobot.com' }
-  s.source           = { :git => 'https://github.com/RedMadRobot/DAO.git', :tag => '1.0.3', :submodules => true }
+  s.source           = { :git => 'https://github.com/RedMadRobot/DAO.git', :tag => s.version, :submodules => true }
   s.platform         = :ios, '9.0'
   s.source_files     = 'DAO/Classes/Core/**/*'
   
