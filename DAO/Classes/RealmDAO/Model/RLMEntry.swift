@@ -16,7 +16,7 @@ import Realm
 open class RLMEntry: Object {
     
     /// Entry identifier. Must be unique.
-    dynamic open var entryId: String
+    @objc dynamic open var entryId: String
     
     
     /// Creates an instance with specified `entryId`.

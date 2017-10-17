@@ -45,7 +45,7 @@ open class RLMString: Object, RLMPrimitiveType {
     
     public typealias A = String
     
-    public dynamic var value: String = ""
+    @objc public dynamic var value: String = ""
 
 }
 
@@ -72,7 +72,7 @@ open class RLMInteger: Object, RLMPrimitiveType {
 
     public typealias A = Int
     
-    public dynamic var value: Int = 0
+    @objc public dynamic var value: Int = 0
 
 }
 
@@ -99,7 +99,7 @@ open class RLMDouble: Object, RLMPrimitiveType {
     
     public typealias A = Double
     
-    public dynamic var value: Double = 0.0
+    @objc public dynamic var value: Double = 0.0
     
 }
 
@@ -126,7 +126,7 @@ open class RLMFloat: Object, RLMPrimitiveType {
     
     public typealias A = Float
     
-    public dynamic var value: Float = 0.0
+    @objc public dynamic var value: Float = 0.0
     
 }
 
@@ -153,7 +153,7 @@ open class RLMBool: Object, RLMPrimitiveType {
     
     public typealias A = Bool
     
-    public dynamic var value: Bool = false
+    @objc public dynamic var value: Bool = false
     
 }
 
@@ -179,7 +179,7 @@ open class RLMDate: Object, RLMPrimitiveType {
     
     public typealias A = Date
     
-    public dynamic var value: Date = Date()
+    @objc public dynamic var value: Date = Date()
     
 }
 
@@ -206,6 +206,6 @@ open class RLMData: Object, RLMPrimitiveType {
     
     public typealias A = Data
     
-    public dynamic var value: Data = Data()
+    @objc public dynamic var value: Data = Data()
 
 }

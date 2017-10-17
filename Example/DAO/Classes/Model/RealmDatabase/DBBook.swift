@@ -12,7 +12,7 @@ import RealmSwift
 
 final class DBBook: DBEntity, CascadeDeletionProtocol {
 
-    dynamic var name: String = ""
+    @objc dynamic var name: String = ""
     
     let authors = List<RLMString>()
     
