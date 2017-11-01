@@ -6,11 +6,8 @@
 //  Copyright © 2016 RedMadRobot LLC. All rights reserved.
 //
 
-
 import Foundation
-import Realm
 import RealmSwift
-
 
 private struct RealmConstant {
     fileprivate static var databasePath = ""
@@ -71,7 +68,7 @@ open class RealmDAO<Model: Entity, RealmModel: RLMEntry>: DAO<Model> {
         var results: Results<RealmModel> = self.readAllEntriesPredicated(predicate)
         
         if let field = field {
-            results = results.sorted(byProperty: field, ascending: ascending)
+            results = results.sorted(byKeyPath: field, ascending: ascending)
         }
         
         entities.append(contentsOf: results.map { entry in self.translator.toEntity(entry) } )

@@ -10,7 +10,7 @@ import CoreDAO
 
 class DBMessage: DBEntity {
     
-    dynamic var text: String?
+    @objc dynamic var text: String?
     
     class func messageWithId(_ entityId: String, text: String?) -> DBMessage {
         let message = DBMessage()

@@ -15,7 +15,7 @@ import CoreDAO
 class DAOTest: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        print("\(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first)")
+        print("\(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first ?? "")")
         self.setupRealmdataBase()
 
         self.testRealmEntitiesDAO()

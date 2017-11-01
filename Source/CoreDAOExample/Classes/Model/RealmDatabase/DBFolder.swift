@@ -11,7 +11,7 @@ import RealmSwift
 
 class DBFolder: DBEntity, CascadeDeletionProtocol {
     
-    dynamic var name: String = ""
+    @objc dynamic var name: String = ""
     let messages = List<DBMessage>()
     
     

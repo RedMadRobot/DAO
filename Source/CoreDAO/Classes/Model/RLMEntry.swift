@@ -6,15 +6,13 @@
 //  Copyright © 2016 RedMadRobot LLC. All rights reserved.
 //
 
-
 import Foundation
-import RealmSwift
 import Realm
-
+import RealmSwift
 
 open class RLMEntry: Object {
     
-    dynamic open var entryId: String
+    @objc dynamic open var entryId: String
     
     public init(entryId: String)
     {
