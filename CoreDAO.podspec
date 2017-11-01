@@ -10,5 +10,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "git@git.redmadrobot.com:foundation-ios/DAO.git" }
   s.source_files = "Source/CoreDAO/Classes/**/*"
   s.requires_arc = true
-  s.dependency "RealmSwift"
+  s.dependency "RealmSwift", '~> 3.0'
 end
