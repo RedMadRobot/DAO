@@ -54,7 +54,18 @@ open class RealmTranslator<Model: Entity, RealmModel: RLMEntry> {
                 self.fill($0.0, fromEntity: $0.1)
         }
         
-        entries.append(objectsIn: newEntries)
+        if fromEntities.count < entries.count {
+            let entityIds = fromEntities.map { $0.entityId }
+            let deletedEntriesIndexes = entries
+                .filter { !entityIds.contains($0.entryId) }
+            deletedEntriesIndexes.forEach {
+                if let index = entries.index(of: $0) {
+                    entries.remove(at: index)
+                }
+            }
+        } else {
+            entries.append(objectsIn: newEntries)
+        }
     }
 
     
