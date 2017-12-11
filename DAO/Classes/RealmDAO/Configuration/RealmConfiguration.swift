@@ -20,6 +20,9 @@ public struct RealmConfiguration {
     /// Migration block for manual migration.
     public let migrationBlock: MigrationBlock?
     
+    /// Key to encrypt data.
+    public let encryptionKey: NSData? 
+    
     
     /// Create an instance with specified `databaseFileName`, `databaseVersion`, `migrationBlock`.
     ///
@@ -27,14 +30,17 @@ public struct RealmConfiguration {
     ///   - databaseFileName: name. See above.
     ///   - databaseVersion: version. See above.
     ///   - migrationBlock: migration block. See above.
+    ///   - encryptionKey: encryption key. See above.
     public init(
         databaseFileName: String = "Database.realm",
         databaseVersion: UInt64 = 1,
-        migrationBlock: MigrationBlock? = nil) {
+        migrationBlock: MigrationBlock? = nil,
+        encryptionKey: NSData? = nil) {
         
         self.databaseFileName = databaseFileName
         self.databaseVersion = databaseVersion
         self.migrationBlock = migrationBlock
+        self.encryptionKey = encryptionKey
     }
     
 }
