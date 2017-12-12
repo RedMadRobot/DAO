@@ -237,6 +237,7 @@ open class RealmDAO<Model: Entity, RealmModel: RLMEntry>: DAO<Model> {
         }
 
         assignDefaultRealmPath(path)
+        assignEncryptionKey(configuration.encryptionKey)
         migrateDefaultRealmToCurrentVersion(configuration: configuration)
     }
 
@@ -256,6 +257,11 @@ open class RealmDAO<Model: Entity, RealmModel: RLMEntry>: DAO<Model> {
         Realm.Configuration.defaultConfiguration = configuration
     }
     
+    private func assignEncryptionKey(_ key: Data?) {
+        var configuration = Realm.Configuration.defaultConfiguration
+        configuration.encryptionKey = key
+        Realm.Configuration.defaultConfiguration = configuration
+    }
 
     private func migrateDefaultRealmToCurrentVersion(configuration: RealmConfiguration) {
         var config = Realm.Configuration.defaultConfiguration
