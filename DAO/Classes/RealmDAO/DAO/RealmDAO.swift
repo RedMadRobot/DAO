@@ -261,6 +261,7 @@ open class RealmDAO<Model: Entity, RealmModel: RLMEntry>: DAO<Model> {
         var config = Realm.Configuration.defaultConfiguration
         config.schemaVersion = configuration.databaseVersion
         config.migrationBlock = configuration.migrationBlock
+        config.encryptionKey = configuration.encryptionKey
         Realm.Configuration.defaultConfiguration = config
     }
 
