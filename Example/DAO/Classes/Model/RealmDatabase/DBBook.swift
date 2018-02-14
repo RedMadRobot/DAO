@@ -10,25 +10,16 @@ import DAO
 import RealmSwift
 
 
-final class DBBook: DBEntity, CascadeDeletionProtocol {
+final class DBBook: DBEntity {
 
     @objc dynamic var name: String = ""
     
-    let authors = List<RLMString>()
+    let authors = List<String>()
     
-    let dates = List<RLMDate>()
+    let dates = List<Date>()
     
-    let pages = List<RLMInteger>()
+    let pages = List<Int>()
     
-    let attachments = List<RLMData>()
-    
-    var objectsToDelete: [Object] {
-        let authors = Array(self.authors) as [Object]
-        let dates = Array(self.dates) as [Object]
-        let pages = Array(self.pages) as [Object]
-        let attachments = Array(self.attachments) as [Object]
-        
-        return authors + dates + pages + attachments
-    }
+    let attachments = List<Data>()
     
 }

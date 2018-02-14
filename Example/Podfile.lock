@@ -1,15 +1,15 @@
 PODS:
-  - DAO (1.1.0):
-    - DAO/CoreData (= 1.1.0)
-    - DAO/Realm (= 1.1.0)
-  - DAO/CoreData (1.1.0)
-  - DAO/Realm (1.1.0):
+  - DAO (1.1.2):
+    - DAO/CoreData (= 1.1.2)
+    - DAO/Realm (= 1.1.2)
+  - DAO/CoreData (1.1.2)
+  - DAO/Realm (1.1.2):
     - RealmSwift
-  - Realm (3.0.0):
-    - Realm/Headers (= 3.0.0)
-  - Realm/Headers (3.0.0)
-  - RealmSwift (3.0.0):
-    - Realm (= 3.0.0)
+  - Realm (3.1.1):
+    - Realm/Headers (= 3.1.1)
+  - Realm/Headers (3.1.1)
+  - RealmSwift (3.1.1):
+    - Realm (= 3.1.1)
 
 DEPENDENCIES:
   - DAO (from `../`)
@@ -19,9 +19,9 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  DAO: 9bc90bc17f47b60b8f6a065fb5fa2232a87fa2ec
-  Realm: dec0de73be8c57506e39db72694d513c189493b3
-  RealmSwift: 44a7090b16d1b22a406c6bf129bdd602db1bbecc
+  DAO: ae252e79592664b48c67687586663024bd0e5078
+  Realm: 42d1c38a5b1bbcc828b48a7ce702cb86fc68adf4
+  RealmSwift: d31937ca6a6ee54acde64ec839523c0a3c04924b
 
 PODFILE CHECKSUM: 304d7b9f54070467c355fe795db431630f017f61
 

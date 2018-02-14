@@ -17,10 +17,10 @@ class RLMBookTranslator: RealmTranslator<Book, DBBook> {
     override func fill(_ entity: Book, fromEntry: DBBook) {
         entity.entityId = fromEntry.entryId
         entity.name = fromEntry.name
-        entity.authors = fromEntry.authors.map { $0.value }
-        entity.dates = fromEntry.dates.map { $0.value }
-        entity.pages = fromEntry.pages.map { $0.value }
-        entity.attachments = fromEntry.attachments.map { $0.value }
+        entity.authors = fromEntry.authors.map { $0 }
+        entity.dates = fromEntry.dates.map { $0 }
+        entity.pages = fromEntry.pages.map { $0 }
+        entity.attachments = fromEntry.attachments.map { $0 }
     }
     
     
@@ -36,15 +36,10 @@ class RLMBookTranslator: RealmTranslator<Book, DBBook> {
         entry.pages.removeAll()
         entry.attachments.removeAll()
         
-        let authors = fromEntity.authors.map { RLMString(val: $0) }
-        let dates = fromEntity.dates.map { RLMDate(val: $0) }
-        let pages = fromEntity.pages.map { RLMInteger(val: $0) }
-        let attachments = fromEntity.attachments.map { RLMData(val: $0) }
-        
-        entry.authors.append(objectsIn: authors)
-        entry.dates.append(objectsIn: dates)
-        entry.pages.append(objectsIn: pages)
-        entry.attachments.append(objectsIn: attachments)
+        entry.authors.append(objectsIn: fromEntity.authors)
+        entry.dates.append(objectsIn: fromEntity.dates)
+        entry.pages.append(objectsIn: fromEntity.pages)
+        entry.attachments.append(objectsIn: fromEntity.attachments)
     }
     
 }
