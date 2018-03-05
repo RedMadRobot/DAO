@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.description      = 'Library provides easy way to cache entities.'
   s.homepage         = 'https://github.com/RedMadRobot/DAO'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'vani2' => 'iv@redmadrobot.com' }
+  s.author           = { 'vani2' => 'iv@redmadrobot.com', 'hoppus' => 'e.popov@redmadrobot.com' }
   s.source           = { :git => 'https://github.com/RedMadRobot/DAO.git', :tag => s.version, :submodules => true }
   s.platform         = :ios, '9.0'
   s.swift_version    = '4.0'
