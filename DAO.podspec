@@ -8,6 +8,7 @@ Pod::Spec.new do |s|
   s.author           = { 'vani2' => 'iv@redmadrobot.com' }
   s.source           = { :git => 'https://github.com/RedMadRobot/DAO.git', :tag => s.version, :submodules => true }
   s.platform         = :ios, '9.0'
+  s.swift_version    = '4.0'
   s.source_files     = 'DAO/Classes/Core/**/*'
   
   s.subspec 'Realm' do |r|
