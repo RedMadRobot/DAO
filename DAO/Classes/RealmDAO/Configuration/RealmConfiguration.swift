@@ -29,7 +29,7 @@ public struct RealmConfiguration {
      to the user. It is passed the total file size (data + free space) and the total
      bytes used by data in the file.
      
-     Return `YES` to indicate that an attempt to compact the file should be made.
+     Return `true` to indicate that an attempt to compact the file should be made.
      The compaction will be skipped if another process is accessing it.
      */
     public let shouldCompactOnLaunch: ((Int, Int) -> Bool)?

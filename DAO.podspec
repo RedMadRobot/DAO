@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'DAO'
-  s.version          = '1.3.0'
+  s.version          = '1.3.1'
   s.summary          = 'DAO Library'
   s.description      = 'Library provides easy way to cache entities.'
   s.homepage         = 'https://github.com/RedMadRobot/DAO'
@@ -10,12 +10,12 @@ Pod::Spec.new do |s|
   s.platform         = :ios, '9.0'
   s.swift_version    = '4.0'
   s.source_files     = 'DAO/Classes/Core/**/*'
-  
+
   s.subspec 'Realm' do |r|
       r.source_files = 'DAO/Classes/RealmDAO/**/*', 'DAO/Classes/Core/**/*'
       r.dependency "RealmSwift"
   end
-  
+
   s.subspec 'CoreData' do |cd|
       cd.source_files = 'DAO/Classes/CoreDataDAO/**/*', 'DAO/Classes/Core/**/*'
   end
