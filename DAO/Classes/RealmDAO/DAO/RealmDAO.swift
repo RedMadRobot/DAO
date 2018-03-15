@@ -58,6 +58,7 @@ open class RealmDAO<Model: Entity, RealmModel: RLMEntry>: DAO<Model> {
         config.schemaVersion = configuration.databaseVersion
         config.migrationBlock = configuration.migrationBlock
         config.encryptionKey = configuration.encryptionKey
+        config.shouldCompactOnLaunch = configuration.shouldCompactOnLaunch
         
         return config
     }

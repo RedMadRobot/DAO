@@ -10,7 +10,7 @@ import RealmSwift
 /// Incapsulates basic settings.
 /// Used to initialize `Realm DAO`.
 public struct RealmConfiguration {
-
+    
     /// Name of database file name.
     public let databaseFileName: String
     
@@ -22,6 +22,17 @@ public struct RealmConfiguration {
     
     /// Key to encrypt data.
     public let encryptionKey: Data?
+    
+    /**
+     A block called when opening a Realm for the first time during the life
+     of a process to determine if it should be compacted before being returned
+     to the user. It is passed the total file size (data + free space) and the total
+     bytes used by data in the file.
+     
+     Return `YES` to indicate that an attempt to compact the file should be made.
+     The compaction will be skipped if another process is accessing it.
+     */
+    public let shouldCompactOnLaunch: ((Int, Int) -> Bool)?
     
     
     /// Create an instance with specified `databaseFileName`, `databaseVersion`, `migrationBlock`.
@@ -35,12 +46,14 @@ public struct RealmConfiguration {
         databaseFileName: String = "Database.realm",
         databaseVersion: UInt64 = 1,
         migrationBlock: MigrationBlock? = nil,
-        encryptionKey: Data? = nil) {
+        encryptionKey: Data? = nil,
+        shouldCompactOnLaunch: ((Int, Int) -> Bool)? = nil) {
         
         self.databaseFileName = databaseFileName
         self.databaseVersion = databaseVersion
         self.migrationBlock = migrationBlock
         self.encryptionKey = encryptionKey
+        self.shouldCompactOnLaunch = shouldCompactOnLaunch
     }
     
 }
