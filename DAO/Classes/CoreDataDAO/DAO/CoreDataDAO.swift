@@ -60,6 +60,10 @@ open class CoreDataDAO<CDModel: NSManagedObject, Model: Entity> : DAO<Model> {
                             description.setOption($0.value, forKey: $0.key)
                         }
                     description.type = configuration.storeType
+                    
+                    if configuration.persistentStoreURL != nil {
+                        description.url = configuration.persistentStoreURL
+                    }
                 }
             
             var error: Error?
@@ -82,7 +86,7 @@ open class CoreDataDAO<CDModel: NSManagedObject, Model: Entity> : DAO<Model> {
             try persistentStoreCoordinator.addPersistentStore(
                     ofType: configuration.storeType,
                     configurationName: nil,
-                    at: CoreDataDAO.url(storeName: "\(configuration.containerName).db"),
+                    at: configuration.persistentStoreURL ?? CoreDataDAO.url(storeName: "\(configuration.containerName).db"),
                     options: configuration.options)
         }
  
