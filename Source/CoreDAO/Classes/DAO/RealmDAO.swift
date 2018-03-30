@@ -75,6 +75,11 @@ open class RealmDAO<Model: Entity, RealmModel: RLMEntry>: DAO<Model> {
         return entities
     }
     
+    open func count(predicate: NSPredicate? = nil) -> Int
+    {
+        return self.readAllEntriesPredicated(predicate).count
+    }
+    
     override open func erase() throws
     {
         let results = self.readAllEntriesPredicated(nil)
