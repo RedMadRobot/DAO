@@ -46,9 +46,8 @@ open class CoreDataDAO<CDModel: NSManagedObject, Model: Entity> : DAO<Model> {
     ///   - translator: translator for current `CDModel` and `Model` types.
     ///   - configuration: configuration. See also `CoreDataConfiguration`.
     /// - Throws: error if loading or adding persistence store is failed.
-    public init(_ translator: CoreDataTranslator<CDModel, Model>,
+    public convenience init(_ translator: CoreDataTranslator<CDModel, Model>,
                 configuration: CoreDataConfiguration) throws {
-        self.translator = translator
         
         if #available(iOS 10, *) {
             let persistentContainer = NSPersistentContainer(name: configuration.containerName)
@@ -74,13 +73,13 @@ open class CoreDataDAO<CDModel: NSManagedObject, Model: Entity> : DAO<Model> {
             
             if let error = error { throw error }
             
-            persistentStoreCoordinator = persistentContainer.persistentStoreCoordinator
+            self.init(translator, persistentContainer: persistentContainer)
         } else {
             let url = Bundle(for: CDModel.self).url(
                     forResource: configuration.containerName,
                     withExtension: "momd")!
         
-            persistentStoreCoordinator = NSPersistentStoreCoordinator(
+            let persistentStoreCoordinator = NSPersistentStoreCoordinator(
                     managedObjectModel: NSManagedObjectModel(contentsOf: url)!)
             
             try persistentStoreCoordinator.addPersistentStore(
@@ -88,8 +87,35 @@ open class CoreDataDAO<CDModel: NSManagedObject, Model: Entity> : DAO<Model> {
                     configurationName: nil,
                     at: configuration.persistentStoreURL ?? CoreDataDAO.url(storeName: "\(configuration.containerName).db"),
                     options: configuration.options)
+            
+            self.init(translator, persistentStoreCoordinator: persistentStoreCoordinator)
         }
- 
+    }
+    
+    /// Creates an instance with specified `translator` and `persistentContainer`.
+    ///
+    /// - Parameters:
+    ///   - translator: translator for current `CDModel` and `Model` types.
+    ///   - persistentContainer: initialized NSPersistentContainer with loaded persistent stores
+    @available(iOS 10.0, *)
+    public convenience init(_ translator: CoreDataTranslator<CDModel, Model>,
+                            persistentContainer: NSPersistentContainer) {
+        
+        self.init(translator,
+                  persistentStoreCoordinator: persistentContainer.persistentStoreCoordinator)
+    }
+    
+    /// Creates an instance with specified `translator` and `persistentStoreCoordinator`.
+    ///
+    /// - Parameters:
+    ///   - translator: translator for current `CDModel` and `Model` types.
+    ///   - persistentStoreCoordinator: initialized NSPersistentStoreCoordinator with loaded persistent stores
+    public init(_ translator: CoreDataTranslator<CDModel, Model>,
+                persistentStoreCoordinator: NSPersistentStoreCoordinator) {
+        
+        self.translator = translator
+        self.persistentStoreCoordinator = persistentStoreCoordinator
+        
         super.init()
     }
     
