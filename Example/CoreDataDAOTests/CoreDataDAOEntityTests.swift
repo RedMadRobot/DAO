@@ -51,7 +51,7 @@ final class CoreDataDAOEntityTests: XCTestCase {
             }
             
             
-            DispatchQueue.main.async {
+            DispatchQueue.global().async {
                 if let savedEntity = self.dao.read("2_back") {
                     XCTAssertEqual(savedEntity.entityId, entity.entityId)
                 } else {
