@@ -25,9 +25,9 @@ open class CoreDataDAO<CDModel: NSManagedObject, Model: Entity> : DAO<Model> {
     /// Managed object context. Context is created every transaction due to current queue – 
     /// main or background.
     private var context: NSManagedObjectContext {
-         let context = Thread.isMainThread ?
-            NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType) :
-            NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+         let context = Thread.isMainThread
+            ? NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
+            : NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
      
         context.persistentStoreCoordinator = persistentStoreCoordinator
         context.shouldDeleteInaccessibleFaults = true
@@ -46,8 +46,9 @@ open class CoreDataDAO<CDModel: NSManagedObject, Model: Entity> : DAO<Model> {
     ///   - translator: translator for current `CDModel` and `Model` types.
     ///   - configuration: configuration. See also `CoreDataConfiguration`.
     /// - Throws: error if loading or adding persistence store is failed.
-    public convenience init(_ translator: CoreDataTranslator<CDModel, Model>,
-                configuration: CoreDataConfiguration) throws {
+    public convenience init(
+        _ translator: CoreDataTranslator<CDModel, Model>,
+        configuration: CoreDataConfiguration) throws {
         
         if #available(iOS 10, *) {
             let persistentContainer = NSPersistentContainer(name: configuration.containerName)
@@ -77,15 +78,20 @@ open class CoreDataDAO<CDModel: NSManagedObject, Model: Entity> : DAO<Model> {
         } else {
             let url = Bundle(for: CDModel.self).url(
                     forResource: configuration.containerName,
-                    withExtension: "momd")!
+                    withExtension: "momd"
+                )!
         
             let persistentStoreCoordinator = NSPersistentStoreCoordinator(
-                    managedObjectModel: NSManagedObjectModel(contentsOf: url)!)
+                    managedObjectModel: NSManagedObjectModel(contentsOf: url)!
+            )
+            
+            let persistentStoreUrl = configuration.persistentStoreURL
+                ?? CoreDataDAO.url(storeName: "\(configuration.containerName).db")
             
             try persistentStoreCoordinator.addPersistentStore(
                     ofType: configuration.storeType,
                     configurationName: nil,
-                    at: configuration.persistentStoreURL ?? CoreDataDAO.url(storeName: "\(configuration.containerName).db"),
+                    at: persistentStoreUrl,
                     options: configuration.options)
             
             self.init(translator, persistentStoreCoordinator: persistentStoreCoordinator)
@@ -98,11 +104,14 @@ open class CoreDataDAO<CDModel: NSManagedObject, Model: Entity> : DAO<Model> {
     ///   - translator: translator for current `CDModel` and `Model` types.
     ///   - persistentContainer: initialized NSPersistentContainer with loaded persistent stores
     @available(iOS 10.0, *)
-    public convenience init(_ translator: CoreDataTranslator<CDModel, Model>,
-                            persistentContainer: NSPersistentContainer) {
+    public convenience init(
+        _ translator: CoreDataTranslator<CDModel, Model>,
+         persistentContainer: NSPersistentContainer) {
         
-        self.init(translator,
-                  persistentStoreCoordinator: persistentContainer.persistentStoreCoordinator)
+        self.init(
+            translator,
+            persistentStoreCoordinator: persistentContainer.persistentStoreCoordinator
+        )
     }
     
     /// Creates an instance with specified `translator` and `persistentStoreCoordinator`.
@@ -110,8 +119,9 @@ open class CoreDataDAO<CDModel: NSManagedObject, Model: Entity> : DAO<Model> {
     /// - Parameters:
     ///   - translator: translator for current `CDModel` and `Model` types.
     ///   - persistentStoreCoordinator: initialized NSPersistentStoreCoordinator with loaded persistent stores
-    public init(_ translator: CoreDataTranslator<CDModel, Model>,
-                persistentStoreCoordinator: NSPersistentStoreCoordinator) {
+    public init(
+        _ translator: CoreDataTranslator<CDModel, Model>,
+        persistentStoreCoordinator: NSPersistentStoreCoordinator) {
         
         self.translator = translator
         self.persistentStoreCoordinator = persistentStoreCoordinator
@@ -254,9 +264,7 @@ open class CoreDataDAO<CDModel: NSManagedObject, Model: Entity> : DAO<Model> {
             guard let `self` = self else { return }
             
             self.fetchEntries(inContext: context)
-                .forEach {
-                    context.delete($0)
-                }
+                .forEach(context.delete)
             
             do {
                 try context.save()
@@ -279,9 +287,7 @@ open class CoreDataDAO<CDModel: NSManagedObject, Model: Entity> : DAO<Model> {
             guard let `self` = self else { return }
             
             self.fetchEntries(entityId, inContext: context)
-                .forEach {
-                    context.delete($0)
-                }
+                .forEach(context.delete)
             do {
                 try context.save()
             } catch let e {
@@ -300,11 +306,10 @@ open class CoreDataDAO<CDModel: NSManagedObject, Model: Entity> : DAO<Model> {
     private func fetchEntries(
             _ entryId: String,
             inContext context: NSManagedObjectContext) -> [CDModel] {
-        if let entries = try? context.fetch(request(entryId)) {
-            return entries
-        } else {
-            return [CDModel]()
-        }
+        
+        let request = self.request(entryId)
+        let entries = try? context.fetch(request)
+        return entries ?? []
     }
     
     
@@ -312,11 +317,10 @@ open class CoreDataDAO<CDModel: NSManagedObject, Model: Entity> : DAO<Model> {
             _ predicate: NSPredicate? = nil,
             sortDescriptors: [NSSortDescriptor] = [],
             inContext context: NSManagedObjectContext) -> [CDModel] {
-        if let entries = try? context.fetch(request(predicate, sortDescriptors: sortDescriptors)) {
-            return entries
-        } else {
-            return [CDModel]()
-        }
+        
+        let request = self.request(predicate, sortDescriptors: sortDescriptors)
+        let entries = try? context.fetch(request)
+        return entries ?? []
     }
     
     
@@ -328,8 +332,10 @@ open class CoreDataDAO<CDModel: NSManagedObject, Model: Entity> : DAO<Model> {
     }
 
     
-    private func request(_ predicate: NSPredicate?,
-                         sortDescriptors: [NSSortDescriptor]) -> NSFetchRequest<CDModel> {
+    private func request(
+        _ predicate: NSPredicate?,
+        sortDescriptors: [NSSortDescriptor]) -> NSFetchRequest<CDModel> {
+        
         let request = NSFetchRequest<CDModel>(entityName: translator.entryClassName)
         request.predicate = predicate
         request.sortDescriptors = sortDescriptors
@@ -343,6 +349,7 @@ open class CoreDataDAO<CDModel: NSManagedObject, Model: Entity> : DAO<Model> {
     private func isEntryExist(
             _ entryId: String,
             inContext context: NSManagedObjectContext) -> Bool {
+        
         let existingEntries = fetchEntries(entryId, inContext: context)
         return existingEntries.count > 0
     }
