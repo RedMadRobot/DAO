@@ -34,6 +34,7 @@ final class CoreDataDAOMessagesTests: XCTestCase {
     override func tearDown() {
         super.tearDown()
         
+        try! dao.erase()
         dao = nil
     }
     

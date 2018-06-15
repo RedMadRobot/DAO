@@ -41,6 +41,9 @@ final class CoreDataDAOManyDAOTests: XCTestCase {
     override func tearDown() {
         super.tearDown()
         
+        try! messagesDAO.erase()
+        try! folderDAO.erase()
+        
         messagesDAO = nil
         folderDAO = nil
     }
