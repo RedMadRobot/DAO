@@ -13,33 +13,34 @@ import DAO
 
 final class RealmDAOFolderTests: XCTestCase {
     
-    let messageDAO = RealmDAO(RLMMessageTranslator())
+    private var messageDAO: RealmDAO<Message, DBMessage>!
+    private var folderDAO: RealmDAO<Folder, DBFolder>!
     
-    let folderDAO = RealmDAO(RLMFolderTranslator())
+    override func setUp() {
+        super.setUp()
+        
+        messageDAO = RealmDAO(RLMMessageTranslator())
+        folderDAO = RealmDAO(RLMFolderTranslator())
+    }
     
+    override func tearDown() {
+        super.tearDown()
+        
+        try! messageDAO.erase()
+        try! folderDAO.erase()
+        
+        messageDAO = nil
+        folderDAO = nil
+    }
     
     func testCascadeErase() {
         let message = Message(entityId: "V.message", text: "V.message.text")
         let folder = Folder(entityId: "V", name: "Delete", messages: [message])
         
-        do {
-            try folderDAO.persist(folder)
-        } catch {
-            XCTFail("Persist folder is failed")
-        }
-        
-        let savedMessage = messageDAO.read("V.message")
-        
-        XCTAssertNotNil(savedMessage)
-        
-        do {
-            try folderDAO.erase("V")
-        } catch {
-            XCTFail("Erase folder is failed")
-        }
-        
+        XCTAssertNoThrow(try folderDAO.persist(folder), "Persist folder is failed")
+        XCTAssertNotNil(messageDAO.read("V.message"))
+        XCTAssertNoThrow(try folderDAO.erase("V"), "Erase folder is failed")
         XCTAssertNil(messageDAO.read("V.message"))
     }
-
     
 }
