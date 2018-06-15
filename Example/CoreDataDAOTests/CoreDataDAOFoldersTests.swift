@@ -14,30 +14,36 @@ import CoreData
 
 final class CoreDataDAOFoldersTests: XCTestCase {
     
-    let dao = try! CoreDataDAO(
-        CDFolderTranslator(),
-        configuration: CoreDataConfiguration(
-            containerName: "Model",
-            storeType: NSInMemoryStoreType))
+    private var dao: CoreDataDAO<CDFolder, Folder>!
     
+    override func setUp() {
+        super.setUp()
+        
+        let translator = CDFolderTranslator()
+        let configuration = CoreDataConfiguration(
+            containerName: "Model",
+            storeType: NSInMemoryStoreType
+        )
+        
+        dao = try! CoreDataDAO(
+            translator,
+            configuration: configuration
+        )
+    }
+    
+    override func tearDown() {
+        super.tearDown()
+        
+        dao = nil
+    }
     
     func testPersistMessages() {
         let message1 = Message(entityId: "abc", text: "text1")
         let message2 = Message(entityId: "bcc", text: "text2")
-        
         let folder = Folder(entityId: "fld", name: "Home", messages: [message1, message2])
         
-        do {
-            try dao.persist(folder)
-        } catch _ {
-            XCTFail("Persist folder is failed")
-        }
-        
-        if let savedFolder = dao.read(folder.entityId) {
-            XCTAssertEqual(folder.messages.count, savedFolder.messages.count)
-        } else {
-            XCTFail("Persist folder is failed")
-        }
+        XCTAssertNoThrow(try dao.persist(folder), "Persist folder is failed")
+        XCTAssertEqual(dao.read(folder.entityId)?.messages.count, folder.messages.count)
     }
     
 }

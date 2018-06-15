@@ -14,30 +14,43 @@ import CoreData
 
 final class CoreDataDAOManyDAOTests: XCTestCase {
     
-    let messagesDAO = try! CoreDataDAO(
-        CDMessageTranslator(),
-        configuration: CoreDataConfiguration(
-            containerName: "Model",
-            storeType: NSInMemoryStoreType))
+    private var messagesDAO: CoreDataDAO<CDMessage, Message>!
+    private var folderDAO: CoreDataDAO<CDFolder, Folder>!
     
-    let folderDAO = try! CoreDataDAO(
-        CDFolderTranslator(),
-        configuration: CoreDataConfiguration(
+    override func setUp() {
+        super.setUp()
+        
+        let configuration = CoreDataConfiguration(
             containerName: "Model",
-            storeType: NSInMemoryStoreType))
+            storeType: NSInMemoryStoreType
+        )
+        
+        let messageTranslator = CDMessageTranslator()
+        messagesDAO = try! CoreDataDAO(
+            messageTranslator,
+            configuration: configuration
+        )
+        
+        let folderTranslator = CDFolderTranslator()
+        folderDAO = try! CoreDataDAO(
+            folderTranslator,
+            configuration: configuration
+        )
+    }
     
+    override func tearDown() {
+        super.tearDown()
+        
+        messagesDAO = nil
+        folderDAO = nil
+    }
     
     func testPersistMessage() {
         let message = Message(entityId: "abc", text: "text")
         let folder = Folder(entityId: "fld", name: "folder", messages: [])
         
-        do {
-            try messagesDAO.persist(message)
-            try folderDAO.persist(folder)
-        } catch _ {
-            XCTFail("Persist message is failed")
-        }
-        
+        XCTAssertNoThrow(try messagesDAO.persist(message), "Persist message is failed")
+        XCTAssertNoThrow(try folderDAO.persist(folder), "Persist message is failed")
         XCTAssertEqual(message, messagesDAO.read(message.entityId))
         XCTAssertEqual(folder, folderDAO.read(folder.entityId))
     }
