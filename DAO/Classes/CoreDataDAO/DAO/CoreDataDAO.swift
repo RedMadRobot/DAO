@@ -180,15 +180,23 @@ open class CoreDataDAO<CDModel: NSManagedObject, Model: Entity> : DAO<Model> {
     
     
     open override func read(_ entityId: String) -> Model? {
-        guard let entries = try? context.fetch(request(entityId)),
-            !entries.isEmpty,
-            let entry = entries.first
-        else {
-            return nil
-        }
         
-        let entity = Model()
-        translator.fill(entity, fromEntry: entry)
+        let context = self.context
+        var entity: Model?
+            
+        context.performAndWait { [weak self] in
+            guard
+                let `self` = self,
+                let entries = try? context.fetch(self.request(entityId)),
+                let entry = entries.first
+                else {
+                    return
+            }
+            
+            let model = Model()
+            self.translator.fill(model, fromEntry: entry)
+            entity = model
+        }
         
         return entity
     }
@@ -211,14 +219,24 @@ open class CoreDataDAO<CDModel: NSManagedObject, Model: Entity> : DAO<Model> {
         
         let sortDescriptors = field != nil ? [NSSortDescriptor(key: field, ascending: ascending)] : []
         
-        return fetchEntries(predicate, sortDescriptors: sortDescriptors, inContext: context)
-            .flatMap {
-                let entity = Model()
-                
-                self.translator.fill(entity, fromEntry: $0)
-                
-                return entity
+        let context = self.context
+        var models: [Model]?
+        
+        context.performAndWait { [weak self] in
+            guard let `self` = self else { return }
+            
+            models = self.fetchEntries(
+                predicate,
+                sortDescriptors: sortDescriptors,
+                inContext: context)
+                .compactMap {
+                    let entity = Model()
+                    self.translator.fill(entity, fromEntry: $0)
+                    return entity
             }
+        }
+        
+        return models ?? []
     }
     
     
