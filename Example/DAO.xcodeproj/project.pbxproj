@@ -359,7 +359,6 @@
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
 				A3C342A12354181FB1CDC888 /* [CP] Embed Pods Frameworks */,
-				FBB72B6CB6EF1FFF9E33FE93 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -378,8 +377,6 @@
 				AA10ECA61EEFE039001228A1 /* Sources */,
 				AA10ECA71EEFE039001228A1 /* Frameworks */,
 				AA10ECA81EEFE039001228A1 /* Resources */,
-				C31918995F93713C33A15BCA /* [CP] Embed Pods Frameworks */,
-				525D7AFD3BD0F596CBD437B0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -399,8 +396,6 @@
 				AA3525831EEFDCE6009C4375 /* Sources */,
 				AA3525841EEFDCE6009C4375 /* Frameworks */,
 				AA3525851EEFDCE6009C4375 /* Resources */,
-				6E99BAE18868857CA3143787 /* [CP] Embed Pods Frameworks */,
-				E809FAD87FAC0879AF2B934A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -505,36 +500,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		525D7AFD3BD0F596CBD437B0 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RealmDAOTests/Pods-RealmDAOTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6E99BAE18868857CA3143787 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoreDataDAOTests/Pods-CoreDataDAOTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		847A3AC11FE1C324C80B4DFC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -575,36 +540,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DAO_Example/Pods-DAO_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C31918995F93713C33A15BCA /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RealmDAOTests/Pods-RealmDAOTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E809FAD87FAC0879AF2B934A /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoreDataDAOTests/Pods-CoreDataDAOTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		EC8476E3A4C369B6B36446A1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -621,21 +556,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FBB72B6CB6EF1FFF9E33FE93 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DAO_Example/Pods-DAO_Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
