@@ -39,8 +39,10 @@ public struct CoreDataConfiguration {
         containerName: String,
         storeType: String = NSSQLiteStoreType,
         options: [String : NSObject] =
-            [NSMigratePersistentStoresAutomaticallyOption: true as NSObject,
-             NSInferMappingModelAutomaticallyOption: true as NSObject],
+            [
+                NSMigratePersistentStoresAutomaticallyOption: true as NSObject,
+                NSInferMappingModelAutomaticallyOption: true as NSObject
+            ],
         persistentStoreURL:URL? = nil) {
         
         self.containerName = containerName

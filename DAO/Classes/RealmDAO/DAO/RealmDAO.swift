@@ -28,8 +28,10 @@ open class RealmDAO<Model: Entity, RealmModel: RLMEntry>: DAO<Model> {
     /// - Parameters:
     ///   - translator: translator for current `Model` and `RealmModel` types.
     ///   - configuration: configuration. See also `RealmConfiguration`.
-    public init(_ translator: RealmTranslator<Model, RealmModel>,
-                configuration: RealmConfiguration) {
+    public init(
+        _ translator: RealmTranslator<Model, RealmModel>,
+        configuration: RealmConfiguration) {
+        
         self.translator = translator
         self.configuration = RealmDAO.makeRealmConfiguration(configuration)
         super.init()
@@ -40,9 +42,10 @@ open class RealmDAO<Model: Entity, RealmModel: RLMEntry>: DAO<Model> {
     ///
     /// - Parameters:
     ///   - translator: translator for current `Model` and `RealmModel` types.
-    public convenience init(_ translator: RealmTranslator<Model, RealmModel>) {
-        self.init(translator,
-                  configuration: RealmConfiguration())
+    public convenience init(
+        _ translator: RealmTranslator<Model, RealmModel>) {
+        
+        self.init(translator, configuration: RealmConfiguration())
     }
     
     
@@ -51,8 +54,8 @@ open class RealmDAO<Model: Entity, RealmModel: RLMEntry>: DAO<Model> {
         var config = Realm.Configuration.defaultConfiguration
         
         guard let path = self.pathForFileName(configuration.databaseFileName) else {
-            fatalError("Cant find path for DB with filename: \(configuration.databaseFileName)" +
-                " v.\(configuration.databaseVersion)")
+            fatalError("Cant find path for DB with filename: \(configuration.databaseFileName)"
+                + " v.\(configuration.databaseVersion)")
         }
         config.fileURL = path
         config.schemaVersion = configuration.databaseVersion
@@ -64,7 +67,11 @@ open class RealmDAO<Model: Entity, RealmModel: RLMEntry>: DAO<Model> {
     }
     
     public static func pathForFileName(_ fileName: String) -> URL? {
-        let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first as NSString?
+        let documentDirectory = NSSearchPathForDirectoriesInDomains(
+            .documentDirectory,
+            .userDomainMask,
+            true).first as NSString?
+        
         guard let realmPath = documentDirectory?.appendingPathComponent(fileName) else {
             return nil
         }
@@ -132,15 +139,19 @@ open class RealmDAO<Model: Entity, RealmModel: RLMEntry>: DAO<Model> {
     }
     
     
-    open override func read(orderedBy field: String?,
-                            ascending: Bool) -> [Model] {
+    open override func read(
+        orderedBy field: String?,
+        ascending: Bool) -> [Model] {
+        
         return read(predicatedBy: nil, orderedBy: field, ascending: ascending)
     }
     
     
-    open override func read(predicatedBy predicate: NSPredicate?,
-                            orderedBy field: String?,
-                            ascending: Bool = true) -> [Model] {
+    open override func read(
+        predicatedBy predicate: NSPredicate?,
+        orderedBy field: String?,
+        ascending: Bool = true) -> [Model] {
+        
         var entries = readFromRealm(predicate)
         
         if let field = field {

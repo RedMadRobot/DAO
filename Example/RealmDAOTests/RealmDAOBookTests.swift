@@ -11,33 +11,41 @@ import DAO
 @testable import DAO_Example
 
 
-class RealmDAOBookTests: XCTestCase {
+final class RealmDAOBookTests: XCTestCase {
     
-    let dao = RealmDAO(RLMBookTranslator())
+    private var dao: RealmDAO<Book, DBBook>!
     
+    override func setUp() {
+        super.setUp()
+        
+        dao = RealmDAO(RLMBookTranslator())
+    }
+    
+    override func tearDown() {
+        super.tearDown()
+        
+        try! dao.erase()
+        dao = nil
+    }
     
     func testPersist() {
-        let book = Book(entityId: "book1", name: "Swift", authors: ["Chris Lattner"],
-                        dates: [Date(timeIntervalSince1970: 1000000)],
-                        pages: [100, 200], attachments: [Data()])
+        let book = Book(
+            entityId: "book1",
+            name: "Swift",
+            authors: ["Chris Lattner"],
+            dates: [Date(timeIntervalSince1970: 1000000)],
+            pages: [100, 200],
+            attachments: [Data()]
+        )
         
-        do {
-            try dao.persist(book)
-        } catch {
-            XCTFail("Persist is failed")
-        }
-        
-        if let savedBook = dao.read(book.entityId) {
-            XCTAssertEqual(book, savedBook)
-            XCTAssertFalse(savedBook.authors.isEmpty)
-            XCTAssertEqual(savedBook.authors.first, "Chris Lattner")
-            XCTAssertFalse(savedBook.dates.isEmpty)
-            XCTAssertFalse(savedBook.pages.isEmpty)
-            XCTAssertEqual(savedBook.pages.count, 2)
-            XCTAssertFalse(savedBook.attachments.isEmpty)
-        } else {
-            XCTFail("Persist is failed")
-        }
+        XCTAssertNoThrow(try dao.persist(book), "Persist is failed")
+        XCTAssertEqual(book, dao.read(book.entityId), "Persist is failed")
+        XCTAssertFalse((dao.read(book.entityId)?.authors.isEmpty) == true, "Persist is failed")
+        XCTAssertEqual(dao.read(book.entityId)?.authors.first, "Chris Lattner", "Persist is failed")
+        XCTAssertFalse((dao.read(book.entityId)?.dates.isEmpty) == true, "Persist is failed")
+        XCTAssertFalse((dao.read(book.entityId)?.pages.isEmpty) == true, "Persist is failed")
+        XCTAssertEqual(dao.read(book.entityId)?.pages.count, 2, "Persist is failed")
+        XCTAssertFalse((dao.read(book.entityId)?.attachments.isEmpty) == true, "Persist is failed")
     }
     
 }
