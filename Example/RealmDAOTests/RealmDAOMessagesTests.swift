@@ -13,48 +13,40 @@ import DAO
 
 final class RealmDAOMessagesTests: XCTestCase {
     
-    let dao = RealmDAO(RLMMessageTranslator())
-    
+    private var dao: RealmDAO<Message, DBMessage>!
     
     override func setUp() {
-        try? dao.erase()
+        super.setUp()
+        
+        dao = RealmDAO(RLMMessageTranslator())
     }
     
+    override func tearDown() {
+        super.tearDown()
+        
+        try! dao.erase()
+        dao = nil
+    }
     
     func testPersistMessage() {
         let message = Message(entityId: "abc", text: "text")
         
-        do {
-            try dao.persist(message)
-        } catch {
-            XCTFail("Persist is failed")
-        }
-        
+        XCTAssertNoThrow(try dao.persist(message), "Persist is failed")
         XCTAssertEqual(message, dao.read(message.entityId))
     }
     
-    
     func testReadMessage() {
         let message = Message(entityId: "def", text: "text 2")
-        do {
-            try dao.persist(message)
-        } catch {
-            XCTFail("Persist is failed")
-        }
         
+        XCTAssertNoThrow(try dao.persist(message), "Persist is failed")
         XCTAssertEqual(message, dao.read("def"))
     }
     
-    
     func testEraseMessage() {
         let message = Message(entityId: "ghi", text: "text 2")
-        do {
-            try dao.persist(message)
-            try dao.erase("ghi")
-        } catch {
-            XCTFail("Persist or erase is failed")
-        }
         
+        XCTAssertNoThrow(try dao.persist(message), "Persist or erase is failed")
+        XCTAssertNoThrow(try dao.erase("ghi"), "Persist or erase is failed")
         XCTAssertNil(dao.read("ghi"))
     }
     
@@ -65,12 +57,7 @@ final class RealmDAOMessagesTests: XCTestCase {
         let message2 = Message(entityId: "2", text: "2")
         let message3 = Message(entityId: "3", text: "3")
         
-        do {
-            try dao.persist([message1, message2, message3])
-        } catch {
-            XCTFail("Persist is failed")
-        }
-        
+        XCTAssertNoThrow(try dao.persist([message1, message2, message3]), "Persist is failed")
         let threeMessages = dao.read()
         
         XCTAssertEqual(threeMessages.count, 3)
@@ -81,11 +68,7 @@ final class RealmDAOMessagesTests: XCTestCase {
         let message55 = Message(entityId: "55", text: "55")
         let message66 = Message(entityId: "66", text: "66")
         
-        do {
-            try dao.persist([message1, message2, message3, message55, message66])
-        } catch {
-            XCTFail("Persist is failed")
-        }
+        XCTAssertNoThrow(try dao.persist([message1, message2, message3, message55, message66]), "Persist is failed")
         
         let fiveMessages = dao.read()
         

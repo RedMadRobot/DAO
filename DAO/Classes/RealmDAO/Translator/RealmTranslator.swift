@@ -33,11 +33,12 @@ open class RealmTranslator<Model: Entity, RealmModel: RLMEntry> {
     ///   - entries: list of instances of `RealmModel` type.
     ///   - fromEntities: array of instances of `Model` type.
     open func fill(_ entries: List<RealmModel>, fromEntities: [Model]) {
-        let oldEntries = entries.map { $0 }
+        var newEntries = [RealmModel]()
         
         fromEntities
             .map { entity -> (RealmModel, Model) in
-                let entry = oldEntries
+                
+                let entry = entries
                     .filter { $0.entryId == entity.entityId }
                     .first
                 
@@ -45,13 +46,26 @@ open class RealmTranslator<Model: Entity, RealmModel: RLMEntry> {
                     return (entry, entity)
                 } else {
                     let entry = RealmModel()
-                    entries.append(entry)
+                    newEntries.append(entry)
                     return (entry, entity)
                 }
             }
             .forEach {
                 self.fill($0.0, fromEntity: $0.1)
+        }
+        
+        if fromEntities.count < entries.count {
+            let entityIds = fromEntities.map { $0.entityId }
+            let deletedEntriesIndexes = entries
+                .filter { !entityIds.contains($0.entryId) }
+            deletedEntriesIndexes.forEach {
+                if let index = entries.index(of: $0) {
+                    entries.remove(at: index)
+                }
             }
+        } else {
+            entries.append(objectsIn: newEntries)
+        }
     }
 
     

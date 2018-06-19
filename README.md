@@ -1,6 +1,6 @@
 [![Issues count](https://img.shields.io/github/issues/RedMadRobot/DAO.svg)](https://img.shields.io/github/issues/RedMadRobot/DAO.svg)
-[![Cocoapod](https://img.shields.io/badge/pod-1.0.3-blue.svg)](https://img.shields.io/badge/pod-1.0.1-blue.svg)
-[![Swift](https://img.shields.io/badge/swift-3.0-red.svg)](https://img.shields.io/badge/swift-3.0-red.svg)
+[![Cocoapod](https://img.shields.io/badge/pod-1.1.2-blue.svg)](https://img.shields.io/badge/pod-1.0.1-blue.svg)
+[![Swift](https://img.shields.io/badge/swift-4.0-red.svg)](https://img.shields.io/badge/swift-3.0-red.svg)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://img.shields.io/badge/license-MIT-blue.svg)
 
 
@@ -58,13 +58,13 @@ Please look at the example project for more information.
 ## When not recommended to use
 
 - If you have big and complex database schema. Many entities, many relationships.
-- If you want to use many features of database. Realm Mobile Platform, for instance is not compatible with this implementation.
+- If you want to use specific features of database. Realm Mobile Platform, for instance is not compatible with DAO implementation.
 - If you have thousands of objects (> 10-20K). Performance can be the issue.
 
 ## Requirements
 
-- Xcode 8
-- Swift 3
+- Xcode 9
+- Swift 4
 - iOS 9
 
 ## Authors

@@ -14,52 +14,50 @@ import CoreData
 
 final class CoreDataDAOMessagesTests: XCTestCase {
     
-    let dao = try! CoreDataDAO(
-        CDMessageTranslator(),
-        configuration: CoreDataConfiguration(
-            containerName: "Model",
-            storeType: NSInMemoryStoreType))
+    private var dao: CoreDataDAO<CDMessage, Message>!
     
+    override func setUp() {
+        super.setUp()
+        
+        let translator = CDMessageTranslator()
+        let configuration = CoreDataConfiguration(
+            containerName: "Model",
+            storeType: NSInMemoryStoreType
+        )
+        
+        dao = try! CoreDataDAO(
+            translator,
+            configuration: configuration
+        )
+    }
+    
+    override func tearDown() {
+        super.tearDown()
+        
+        try! dao.erase()
+        dao = nil
+    }
     
     func testPersistMessage() {
         let message = Message(entityId: "abc", text: "text")
         
-        do {
-            try dao.persist(message)
-        } catch _ {
-            XCTFail("Persist message is failed")
-        }
-        
+        XCTAssertNoThrow(try dao.persist(message), "Persist message is failed")
         XCTAssertEqual(message, dao.read(message.entityId))
     }
-    
     
     func testReadMessage() {
         let message = Message(entityId: "def", text: "text 2")
         
-        do {
-            try dao.persist(message)
-        } catch _ {
-            XCTFail("Read message is failed")
-        }
-        
+        XCTAssertNoThrow(try dao.persist(message), "Read message is failed")
         XCTAssertEqual(message, dao.read("def"))
     }
-    
     
     func testEraseMessage() {
         let message = Message(entityId: "ghi", text: "text 2")
         
-        do {
-            try dao.persist(message)
-            try dao.erase("ghi")
-        } catch _ {
-            XCTFail("Erase message is failed")
-        }
-        
+        XCTAssertNoThrow(try dao.persist(message), "Erase message is failed")
+        XCTAssertNoThrow(try dao.erase("ghi"), "Erase message is failed")
         XCTAssertNil(dao.read("ghi"))
     }
-
-    
     
 }
