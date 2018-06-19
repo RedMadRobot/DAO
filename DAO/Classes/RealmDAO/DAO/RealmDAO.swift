@@ -30,10 +30,10 @@ open class RealmDAO<Model: Entity, RealmModel: RLMEntry>: DAO<Model> {
     ///   - configuration: configuration. See also `RealmConfiguration`.
     public init(
         _ translator: RealmTranslator<Model, RealmModel>,
-        configuration: RealmConfiguration) {
+        configuration: Realm.Configuration) {
         
         self.translator = translator
-        self.configuration = RealmDAO.makeRealmConfiguration(configuration)
+        self.configuration = configuration
         super.init()
     }
     
@@ -44,26 +44,8 @@ open class RealmDAO<Model: Entity, RealmModel: RLMEntry>: DAO<Model> {
     ///   - translator: translator for current `Model` and `RealmModel` types.
     public convenience init(
         _ translator: RealmTranslator<Model, RealmModel>) {
-        
-        self.init(translator, configuration: RealmConfiguration())
-    }
-    
-    
-    static func makeRealmConfiguration(_ configuration: RealmConfiguration) -> Realm.Configuration {
-        
-        var config = Realm.Configuration.defaultConfiguration
-        
-        guard let path = self.pathForFileName(configuration.databaseFileName) else {
-            fatalError("Cant find path for DB with filename: \(configuration.databaseFileName)"
-                + " v.\(configuration.databaseVersion)")
-        }
-        config.fileURL = path
-        config.schemaVersion = configuration.databaseVersion
-        config.migrationBlock = configuration.migrationBlock
-        config.encryptionKey = configuration.encryptionKey
-        config.shouldCompactOnLaunch = configuration.shouldCompactOnLaunch
-        
-        return config
+
+        self.init(translator, configuration: Realm.Configuration.defaultConfiguration)
     }
     
     public static func pathForFileName(_ fileName: String) -> URL? {
