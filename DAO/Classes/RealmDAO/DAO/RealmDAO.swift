@@ -27,6 +27,20 @@ open class RealmDAO<Model: Entity, RealmModel: RLMEntry>: DAO<Model> {
     ///
     /// - Parameters:
     ///   - translator: translator for current `Model` and `RealmModel` types.
+    ///   - configuration: configuration. See also `Realm.Configuration`.
+    public init(
+        _ translator: RealmTranslator<Model, RealmModel>,
+        configuration: Realm.Configuration) {
+        
+        self.translator = translator
+        self.configuration = configuration
+        super.init()
+    }
+    
+    /// Creates an instance with specified `translator` and `configuration`.
+    ///
+    /// - Parameters:
+    ///   - translator: translator for current `Model` and `RealmModel` types.
     ///   - configuration: configuration. See also `RealmConfiguration`.
     public init(
         _ translator: RealmTranslator<Model, RealmModel>,
