@@ -17,6 +17,9 @@ public struct RealmConfiguration {
     /// Version of database.
     public let databaseVersion: UInt64
     
+    /// URL of database.
+    public let databaseURL: URL?
+    
     /// Migration block for manual migration.
     public let migrationBlock: MigrationBlock?
     
@@ -35,21 +38,24 @@ public struct RealmConfiguration {
     public let shouldCompactOnLaunch: ((Int, Int) -> Bool)?
     
     
-    /// Create an instance with specified `databaseFileName`, `databaseVersion`, `migrationBlock`.
+    /// Create an instance with specified `databaseFileName`, `dataBaseURL`, `databaseVersion`, `migrationBlock`.
     ///
     /// - Parameters:
     ///   - databaseFileName: name. See above.
+    ///   - databaseURL: url. See above.
     ///   - databaseVersion: version. See above.
     ///   - migrationBlock: migration block. See above.
     ///   - encryptionKey: encryption key. See above.
     public init(
         databaseFileName: String = "Database.realm",
+        databaseURL: URL? = nil,
         databaseVersion: UInt64 = 1,
         migrationBlock: MigrationBlock? = nil,
         encryptionKey: Data? = nil,
         shouldCompactOnLaunch: ((Int, Int) -> Bool)? = nil) {
         
         self.databaseFileName = databaseFileName
+        self.databaseURL = databaseURL
         self.databaseVersion = databaseVersion
         self.migrationBlock = migrationBlock
         self.encryptionKey = encryptionKey
