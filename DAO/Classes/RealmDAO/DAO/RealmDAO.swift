@@ -67,7 +67,7 @@ open class RealmDAO<Model: Entity, RealmModel: RLMEntry>: DAO<Model> {
         
         var config = Realm.Configuration.defaultConfiguration
         
-        guard let path = self.pathForFileName(configuration.databaseFileName) else {
+        guard let path = configuration.databaseURL ?? self.pathForFileName(configuration.databaseFileName) else {
             fatalError("Cant find path for DB with filename: \(configuration.databaseFileName)"
                 + " v.\(configuration.databaseVersion)")
         }
