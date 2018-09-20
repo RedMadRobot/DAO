@@ -96,9 +96,9 @@ open class RealmDAO<Model: Entity, RealmModel: RLMEntry>: DAO<Model> {
     //MARK: - DAO
     
     override open func persist(_ entity: Model) throws {
-        if let entry = readFromRealm(entity.entityId) {
+        if let entry = try readFromRealm(entity.entityId) {
             try autoreleasepool {
-                realm().beginWrite()
+                try realm().beginWrite()
                 translator.fill(entry, fromEntity: entity)
                 try realm().commitWrite()
             }
@@ -111,24 +111,34 @@ open class RealmDAO<Model: Entity, RealmModel: RLMEntry>: DAO<Model> {
     
     
     open override func persist(_ entities: [Model]) throws {
-        let entries = List<RealmModel>()
-        entries.append(objectsIn: entities.flatMap { self.readFromRealm($0.entityId) })
         
+        let entries = List<RealmModel>()
+        for entity in entities {
+            if let tryRead = try? readFromRealm(entity.entityId),
+               let entry = tryRead {
+                entries.append(entry)
+            }
+        }
+        
+        let realm = try self.realm()
         try autoreleasepool {
-            realm().beginWrite()
+            realm.beginWrite()
             translator.fill(entries, fromEntities: entities)
             
             entries.forEach {
-                self.realm().create(RealmModel.self, value: $0, update: true)
+                realm.create(RealmModel.self, value: $0, update: true)
             }
             
-            try realm().commitWrite()
+            try realm.commitWrite()
         }
     }
     
     
     override open func read(_ entityId: String) -> Model? {
-        guard let entry = readFromRealm(entityId) else {
+        
+        guard
+            let tryRead = try? readFromRealm(entityId),
+            let entry = tryRead else {
             return nil
         }
         
@@ -140,10 +150,15 @@ open class RealmDAO<Model: Entity, RealmModel: RLMEntry>: DAO<Model> {
     
     
     open override func read() -> [Model] {
-        return readFromRealm().map {
-            let entity = Model()
-            self.translator.fill(entity, fromEntry: $0)
-            return entity
+        do {
+            let results = try readFromRealm()
+            return results.map {
+                let entity = Model()
+                self.translator.fill(entity, fromEntry: $0)
+                return entity
+            }
+        } catch {
+            return []
         }
     }
     
@@ -166,7 +181,12 @@ open class RealmDAO<Model: Entity, RealmModel: RLMEntry>: DAO<Model> {
         orderedBy field: String?,
         ascending: Bool = true) -> [Model] {
         
-        var entries = readFromRealm(predicate)
+        var entries: Results<RealmModel>
+        do {
+            entries = try readFromRealm(predicate)
+        } catch {
+            return []
+        }
         
         if let field = field {
             entries = entries.sorted(byKeyPath: field, ascending: ascending)
@@ -181,7 +201,7 @@ open class RealmDAO<Model: Entity, RealmModel: RLMEntry>: DAO<Model> {
     
     
     override open func erase() throws {
-        let results = readFromRealm()
+        let results = try readFromRealm()
         let entries: List<RealmModel> = List<RealmModel>()
         
         entries.append(objectsIn: results.map {
@@ -193,7 +213,7 @@ open class RealmDAO<Model: Entity, RealmModel: RLMEntry>: DAO<Model> {
     
     
     override open func erase(_ entityId: String) throws {
-        guard let entry = readFromRealm(entityId) else {
+        guard let entry = try readFromRealm(entityId) else {
             return
         }
         try delete(entry)
@@ -203,28 +223,32 @@ open class RealmDAO<Model: Entity, RealmModel: RLMEntry>: DAO<Model> {
     // MARK: - Private
     
     private func write(_ entry: RealmModel) throws {
-        try self.realm().write {
-            self.realm().create(RealmModel.self, value: entry, update: true)
+        let realm = try self.realm()
+        try realm.write {
+            realm.create(RealmModel.self, value: entry, update: true)
         }
     }
     
     
     private func write(_ entries: List<RealmModel>) throws {
-        try self.realm().write {
+        let realm = try self.realm()
+        try realm.write {
             entries.forEach { (e: RealmModel) -> () in
-                self.realm().create(RealmModel.self, value: e, update: true)
+                realm.create(RealmModel.self, value: e, update: true)
             }
         }
     }
     
     
-    private func readFromRealm(_ entryId: String) -> RealmModel? {
-        return self.realm().object(ofType: RealmModel.self, forPrimaryKey: entryId)
+    private func readFromRealm(_ entryId: String) throws -> RealmModel? {
+        let realm = try self.realm()
+        return realm.object(ofType: RealmModel.self, forPrimaryKey: entryId)
     }
     
     
-    private func readFromRealm(_ predicate: NSPredicate? = nil) -> Results<RealmModel> {
-        let results: Results<RealmModel> = self.realm().objects(RealmModel.self)
+    private func readFromRealm(_ predicate: NSPredicate? = nil) throws -> Results<RealmModel> {
+        let realm = try self.realm()
+        let results: Results<RealmModel> = realm.objects(RealmModel.self)
         guard let predicate = predicate else {
             return results
         }
@@ -261,12 +285,12 @@ open class RealmDAO<Model: Entity, RealmModel: RLMEntry>: DAO<Model> {
         }
         
         if let realmObject = object as? Object {
-            self.realm().delete(realmObject)
+            try? self.realm().delete(realmObject)
         }
     }
     
-    private func realm() -> Realm {
-        return try! Realm(configuration: configuration)
+    private func realm() throws -> Realm {
+        return try Realm(configuration: configuration)
     }
     
 }
