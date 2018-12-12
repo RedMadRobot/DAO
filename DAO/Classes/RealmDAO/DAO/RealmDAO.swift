@@ -271,7 +271,7 @@ open class RealmDAO<Model: Entity, RealmModel: RLMEntry>: DAO<Model> {
     
     
     private func cascadeDelete(_ object: AnyObject?) {
-        guard object?.isInvalidated != true else { return }
+        guard object?.isInvalidated == false else { return }
         
         if let deletable = object as? CascadeDeletionProtocol {
             deletable.objectsToDelete.forEach { child in
