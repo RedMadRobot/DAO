@@ -59,7 +59,7 @@ open class CoreDataTranslator<CDModel: NSManagedObject, Model: Entity> {
         in context: NSManagedObjectContext) {
         
         fromEntities
-            .flatMap { entity -> (CDModel, Model)? in
+            .compactMap { entity -> (CDModel, Model)? in
                 if let entry = NSEntityDescription.insertNewObject(
                         forEntityName: self.entryClassName,
                         into: context) as? CDModel {
