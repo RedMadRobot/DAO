@@ -8,12 +8,12 @@ Pod::Spec.new do |s|
   s.author           = { 'vani2' => 'iv@redmadrobot.com', 'hoppus' => 'e.popov@redmadrobot.com' }
   s.source           = { :git => 'https://github.com/RedMadRobot/DAO.git', :tag => s.version, :submodules => true }
   s.platform         = :ios, '9.0'
-  s.swift_version    = '4.0'
+  s.swift_version    = '5.0'
   s.source_files     = 'DAO/Classes/Core/**/*'
 
   s.subspec 'Realm' do |r|
       r.source_files = 'DAO/Classes/RealmDAO/**/*', 'DAO/Classes/Core/**/*'
-      r.dependency "RealmSwift"
+      r.dependency "RealmSwift", '~> 3.15'
   end
 
   s.subspec 'CoreData' do |cd|

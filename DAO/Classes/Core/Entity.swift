@@ -14,10 +14,8 @@ import Foundation
 open class Entity: Hashable {
     
     /// Hash value for compare entities.
-    open var hashValue: Int {
-        get {
-            return self.entityId.hashValue
-        }
+    open func hash(into hasher: inout Hasher) {
+        hasher.combine(entityId)
     }
     
     

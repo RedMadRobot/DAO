@@ -114,8 +114,7 @@ open class RealmDAO<Model: Entity, RealmModel: RLMEntry>: DAO<Model> {
         
         let entries = List<RealmModel>()
         for entity in entities {
-            if let tryRead = try? readFromRealm(entity.entityId),
-               let entry = tryRead {
+            if let entry = try? readFromRealm(entity.entityId) {
                 entries.append(entry)
             }
         }
@@ -126,7 +125,7 @@ open class RealmDAO<Model: Entity, RealmModel: RLMEntry>: DAO<Model> {
             translator.fill(entries, fromEntities: entities)
             
             entries.forEach {
-                realm.create(RealmModel.self, value: $0, update: true)
+                realm.create(RealmModel.self, value: $0, update: .all)
             }
             
             try realm.commitWrite()
@@ -136,11 +135,7 @@ open class RealmDAO<Model: Entity, RealmModel: RLMEntry>: DAO<Model> {
     
     override open func read(_ entityId: String) -> Model? {
         
-        guard
-            let tryRead = try? readFromRealm(entityId),
-            let entry = tryRead else {
-            return nil
-        }
+        guard let entry = try? readFromRealm(entityId) else { return nil }
         
         let entity = Model()
         translator.fill(entity, fromEntry: entry)
@@ -225,7 +220,7 @@ open class RealmDAO<Model: Entity, RealmModel: RLMEntry>: DAO<Model> {
     private func write(_ entry: RealmModel) throws {
         let realm = try self.realm()
         try realm.write {
-            realm.create(RealmModel.self, value: entry, update: true)
+            realm.create(RealmModel.self, value: entry, update: .all)
         }
     }
     
@@ -234,7 +229,7 @@ open class RealmDAO<Model: Entity, RealmModel: RLMEntry>: DAO<Model> {
         let realm = try self.realm()
         try realm.write {
             entries.forEach { (e: RealmModel) -> () in
-                realm.create(RealmModel.self, value: e, update: true)
+                realm.create(RealmModel.self, value: e, update: .all)
             }
         }
     }
