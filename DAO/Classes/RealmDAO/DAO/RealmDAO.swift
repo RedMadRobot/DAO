@@ -19,7 +19,8 @@ open class RealmDAO<Model: Entity, RealmModel: RLMEntry>: DAO<Model> {
     /// Translator for current `RLMEntry` and `RealmModel` types.
     private let translator: RealmTranslator<Model, RealmModel>
     private let configuration: Realm.Configuration
-    
+    /// In-memory Realm instance.
+    private var inMemoryRealm: Realm?
     
     // MARK: - Public
     
@@ -285,7 +286,18 @@ open class RealmDAO<Model: Entity, RealmModel: RLMEntry>: DAO<Model> {
     }
     
     private func realm() throws -> Realm {
-        return try Realm(configuration: configuration)
+        guard configuration.inMemoryIdentifier != nil else {
+            return try Realm(configuration: configuration)
+        }
+        
+        if let realm = inMemoryRealm {
+            return realm
+        }
+        
+        let realm = try Realm(configuration: configuration)
+        inMemoryRealm = realm
+        
+        return realm
     }
     
 }
