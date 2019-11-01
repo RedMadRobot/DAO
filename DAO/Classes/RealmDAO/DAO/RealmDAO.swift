@@ -286,16 +286,11 @@ open class RealmDAO<Model: Entity, RealmModel: RLMEntry>: DAO<Model> {
     }
     
     private func realm() throws -> Realm {
-        guard configuration.inMemoryIdentifier != nil else {
-            return try Realm(configuration: configuration)
-        }
-        
-        if let realm = inMemoryRealm {
-            return realm
-        }
-        
         let realm = try Realm(configuration: configuration)
-        inMemoryRealm = realm
+
+        if configuration.inMemoryIdentifier != nil {
+            inMemoryRealm = realm
+        }
         
         return realm
     }
