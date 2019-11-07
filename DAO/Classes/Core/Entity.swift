@@ -20,10 +20,12 @@ open class Entity: Hashable {
     
     
     /// Unique entity identifer.
-    open var entityId: String = ""
+    open var entityId: String
     
     
-    required public init() {}
+    required public init() {
+        entityId = UUID().uuidString
+    }
     
     
     /// Creates an instance with identifier.
