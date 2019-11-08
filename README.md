@@ -64,7 +64,7 @@ Please look at the example project for more information.
 ## Requirements
 
 - XCode 9
-- Swift 4
+- Swift 5
 - iOS 9
 
 ## Authors
