@@ -32,6 +32,54 @@ Or with Realm:
 pod 'DAO/Realm'
 ```
 
+Carthage
+
+Make the following entry in your Cartfile:
+
+```
+github "RedMadRobot/DAO"
+```
+
+Then run `carthage update`.
+
+At last, you need to set up your Xcode project manually to add the framework:
+
+1. On “General” settings tab of your target, in the “Linked Frameworks and Libraries” section add each framework you want to use from Carthage/Build folder.
+
+2. On “Build Phases” settings tab of your target, click the “+” icon and choose “New Run Script Phase”. Create a Run Script with the following content:
+
+```
+/usr/local/bin/carthage copy-frameworks
+```
+
+3. Add the paths to the frameworks you want to use under “Input Files”:
+
+3.1. For using with CoreData:
+
+```
+$(SRCROOT)/Carthage/Build/iOS/CoreDataDAO.framework
+```
+
+3.2. Or with Realm:
+
+```
+$(SRCROOT)/Carthage/Build/iOS/RealmDAO.framework
+```
+
+4. Add the paths to the copied frameworks to the “Output Files”:
+
+4.1. For using with CoreData:
+
+```
+$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/CoreDataDAO.framework
+```
+
+4.2. Or with Realm
+
+```
+$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RealmDAO.framework
+```
+
 ## Usage
 
 ```swift
