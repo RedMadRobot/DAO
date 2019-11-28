@@ -13,7 +13,7 @@ import CoreData
 
 /// Parent class for `CoreData` translators. 
 /// Translators fill properties of new/existant entities from entries and other way.
-open class CoreDataTranslator<CDModel: NSManagedObject, Model: Entity> {
+open class CoreDataTranslator<Model: Entity, CDModel: NSManagedObject> {
     
     /// Helper property for `CoreDataDAO`.
     open var entryClassName: String {
@@ -78,7 +78,7 @@ open class CoreDataTranslator<CDModel: NSManagedObject, Model: Entity> {
     /// All properties of entries will be overridden by entities properties.
     ///
     /// - Parameters:
-    ///   - entities: array of instances of `CDModel` type.
+    ///   - entities: array of instances of `Model` type.
     ///   - fromEntries: array of instances of `CDModel` type.
     open func fill(_ entities: inout [Model], fromEntries: Set<CDModel>?) {
         entities.removeAll()

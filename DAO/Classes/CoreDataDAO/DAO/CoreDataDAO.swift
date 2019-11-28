@@ -10,12 +10,12 @@ import CoreData
 
 
 /// `DAO` pattern implementation for `CoreData`.
-open class CoreDataDAO<CDModel: NSManagedObject, Model: Entity> : DAO<Model> {
+open class CoreDataDAO<Model: Entity, CDModel: NSManagedObject> : DAO<Model> {
 
     // MARK: - Private
     
-    /// Translator for current `CDModel` and `Model` types.
-    private var translator: CoreDataTranslator<CDModel, Model>
+    /// Translator for current `Model` and `CDModel` types.
+    private var translator: CoreDataTranslator<Model, CDModel>
     
     
     /// Persistent store cooridnator. Can be configured by `CoreDataConfiguration`.
@@ -43,11 +43,11 @@ open class CoreDataDAO<CDModel: NSManagedObject, Model: Entity> : DAO<Model> {
     /// Creates an instance with specified `translator` and `configuration`.
     ///
     /// - Parameters:
-    ///   - translator: translator for current `CDModel` and `Model` types.
+    ///   - translator: translator for current `Model` and `CDModel` types.
     ///   - configuration: configuration. See also `CoreDataConfiguration`.
     /// - Throws: error if loading or adding persistence store is failed.
     public convenience init(
-        _ translator: CoreDataTranslator<CDModel, Model>,
+        _ translator: CoreDataTranslator<Model, CDModel>,
         configuration: CoreDataConfiguration) throws {
         
         if #available(iOS 10, *) {
@@ -101,11 +101,11 @@ open class CoreDataDAO<CDModel: NSManagedObject, Model: Entity> : DAO<Model> {
     /// Creates an instance with specified `translator` and `persistentContainer`.
     ///
     /// - Parameters:
-    ///   - translator: translator for current `CDModel` and `Model` types.
+    ///   - translator: translator for current `Model` and `CDModel` types.
     ///   - persistentContainer: initialized NSPersistentContainer with loaded persistent stores
     @available(iOS 10.0, *)
     public convenience init(
-        _ translator: CoreDataTranslator<CDModel, Model>,
+        _ translator: CoreDataTranslator<Model, CDModel>,
          persistentContainer: NSPersistentContainer) {
         
         self.init(
@@ -117,10 +117,10 @@ open class CoreDataDAO<CDModel: NSManagedObject, Model: Entity> : DAO<Model> {
     /// Creates an instance with specified `translator` and `persistentStoreCoordinator`.
     ///
     /// - Parameters:
-    ///   - translator: translator for current `CDModel` and `Model` types.
+    ///   - translator: translator for current `Model` and `CDModel` types.
     ///   - persistentStoreCoordinator: initialized NSPersistentStoreCoordinator with loaded persistent stores
     public init(
-        _ translator: CoreDataTranslator<CDModel, Model>,
+        _ translator: CoreDataTranslator<Model, CDModel>,
         persistentStoreCoordinator: NSPersistentStoreCoordinator) {
         
         self.translator = translator
