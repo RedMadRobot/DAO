@@ -14,7 +14,7 @@ import CoreData
 
 final class CoreDataDAOMessagesTests: XCTestCase {
     
-    private var dao: CoreDataDAO<CDMessage, Message>!
+    private var dao: CoreDataDAO<Message, CDMessage>!
     
     override func setUp() {
         super.setUp()

@@ -9,7 +9,7 @@
 import DAO
 import CoreData
 
-class CDEntityTranslator: CoreDataTranslator<CDEntity, Entity> {
+class CDEntityTranslator: CoreDataTranslator<Entity, CDEntity> {
     
     override func fill(_ entity: Entity, fromEntry: CDEntity) {
         entity.entityId = fromEntry.entryId

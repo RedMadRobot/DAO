@@ -14,7 +14,7 @@ import CoreData
 
 final class CoreDataDAOFoldersTests: XCTestCase {
     
-    private var dao: CoreDataDAO<CDFolder, Folder>!
+    private var dao: CoreDataDAO<Folder, CDFolder>!
     
     override func setUp() {
         super.setUp()

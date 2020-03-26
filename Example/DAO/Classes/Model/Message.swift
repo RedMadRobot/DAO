@@ -13,19 +13,17 @@ class Message: Entity {
 
     var text: String?
 
-    init(entityId: String, text: String?)
-    {
+    init(entityId: String, text: String?) {
         self.text = text
         super.init(entityId: entityId)
     }
 
-    required init()
-    {
+    required init() {
         super.init()
     }
 
-    override func equals<T>(_ other: T) -> Bool where T: Message
-    {
+    override func equals<T>(_ other: T) -> Bool where T: Entity {
+        guard let other = other as? Message else { return false }
         return super.equals(other) && self.text == other.text
     }
 }

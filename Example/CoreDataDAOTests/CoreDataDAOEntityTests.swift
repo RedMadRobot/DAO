@@ -14,7 +14,7 @@ import CoreData
 
 final class CoreDataDAOEntityTests: XCTestCase {
     
-    private var dao: CoreDataDAO<CDEntity, Entity>!
+    private var dao: CoreDataDAO<Entity, CDEntity>!
     
     override func setUp() {
         super.setUp()

@@ -28,17 +28,16 @@ class Folder: Entity {
         super.init()
     }
     
-    
-    override func equals<T>(_ other: T) -> Bool where T : Folder {
-        return (super.equals(other)) && self.name == other.name && self.messagesArrayEquals(other.messages)
+    override func equals<T>(_ other: T) -> Bool where T : Entity {
+        guard let other = other as? Folder else { return false }
+        return super.equals(other) && name == other.name && messagesArrayEquals(other.messages)
     }
     
-    
     fileprivate func messagesArrayEquals(_ otherMessages: [Message]) -> Bool {
-        if (self.messages.count != otherMessages.count) { return false }
+        if messages.count != otherMessages.count { return false }
         
         for message in otherMessages {
-            if (!messages.contains(message)) { return false }
+            if !messages.contains(message) { return false }
         }
         return true
     }

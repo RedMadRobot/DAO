@@ -10,7 +10,7 @@ import DAO
 import CoreData
 
 
-class CDFolderTranslator: CoreDataTranslator<CDFolder, Folder> {
+class CDFolderTranslator: CoreDataTranslator<Folder, CDFolder> {
 
     required init() {}
 

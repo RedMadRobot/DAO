@@ -14,8 +14,8 @@ import CoreData
 
 final class CoreDataDAOManyDAOTests: XCTestCase {
     
-    private var messagesDAO: CoreDataDAO<CDMessage, Message>!
-    private var folderDAO: CoreDataDAO<CDFolder, Folder>!
+    private var messagesDAO: CoreDataDAO<Message, CDMessage>!
+    private var folderDAO: CoreDataDAO<Folder, CDFolder>!
     
     override func setUp() {
         super.setUp()

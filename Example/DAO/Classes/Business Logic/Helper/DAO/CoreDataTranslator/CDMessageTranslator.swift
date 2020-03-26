@@ -10,7 +10,7 @@ import DAO
 import CoreData
 
 
-class CDMessageTranslator: CoreDataTranslator<CDMessage, Message> {
+class CDMessageTranslator: CoreDataTranslator<Message, CDMessage> {
 
     override func fill(_ entity: Message?, fromEntry entry: CDMessage) {
         entity?.entityId = entry.entryId
