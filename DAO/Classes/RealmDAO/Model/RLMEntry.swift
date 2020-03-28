@@ -34,18 +34,6 @@ open class RLMEntry: Object {
         super.init()
     }
     
-    
-    /// Creates an instance with specified `realm` and `schema`.
-    ///
-    /// - Parameters:
-    ///   - realm: instance of RLMRealm.
-    ///   - schema: instance of RLMObjectSchema.
-    required public init(realm: RLMRealm, schema: RLMObjectSchema) {
-        self.entryId = ""
-        super.init(realm: realm, schema: schema)
-    }
-    
-    
     /// Creates an instance with specified `value` and `schema`.
     ///
     /// - Parameters:
