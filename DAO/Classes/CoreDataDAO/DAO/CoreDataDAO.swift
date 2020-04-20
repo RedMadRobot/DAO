@@ -351,7 +351,7 @@ open class CoreDataDAO<Model: Entity, CDModel: NSManagedObject> : DAO<Model> {
             inContext context: NSManagedObjectContext) -> Bool {
         
         let existingEntries = fetchEntries(entryId, inContext: context)
-        return existingEntries.count > 0
+        return !existingEntries.isEmpty
     }
     
     

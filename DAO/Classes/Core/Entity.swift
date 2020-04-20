@@ -36,7 +36,7 @@ open class Entity: Hashable {
     }
     
     
-    /// Function to redefine it in children for proper equality.
+    /// Redefine this function in child class for proper equality.
     ///
     /// - Parameter other: entity compare with.
     /// - Returns: result of comparison.

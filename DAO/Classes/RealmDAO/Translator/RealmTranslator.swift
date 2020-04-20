@@ -37,10 +37,7 @@ open class RealmTranslator<Model: Entity, RealmModel: RLMEntry> {
         
         fromEntities
             .map { entity -> (RealmModel, Model) in
-                
-                let entry = entries
-                    .filter { $0.entryId == entity.entityId }
-                    .first
+                let entry = entries.first { $0.entryId == entity.entityId }
                 
                 if let entry = entry {
                     return (entry, entity)
