@@ -1,6 +1,6 @@
 [![Issues count](https://img.shields.io/github/issues/RedMadRobot/DAO.svg)](https://img.shields.io/github/issues/RedMadRobot/DAO.svg)
-[![Cocoapod](https://img.shields.io/badge/pod-1.3.6-blue.svg)](https://img.shields.io/badge/pod-1.3.6-blue.svg)
-[![Swift](https://img.shields.io/badge/swift-4.0-red.svg)](https://img.shields.io/badge/swift-3.0-red.svg)
+[![Cocoapod](https://img.shields.io/badge/pod-1.4.1-blue.svg)](https://img.shields.io/badge/pod-1.3.6-blue.svg)
+[![Swift](https://img.shields.io/badge/swift-5.2-red.svg)](https://img.shields.io/badge/swift-3.0-red.svg)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://img.shields.io/badge/license-MIT-blue.svg)
 
 
