@@ -58,7 +58,7 @@ final class RealmDAOMessagesTests: XCTestCase {
         let message3 = Message(entityId: "3", text: "3")
         
         XCTAssertNoThrow(try dao.persist([message1, message2, message3]), "Persist is failed")
-        let threeMessages = dao.read()
+        let threeMessages = dao.read(orderedBy: "entryId", ascending: true)
         
         XCTAssertEqual(threeMessages.count, 3)
         XCTAssertEqual(threeMessages[0].entityId, "1")
@@ -70,7 +70,7 @@ final class RealmDAOMessagesTests: XCTestCase {
         
         XCTAssertNoThrow(try dao.persist([message1, message2, message3, message55, message66]), "Persist is failed")
         
-        let fiveMessages = dao.read()
+        let fiveMessages = dao.read(orderedBy: "entryId", ascending: true)
         
         XCTAssertEqual(fiveMessages.count, 5)
         XCTAssertEqual(fiveMessages[0].entityId, "1")
