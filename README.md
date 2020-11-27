@@ -1,6 +1,6 @@
 [![Issues count](https://img.shields.io/github/issues/RedMadRobot/DAO.svg)](https://img.shields.io/github/issues/RedMadRobot/DAO.svg)
-[![Cocoapod](https://img.shields.io/badge/pod-1.4.1-blue.svg)](https://img.shields.io/badge/pod-1.4.1-blue.svg)
-[![Swift](https://img.shields.io/badge/swift-5.2-red.svg)](https://img.shields.io/badge/swift-5.2-red.svg)
+[![Cocoapod](https://img.shields.io/badge/pod-1.6.0-blue.svg)](https://img.shields.io/badge/pod-1.6.0-blue.svg)
+[![Swift](https://img.shields.io/badge/swift-5.3-red.svg)](https://img.shields.io/badge/swift-5.3-red.svg)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://img.shields.io/badge/license-MIT-blue.svg)
 
 
@@ -111,7 +111,7 @@ Please look at the example project for more information.
 
 ## Requirements
 
-- XCode 9
+- Xcode 11
 - Swift 5
 - iOS 9
 
