@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		48BC874C4FE8134679B29670 /* Pods_CoreDataDAO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E8A9BAF7ECAEC811F5ACE3C /* Pods_CoreDataDAO.framework */; };
+		A5A85A8625ADBD73B3EEA43F /* Pods_RealmDAO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CA293F66C575881DDE04B1E /* Pods_RealmDAO.framework */; };
 		CC741223237414070032D352 /* RealmConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC741218237414070032D352 /* RealmConfiguration.swift */; };
 		CC741224237414070032D352 /* RealmDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC74121A237414070032D352 /* RealmDAO.swift */; };
 		CC741225237414070032D352 /* RealmTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC74121C237414070032D352 /* RealmTranslator.swift */; };
@@ -19,22 +21,9 @@
 		CC741236237414420032D352 /* CoreDataConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC74122F237414420032D352 /* CoreDataConfiguration.swift */; };
 		CC741237237414420032D352 /* CoreDataDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC741231237414420032D352 /* CoreDataDAO.swift */; };
 		CC741238237414420032D352 /* CoreDataTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC741233237414420032D352 /* CoreDataTranslator.swift */; };
-		CC74123A23741CB20032D352 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC74123923741CB20032D352 /* RealmSwift.framework */; };
-		CC74123B23741CB20032D352 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CC74123923741CB20032D352 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		CC741202237412E30032D352 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				CC74123B23741CB20032D352 /* RealmSwift.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		CC741207237412EB0032D352 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -48,6 +37,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2E8A9BAF7ECAEC811F5ACE3C /* Pods_CoreDataDAO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoreDataDAO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3CA293F66C575881DDE04B1E /* Pods_RealmDAO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RealmDAO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		50E6127A1CFFD5C64BD5C4C0 /* Pods-RealmDAO.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RealmDAO.debug.xcconfig"; path = "Target Support Files/Pods-RealmDAO/Pods-RealmDAO.debug.xcconfig"; sourceTree = "<group>"; };
+		5EEB202F6918AB3DB4D5F157 /* Pods-CoreDataDAO.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreDataDAO.release.xcconfig"; path = "Target Support Files/Pods-CoreDataDAO/Pods-CoreDataDAO.release.xcconfig"; sourceTree = "<group>"; };
+		B2C2591874CB39D025BA9678 /* Pods-CoreDataDAO.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreDataDAO.debug.xcconfig"; path = "Target Support Files/Pods-CoreDataDAO/Pods-CoreDataDAO.debug.xcconfig"; sourceTree = "<group>"; };
+		BB6593BCAA1FA4DC2224EB94 /* Pods-RealmDAO.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RealmDAO.release.xcconfig"; path = "Target Support Files/Pods-RealmDAO/Pods-RealmDAO.release.xcconfig"; sourceTree = "<group>"; };
 		CC7411D62374124D0032D352 /* RealmDAO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RealmDAO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC7411E4237412650032D352 /* CoreDataDAO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CoreDataDAO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC741218237414070032D352 /* RealmConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmConfiguration.swift; sourceTree = "<group>"; };
@@ -71,7 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC74123A23741CB20032D352 /* RealmSwift.framework in Frameworks */,
+				A5A85A8625ADBD73B3EEA43F /* Pods_RealmDAO.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,12 +74,25 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48BC874C4FE8134679B29670 /* Pods_CoreDataDAO.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9BBD4E66B9CEA0C2F7995438 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B2C2591874CB39D025BA9678 /* Pods-CoreDataDAO.debug.xcconfig */,
+				5EEB202F6918AB3DB4D5F157 /* Pods-CoreDataDAO.release.xcconfig */,
+				50E6127A1CFFD5C64BD5C4C0 /* Pods-RealmDAO.debug.xcconfig */,
+				BB6593BCAA1FA4DC2224EB94 /* Pods-RealmDAO.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		CC7411CA2374116F0032D352 = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +101,7 @@
 				CC7411E5237412650032D352 /* CoreDataDAO */,
 				CC7411D72374124D0032D352 /* Products */,
 				CC7411FD237412E30032D352 /* Frameworks */,
+				9BBD4E66B9CEA0C2F7995438 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,6 +136,8 @@
 			isa = PBXGroup;
 			children = (
 				CC74123923741CB20032D352 /* RealmSwift.framework */,
+				2E8A9BAF7ECAEC811F5ACE3C /* Pods_CoreDataDAO.framework */,
+				3CA293F66C575881DDE04B1E /* Pods_RealmDAO.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -255,11 +266,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CC7411DE2374124D0032D352 /* Build configuration list for PBXNativeTarget "RealmDAO" */;
 			buildPhases = (
+				17FFAD6DEDF561AB3CECEB03 /* [CP] Check Pods Manifest.lock */,
 				CC7411D12374124D0032D352 /* Headers */,
 				CC7411D22374124D0032D352 /* Sources */,
 				CC7411D32374124D0032D352 /* Frameworks */,
 				CC7411D42374124D0032D352 /* Resources */,
-				CC741202237412E30032D352 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -274,6 +285,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CC7411E9237412650032D352 /* Build configuration list for PBXNativeTarget "CoreDataDAO" */;
 			buildPhases = (
+				FEB9F6DAC170B0F648B677DE /* [CP] Check Pods Manifest.lock */,
 				CC7411DF237412650032D352 /* Headers */,
 				CC7411E0237412650032D352 /* Sources */,
 				CC7411E1237412650032D352 /* Frameworks */,
@@ -341,6 +353,53 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		17FFAD6DEDF561AB3CECEB03 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RealmDAO-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FEB9F6DAC170B0F648B677DE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CoreDataDAO-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CC7411D22374124D0032D352 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -385,6 +444,7 @@
 		};
 		CC7411DC2374124D0032D352 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 50E6127A1CFFD5C64BD5C4C0 /* Pods-RealmDAO.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -470,6 +530,7 @@
 		};
 		CC7411DD2374124D0032D352 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BB6593BCAA1FA4DC2224EB94 /* Pods-RealmDAO.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -549,6 +610,7 @@
 		};
 		CC7411EA237412650032D352 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B2C2591874CB39D025BA9678 /* Pods-CoreDataDAO.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -630,6 +692,7 @@
 		};
 		CC7411EB237412650032D352 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5EEB202F6918AB3DB4D5F157 /* Pods-CoreDataDAO.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;

@@ -1,10 +1,4 @@
 PODS:
-  - DAO (1.6.0):
-    - DAO/CoreData (= 1.6.0)
-    - DAO/Realm (= 1.6.0)
-  - DAO/CoreData (1.6.0)
-  - DAO/Realm (1.6.0):
-    - RealmSwift (~> 10.1)
   - Realm (10.1.4):
     - Realm/Headers (= 10.1.4)
   - Realm/Headers (10.1.4)
@@ -12,22 +6,18 @@ PODS:
     - Realm (= 10.1.4)
 
 DEPENDENCIES:
-  - DAO (from `../`)
+  - Realm
+  - RealmSwift
 
 SPEC REPOS:
   trunk:
     - Realm
     - RealmSwift
 
-EXTERNAL SOURCES:
-  DAO:
-    :path: "../"
-
 SPEC CHECKSUMS:
-  DAO: de381bf3ef4af1592f5e9cbb5e157d3bb02b4e73
   Realm: 80f4fb2971ccb9adc27a47d0955ae8e533a7030b
   RealmSwift: 0e566ca714edb377bba8ea0811eafcea0b93734e
 
-PODFILE CHECKSUM: 304d7b9f54070467c355fe795db431630f017f61
+PODFILE CHECKSUM: e04c82ad38fec22650d3fead6f618fe0e4c5a783
 
 COCOAPODS: 1.10.0

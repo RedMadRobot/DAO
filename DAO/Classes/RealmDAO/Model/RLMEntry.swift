@@ -9,7 +9,6 @@
 
 import Foundation
 import RealmSwift
-import Realm
 
 
 /// Parent class for `Realm` entries.
@@ -29,22 +28,12 @@ open class RLMEntry: Object {
     
     
     /// Creates an instance with emppty `entryId`.
-    public required init() {
+    public required override init() {
         self.entryId = ""
         super.init()
     }
-    
-    /// Creates an instance with specified `value` and `schema`.
-    ///
-    /// - Parameters:
-    ///   - value: value.
-    ///   - schema: instance of `RLMSchema`.
-    required public init(value: Any, schema: RLMSchema) {
-        fatalError("init(value:schema:) has not been implemented")
-    }
-    
-    
-    override open class func primaryKey() -> String? {
+
+    open override class func primaryKey() -> String? {
         return "entryId"
     }
     
