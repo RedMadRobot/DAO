@@ -267,21 +267,22 @@ open class RealmDAO<Model: Entity, RealmModel: RLMEntry>: DAO<Model> {
     
     
     private func cascadeDelete(_ object: AnyObject?) {
-        if let deletable = object as? CascadeDeletionProtocol {
-            deletable.objectsToDelete.forEach { child in
-                cascadeDelete(child)
-            }
-        }
-        
-        if let realmArray = object as? ListBase {
+        switch object {
+        case let realmArray as ListBase:
             for i in 0..<realmArray.count {
                 let object = realmArray._rlmArray[UInt(i)]
                 cascadeDelete(object)
             }
-        }
-        
-        if let realmObject = object as? Object {
+        case let realmObject as Object:
+            if !realmObject.isInvalidated, let deletable = realmObject as? CascadeDeletionProtocol {
+                deletable.objectsToDelete.forEach { child in
+                    cascadeDelete(child)
+                }
+            }
+
             try? self.realm().delete(realmObject)
+        default:
+            break
         }
     }
     
